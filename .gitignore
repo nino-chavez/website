@@ -8,6 +8,18 @@ coverage/
 test-results/
 playwright-report/
 .nyc_output
+**/*-snapshots/
+**/snapshots/
+
+# Audit files
+audit-*.png
+audit-*.jpg
+audit-*.jpeg
+audit-*.webp
+**/audit/*.png
+**/audit/*.jpg
+**/audit/*.jpeg
+**/audit/*.webp
 
 # Build outputs
 .svelte-kit/
