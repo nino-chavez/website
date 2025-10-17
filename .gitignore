@@ -10,6 +10,7 @@ playwright-report/
 .nyc_output
 **/*-snapshots/
 **/snapshots/
+**/*.spec.ts-snapshots/
 
 # Audit files
 audit-*.png
@@ -20,6 +21,21 @@ audit-*.webp
 **/audit/*.jpg
 **/audit/*.jpeg
 **/audit/*.webp
+
+# Screenshots (test/debug/manual captures)
+screenshot*.png
+screenshot*.jpg
+screenshot*.jpeg
+screenshot*.webp
+**/screenshots/
+**/*screenshot*.png
+**/*screenshot*.jpg
+**/*baseline*.png
+**/*baseline*.jpg
+**/*diff*.png
+**/*diff*.jpg
+**/*actual*.png
+**/*expected*.png
 
 # Build outputs
 .svelte-kit/
