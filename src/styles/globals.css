@@ -1,0 +1,51 @@
+:root {
+  --brand-dark: #0a0a0f;
+  --brand-violet: #8b5cf6;
+  --brand-light: #f0f0f5;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--brand-dark);
+  color: var(--brand-light);
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+a {
+  color: var(--brand-violet);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+section {
+  padding: 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}

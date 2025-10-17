@@ -1,0 +1,2404 @@
+{
+  "images": [
+    {
+      "id": "portfolio-01",
+      "filename": "portfolio-01.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 4000,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "85mm",
+        "focalLength35mm": 127,
+        "dateTaken": "2025-03-22T20:58:23.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.000625,
+          "FocalLength": 85,
+          "ISO": 4000
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 4000,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "85mm",
+        "dateTaken": "2025-03-22T20:58:23.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-02",
+      "filename": "portfolio-02.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/1250",
+        "focalLength": "98mm",
+        "focalLength35mm": 98,
+        "dateTaken": "2025-06-01T19:46:22.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.0008,
+          "FocalLength": 98,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/1250",
+        "focalLength": "98mm",
+        "dateTaken": "2025-06-01T19:46:22.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-03",
+      "filename": "portfolio-03.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 6400,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1250",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-09-05T22:15:46.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.0008,
+          "FocalLength": 85,
+          "ISO": 6400
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 6400,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1250",
+        "focalLength": "85mm",
+        "dateTaken": "2025-09-05T22:15:46.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-04",
+      "filename": "portfolio-04.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2025-03-22T23:25:10.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.000625,
+          "FocalLength": 135,
+          "ISO": 2500
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "135mm",
+        "dateTaken": "2025-03-22T23:25:10.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-05",
+      "filename": "portfolio-05.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 160,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/8000",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2024-10-27T16:05:08.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.000125,
+          "FocalLength": 135,
+          "ISO": 160
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 160,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/8000",
+        "focalLength": "135mm",
+        "dateTaken": "2024-10-27T16:05:08.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-06",
+      "filename": "portfolio-06.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/1600",
+        "focalLength": "180mm",
+        "focalLength35mm": 180,
+        "dateTaken": "2024-09-01T20:21:01.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.000625,
+          "FocalLength": 180,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/1600",
+        "focalLength": "180mm",
+        "dateTaken": "2024-09-01T20:21:01.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-07",
+      "filename": "portfolio-07.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 500,
+        "aperture": "f/4.5",
+        "shutterSpeed": "1/8000",
+        "focalLength": "50mm",
+        "focalLength35mm": 50,
+        "dateTaken": "2025-07-26T22:30:48.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 4.5,
+          "ExposureTime": 0.000125,
+          "FocalLength": 50,
+          "ISO": 500
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 500,
+        "aperture": "f/4.5",
+        "shutterSpeed": "1/8000",
+        "focalLength": "50mm",
+        "dateTaken": "2025-07-26T22:30:48.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-08",
+      "filename": "portfolio-08.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/5000",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2024-08-31T16:19:53.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.0002,
+          "FocalLength": 135,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/5000",
+        "focalLength": "135mm",
+        "dateTaken": "2024-08-31T16:19:53.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-09",
+      "filename": "portfolio-09.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/2000",
+        "focalLength": "180mm",
+        "focalLength35mm": 180,
+        "dateTaken": "2024-10-27T16:35:16.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.0005,
+          "FocalLength": 180,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/2000",
+        "focalLength": "180mm",
+        "dateTaken": "2024-10-27T16:35:16.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-10",
+      "filename": "portfolio-10.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 5000,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/1250",
+        "focalLength": "143mm",
+        "focalLength35mm": 143,
+        "dateTaken": "2025-07-01T14:28:43.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.0008,
+          "FocalLength": 143,
+          "ISO": 5000
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 5000,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/1250",
+        "focalLength": "143mm",
+        "dateTaken": "2025-07-01T14:28:43.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-11",
+      "filename": "portfolio-11.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2025-03-22T23:19:24.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.000625,
+          "FocalLength": 135,
+          "ISO": 2500
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "135mm",
+        "dateTaken": "2025-03-22T23:19:24.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-12",
+      "filename": "portfolio-12.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 4000,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/2500",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-09-05T15:28:38.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 1.4,
+          "ExposureTime": 0.0004,
+          "FocalLength": 85,
+          "ISO": 4000
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 4000,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/2500",
+        "focalLength": "85mm",
+        "dateTaken": "2025-09-05T15:28:38.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-13",
+      "filename": "portfolio-13.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 4000,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/640",
+        "focalLength": "144mm",
+        "focalLength35mm": 144,
+        "dateTaken": "2025-06-22T00:16:16.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.0015625,
+          "FocalLength": 144,
+          "ISO": 4000
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 4000,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/640",
+        "focalLength": "144mm",
+        "dateTaken": "2025-06-22T00:16:16.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-14",
+      "filename": "portfolio-14.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 1250,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/1000",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-07-05T17:51:00.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 1.4,
+          "ExposureTime": 0.001,
+          "FocalLength": 85,
+          "ISO": 1250
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 1250,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/1000",
+        "focalLength": "85mm",
+        "dateTaken": "2025-07-05T17:51:00.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-15",
+      "filename": "portfolio-15.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 3200,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-03-22T21:24:52.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.000625,
+          "FocalLength": 85,
+          "ISO": 3200
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 3200,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "85mm",
+        "dateTaken": "2025-03-22T21:24:52.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-16",
+      "filename": "portfolio-16.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/3200",
+        "focalLength": "121mm",
+        "focalLength35mm": 121,
+        "dateTaken": "2024-10-27T17:01:35.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.0003125,
+          "FocalLength": 121,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/3200",
+        "focalLength": "121mm",
+        "dateTaken": "2024-10-27T17:01:35.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-17",
+      "filename": "portfolio-17.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 100,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/2500",
+        "focalLength": "50mm",
+        "focalLength35mm": 50,
+        "dateTaken": "2025-07-26T20:59:27.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 1.4,
+          "ExposureTime": 0.0004,
+          "FocalLength": 50,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 100,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/2500",
+        "focalLength": "50mm",
+        "dateTaken": "2025-07-26T20:59:27.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-18",
+      "filename": "portfolio-18.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1250",
+        "focalLength": "50mm",
+        "focalLength35mm": 50,
+        "dateTaken": "2025-07-05T18:00:16.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.0008,
+          "FocalLength": 50,
+          "ISO": 2500
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1250",
+        "focalLength": "50mm",
+        "dateTaken": "2025-07-05T18:00:16.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-19",
+      "filename": "portfolio-19.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/2000",
+        "focalLength": "180mm",
+        "focalLength35mm": 180,
+        "dateTaken": "2024-10-27T16:35:50.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.0005,
+          "FocalLength": 180,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/2000",
+        "focalLength": "180mm",
+        "dateTaken": "2024-10-27T16:35:50.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-20",
+      "filename": "portfolio-20.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2500,
+        "aperture": "f/2.2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2025-01-19T03:03:18.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.2,
+          "ExposureTime": 0.000625,
+          "FocalLength": 135,
+          "ISO": 2500
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2500,
+        "aperture": "f/2.2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "135mm",
+        "dateTaken": "2025-01-19T03:03:18.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-21",
+      "filename": "portfolio-21.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2000,
+        "aperture": "f/1.8",
+        "shutterSpeed": "1/800",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2025-09-24T23:42:42.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 1.8,
+          "ExposureTime": 0.00125,
+          "FocalLength": 135,
+          "ISO": 2000
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2000,
+        "aperture": "f/1.8",
+        "shutterSpeed": "1/800",
+        "focalLength": "135mm",
+        "dateTaken": "2025-09-24T23:42:42.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-22",
+      "filename": "portfolio-22.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 3200,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "50mm",
+        "focalLength35mm": 50,
+        "dateTaken": "2025-06-30T12:11:04.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.000625,
+          "FocalLength": 50,
+          "ISO": 3200
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 3200,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "50mm",
+        "dateTaken": "2025-06-30T12:11:04.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-23",
+      "filename": "portfolio-23.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/5000",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-08-17T16:19:14.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.0002,
+          "FocalLength": 85,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/5000",
+        "focalLength": "85mm",
+        "dateTaken": "2025-08-17T16:19:14.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-24",
+      "filename": "portfolio-24.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 100,
+        "aperture": "f/5",
+        "shutterSpeed": "1/250",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2025-01-19T02:22:43.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Other",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 5,
+          "ExposureTime": 0.004,
+          "FocalLength": 135,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 100,
+        "aperture": "f/5",
+        "shutterSpeed": "1/250",
+        "focalLength": "135mm",
+        "dateTaken": "2025-01-19T02:22:43.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-25",
+      "filename": "portfolio-25.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2025-03-22T23:19:16.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.000625,
+          "FocalLength": 135,
+          "ISO": 2500
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "135mm",
+        "dateTaken": "2025-03-22T23:19:16.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-26",
+      "filename": "portfolio-26.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 160,
+        "aperture": "f/1.8",
+        "shutterSpeed": "1/1600",
+        "focalLength": "50mm",
+        "focalLength35mm": 50,
+        "dateTaken": "2025-07-26T21:19:44.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 1.8,
+          "ExposureTime": 0.000625,
+          "FocalLength": 50,
+          "ISO": 160
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 160,
+        "aperture": "f/1.8",
+        "shutterSpeed": "1/1600",
+        "focalLength": "50mm",
+        "dateTaken": "2025-07-26T21:19:44.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-27",
+      "filename": "portfolio-27.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/1600",
+        "focalLength": "85mm",
+        "focalLength35mm": 127,
+        "dateTaken": "2025-07-19T16:43:05.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 1.4,
+          "ExposureTime": 0.000625,
+          "FocalLength": 85,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/1600",
+        "focalLength": "85mm",
+        "dateTaken": "2025-07-19T16:43:05.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-28",
+      "filename": "portfolio-28.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 6400,
+        "aperture": "f/2",
+        "shutterSpeed": "1/2000",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-03-28T00:06:12.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.0005,
+          "FocalLength": 85,
+          "ISO": 6400
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 6400,
+        "aperture": "f/2",
+        "shutterSpeed": "1/2000",
+        "focalLength": "85mm",
+        "dateTaken": "2025-03-28T00:06:12.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-29",
+      "filename": "portfolio-29.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 1600,
+        "aperture": "f/2",
+        "shutterSpeed": "1/2000",
+        "focalLength": "50mm",
+        "focalLength35mm": 50,
+        "dateTaken": "2025-04-05T23:44:38.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.0005,
+          "FocalLength": 50,
+          "ISO": 1600
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 1600,
+        "aperture": "f/2",
+        "shutterSpeed": "1/2000",
+        "focalLength": "50mm",
+        "dateTaken": "2025-04-05T23:44:38.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-30",
+      "filename": "portfolio-30.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/2000",
+        "focalLength": "180mm",
+        "focalLength35mm": 180,
+        "dateTaken": "2024-10-27T16:34:27.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.0005,
+          "FocalLength": 180,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/2000",
+        "focalLength": "180mm",
+        "dateTaken": "2024-10-27T16:34:27.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-31",
+      "filename": "portfolio-31.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 100,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/3200",
+        "focalLength": "50mm",
+        "focalLength35mm": 50,
+        "dateTaken": "2025-07-26T20:44:14.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 1.4,
+          "ExposureTime": 0.0003125,
+          "FocalLength": 50,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 100,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/3200",
+        "focalLength": "50mm",
+        "dateTaken": "2025-07-26T20:44:14.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-32",
+      "filename": "portfolio-32.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 125,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/4000",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2024-10-27T16:23:37.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.00025,
+          "FocalLength": 135,
+          "ISO": 125
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 125,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/4000",
+        "focalLength": "135mm",
+        "dateTaken": "2024-10-27T16:23:37.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-33",
+      "filename": "portfolio-33.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2025-03-22T23:19:16.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.000625,
+          "FocalLength": 135,
+          "ISO": 2500
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "135mm",
+        "dateTaken": "2025-03-22T23:19:16.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-34",
+      "filename": "portfolio-34.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 4000,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/1600",
+        "focalLength": "137mm",
+        "focalLength35mm": 137,
+        "dateTaken": "2025-07-01T13:37:27.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.000625,
+          "FocalLength": 137,
+          "ISO": 4000
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 4000,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/1600",
+        "focalLength": "137mm",
+        "dateTaken": "2025-07-01T13:37:27.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-35",
+      "filename": "portfolio-35.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/3200",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2024-08-31T18:32:22.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.0003125,
+          "FocalLength": 135,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/3200",
+        "focalLength": "135mm",
+        "dateTaken": "2024-08-31T18:32:22.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-36",
+      "filename": "portfolio-36.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2025-03-22T23:25:08.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.000625,
+          "FocalLength": 135,
+          "ISO": 2500
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "135mm",
+        "dateTaken": "2025-03-22T23:25:08.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-37",
+      "filename": "portfolio-37.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 4000,
+        "aperture": "f/2",
+        "shutterSpeed": "1/2000",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2025-09-05T20:48:13.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.0005,
+          "FocalLength": 135,
+          "ISO": 4000
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 4000,
+        "aperture": "f/2",
+        "shutterSpeed": "1/2000",
+        "focalLength": "135mm",
+        "dateTaken": "2025-09-05T20:48:13.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-38",
+      "filename": "portfolio-38.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 1250,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/1600",
+        "focalLength": "50mm",
+        "focalLength35mm": 50,
+        "dateTaken": "2025-07-04T18:52:41.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 1.4,
+          "ExposureTime": 0.000625,
+          "FocalLength": 50,
+          "ISO": 1250
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 1250,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/1600",
+        "focalLength": "50mm",
+        "dateTaken": "2025-07-04T18:52:41.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-39",
+      "filename": "portfolio-39.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/1250",
+        "focalLength": "138mm",
+        "focalLength35mm": 138,
+        "dateTaken": "2025-06-01T15:42:58.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.0008,
+          "FocalLength": 138,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/1250",
+        "focalLength": "138mm",
+        "dateTaken": "2025-06-01T15:42:58.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-40",
+      "filename": "portfolio-40.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-08-17T16:59:17.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.000625,
+          "FocalLength": 85,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "85mm",
+        "dateTaken": "2025-08-17T16:59:17.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-41",
+      "filename": "portfolio-41.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 70-200mm F2.8 GM OSS II",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/2500",
+        "focalLength": "200mm",
+        "focalLength35mm": 200,
+        "dateTaken": "2025-08-30T14:32:16.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.0004,
+          "FocalLength": 200,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 70-200mm F2.8 GM OSS II",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/2500",
+        "focalLength": "200mm",
+        "dateTaken": "2025-08-30T14:32:16.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-42",
+      "filename": "portfolio-42.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/2000",
+        "focalLength": "80mm",
+        "focalLength35mm": 80,
+        "dateTaken": "2025-06-01T15:04:15.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.0005,
+          "FocalLength": 80,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/2000",
+        "focalLength": "80mm",
+        "dateTaken": "2025-06-01T15:04:15.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-43",
+      "filename": "portfolio-43.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/3.2",
+        "shutterSpeed": "1/1000",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-07-19T17:57:08.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Auto",
+        "exposureProgram": "Program Aperture priority",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 3.2,
+          "ExposureTime": 0.001,
+          "FocalLength": 85,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/3.2",
+        "shutterSpeed": "1/1000",
+        "focalLength": "85mm",
+        "dateTaken": "2025-07-19T17:57:08.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-44",
+      "filename": "portfolio-44.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1250",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-07-05T13:31:47.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.0008,
+          "FocalLength": 85,
+          "ISO": 2500
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1250",
+        "focalLength": "85mm",
+        "dateTaken": "2025-07-05T13:31:47.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-45",
+      "filename": "portfolio-45.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/1.8",
+        "shutterSpeed": "1/1250",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-07-26T17:50:09.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 1.8,
+          "ExposureTime": 0.0008,
+          "FocalLength": 85,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/1.8",
+        "shutterSpeed": "1/1250",
+        "focalLength": "85mm",
+        "dateTaken": "2025-07-26T17:50:09.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-46",
+      "filename": "portfolio-46.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 500,
+        "aperture": "f/3.5",
+        "shutterSpeed": "1/8000",
+        "focalLength": "50mm",
+        "focalLength35mm": 50,
+        "dateTaken": "2025-07-19T21:28:59.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 3.5,
+          "ExposureTime": 0.000125,
+          "FocalLength": 50,
+          "ISO": 500
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 500,
+        "aperture": "f/3.5",
+        "shutterSpeed": "1/8000",
+        "focalLength": "50mm",
+        "dateTaken": "2025-07-19T21:28:59.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-47",
+      "filename": "portfolio-47.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "85mm",
+        "focalLength35mm": 127,
+        "dateTaken": "2025-07-05T15:45:45.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.000625,
+          "FocalLength": 85,
+          "ISO": 2500
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "85mm",
+        "dateTaken": "2025-07-05T15:45:45.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-48",
+      "filename": "portfolio-48.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 3200,
+        "aperture": "f/1.8",
+        "shutterSpeed": "1/2000",
+        "focalLength": "135mm",
+        "focalLength35mm": 135,
+        "dateTaken": "2025-09-06T00:00:15.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 1.8,
+          "ExposureTime": 0.0005,
+          "FocalLength": 135,
+          "ISO": 3200
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "SAMYANG AF 135mm F1.8",
+        "iso": 3200,
+        "aperture": "f/1.8",
+        "shutterSpeed": "1/2000",
+        "focalLength": "135mm",
+        "dateTaken": "2025-09-06T00:00:15.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-49",
+      "filename": "portfolio-49.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1250",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-07-05T15:11:16.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.0008,
+          "FocalLength": 85,
+          "ISO": 2500
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 2500,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1250",
+        "focalLength": "85mm",
+        "dateTaken": "2025-07-05T15:11:16.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-50",
+      "filename": "portfolio-50.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 100,
+        "aperture": "f/2.2",
+        "shutterSpeed": "1/4000",
+        "focalLength": "50mm",
+        "focalLength35mm": 50,
+        "dateTaken": "2025-05-31T19:09:43.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.2,
+          "ExposureTime": 0.00025,
+          "FocalLength": 50,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 100,
+        "aperture": "f/2.2",
+        "shutterSpeed": "1/4000",
+        "focalLength": "50mm",
+        "dateTaken": "2025-05-31T19:09:43.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-51",
+      "filename": "portfolio-51.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 2000,
+        "aperture": "f/2",
+        "shutterSpeed": "1/2000",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-04-05T00:58:23.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.0005,
+          "FocalLength": 85,
+          "ISO": 2000
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 2000,
+        "aperture": "f/2",
+        "shutterSpeed": "1/2000",
+        "focalLength": "85mm",
+        "dateTaken": "2025-04-05T00:58:23.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-52",
+      "filename": "portfolio-52.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/3.5",
+        "shutterSpeed": "1/2500",
+        "focalLength": "180mm",
+        "focalLength35mm": 180,
+        "dateTaken": "2024-10-27T16:37:26.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 3.5,
+          "ExposureTime": 0.0004,
+          "FocalLength": 180,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/3.5",
+        "shutterSpeed": "1/2500",
+        "focalLength": "180mm",
+        "dateTaken": "2024-10-27T16:37:26.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-53",
+      "filename": "portfolio-53.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 4000,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "85mm",
+        "focalLength35mm": 127,
+        "dateTaken": "2025-03-22T20:58:23.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.000625,
+          "FocalLength": 85,
+          "ISO": 4000
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 4000,
+        "aperture": "f/2",
+        "shutterSpeed": "1/1600",
+        "focalLength": "85mm",
+        "dateTaken": "2025-03-22T20:58:23.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-54",
+      "filename": "portfolio-54.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/2",
+        "shutterSpeed": "1/2000",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-08-17T17:03:08.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.0005,
+          "FocalLength": 85,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/2",
+        "shutterSpeed": "1/2000",
+        "focalLength": "85mm",
+        "dateTaken": "2025-08-17T17:03:08.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-55",
+      "filename": "portfolio-55.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 100,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/2500",
+        "focalLength": "50mm",
+        "focalLength35mm": 50,
+        "dateTaken": "2025-07-26T21:00:20.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 1.4,
+          "ExposureTime": 0.0004,
+          "FocalLength": 50,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 100,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/2500",
+        "focalLength": "50mm",
+        "dateTaken": "2025-07-26T21:00:20.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-56",
+      "filename": "portfolio-56.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 4000,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/2000",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-09-20T19:53:26.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 1.4,
+          "ExposureTime": 0.0005,
+          "FocalLength": 85,
+          "ISO": 4000
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 4000,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/2000",
+        "focalLength": "85mm",
+        "dateTaken": "2025-09-20T19:53:26.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-57",
+      "filename": "portfolio-57.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 1250,
+        "aperture": "f/2",
+        "shutterSpeed": "1/2000",
+        "focalLength": "85mm",
+        "focalLength35mm": 127,
+        "dateTaken": "2025-04-05T23:12:32.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.0005,
+          "FocalLength": 85,
+          "ISO": 1250
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 1250,
+        "aperture": "f/2",
+        "shutterSpeed": "1/2000",
+        "focalLength": "85mm",
+        "dateTaken": "2025-04-05T23:12:32.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-58",
+      "filename": "portfolio-58.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 1000,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/250",
+        "focalLength": "50mm",
+        "focalLength35mm": 50,
+        "dateTaken": "2025-07-08T22:33:20.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 1.4,
+          "ExposureTime": 0.004,
+          "FocalLength": 50,
+          "ISO": 1000
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 50mm F1.4 GM",
+        "iso": 1000,
+        "aperture": "f/1.4",
+        "shutterSpeed": "1/250",
+        "focalLength": "50mm",
+        "dateTaken": "2025-07-08T22:33:20.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-59",
+      "filename": "portfolio-59.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/4000",
+        "focalLength": "169mm",
+        "focalLength35mm": 253,
+        "dateTaken": "2024-10-27T16:41:46.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2.8,
+          "ExposureTime": 0.00025,
+          "FocalLength": 169,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "E 70-180mm F2.8 A056",
+        "iso": 100,
+        "aperture": "f/2.8",
+        "shutterSpeed": "1/4000",
+        "focalLength": "169mm",
+        "dateTaken": "2024-10-27T16:41:46.000Z",
+        "location": null
+      }
+    },
+    {
+      "id": "portfolio-60",
+      "filename": "portfolio-60.jpg",
+      "exif": {
+        "make": "SONY",
+        "model": "ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/2",
+        "shutterSpeed": "1/4000",
+        "focalLength": "85mm",
+        "focalLength35mm": 85,
+        "dateTaken": "2025-08-17T16:48:38.000Z",
+        "gps": null,
+        "whiteBalance": "Auto",
+        "flash": "Flash mode Flash did not fire, compulsory flash mode",
+        "meteringMode": "Mode Pattern",
+        "exposureMode": "Mode Manual",
+        "exposureProgram": "Program Manual",
+        "width": null,
+        "height": null,
+        "colorSpace": "sRGB",
+        "_raw": {
+          "FNumber": 2,
+          "ExposureTime": 0.00025,
+          "FocalLength": 85,
+          "ISO": 100
+        }
+      },
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "lens": "FE 85mm F1.4 GM II",
+        "iso": 100,
+        "aperture": "f/2",
+        "shutterSpeed": "1/4000",
+        "focalLength": "85mm",
+        "dateTaken": "2025-08-17T16:48:38.000Z",
+        "location": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+version: 2.1.0
+last_compiled: 2025-10-16 00:00:00
+profile: default
+multi_agent_mode: true
+multi_agent_tool: claude-code
+single_agent_mode: false
+
+# Workflow Configuration
+workflow:
+  default_mode: direct      # Options: direct, selective, thorough
+  auto_select: true         # Enable intelligent mode selection
+  project_profile: medium   # Options: small, medium, large
