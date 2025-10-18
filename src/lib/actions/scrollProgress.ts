@@ -7,12 +7,14 @@ export type ScrollProgressOptions = {
   offsetTop?: number;
   offsetBottom?: number;
   clamp?: boolean;
+  disabled?: boolean;
 };
 
-export function scrollProgress(node: HTMLElement, options: ScrollProgressOptions = {}) {
-  const { offsetTop = 0, offsetBottom = 0, clamp = true } = options;
+export function scrollProgress(node: HTMLElement, initialOptions: ScrollProgressOptions = {}) {
+  let { offsetTop = 0, offsetBottom = 0, clamp = true, disabled = false } = initialOptions;
 
   let raf = 0;
+  let attached = false;
 
   const calc = () => {
     const rect = node.getBoundingClientRect();
@@ -23,8 +25,6 @@ export function scrollProgress(node: HTMLElement, options: ScrollProgressOptions
     // End when bottom of el hits top of viewport + offsetBottom
     const end = -rect.height + offsetBottom;
 
-    // How far top has moved past start to end (negative numbers as we scroll up)
-    const y = rect.top - start; // y goes from 0 -> end
     let p = (start - rect.top) / (start - end);
 
     if (clamp) {
@@ -39,16 +39,45 @@ export function scrollProgress(node: HTMLElement, options: ScrollProgressOptions
     raf = requestAnimationFrame(calc);
   };
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  // initial
-  onScroll();
+  function attach() {
+    if (attached) return;
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    attached = true;
+    onScroll();
+  }
+
+  function detach() {
+    if (!attached) return;
+    window.removeEventListener('scroll', onScroll);
+    window.removeEventListener('resize', onScroll);
+    if (raf) cancelAnimationFrame(raf);
+    attached = false;
+  }
+
+  if (!disabled) attach();
 
   return {
+    update(newOptions: ScrollProgressOptions = {}) {
+      const prevDisabled = disabled;
+      offsetTop = newOptions.offsetTop ?? offsetTop;
+      offsetBottom = newOptions.offsetBottom ?? offsetBottom;
+      clamp = newOptions.clamp ?? clamp;
+      disabled = newOptions.disabled ?? false;
+
+      if (disabled && !prevDisabled) {
+        detach();
+        // Optionally emit a final progress state; callers can ignore if not needed
+        node.dispatchEvent(new CustomEvent<ScrollProgressDetail>('progress', { detail: { progress: 1 } }));
+      } else if (!disabled && prevDisabled) {
+        attach();
+      } else if (!disabled) {
+        // re-calc with updated options
+        onScroll();
+      }
+    },
     destroy() {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-      if (raf) cancelAnimationFrame(raf);
+      detach();
     }
   };
 }

@@ -1,11 +1,12 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { currentSection } from '$lib/stores/gameFlow';
+  import { currentSection, reducedMotion } from '$lib/stores/gameFlow';
   import { inView } from '$lib/actions/inView';
   import { PROJECTS } from '$lib/constants';
   import type { Project } from '$lib/types';
   import { fade, fly } from 'svelte/transition';
   import { frameCopy } from '$lib/copy';
+  import { scrollProgress } from '$lib/actions/scrollProgress';
 
   // Choose featured project (first marked featured, else first)
   $: featured = PROJECTS.find((p) => p.featured) || PROJECTS[0];
@@ -13,6 +14,9 @@
 
   // Entry transition state
   let entered = false;
+  let progress = 0; // 0..1 scroll progress through this section
+  $: rm = $reducedMotion; // convenience alias
+  let gridVisible = false; // trigger additional projects entrance
 
   function getProjectIconSVG(category: string) {
     // Simple, sleek glyphs per category (placeholder for generated icons)
@@ -47,14 +51,16 @@
 <section
   id="frame"
   data-section="frame"
-  class="relative bg-gradient-to-br from-neutral-900 via-slate-800 to-neutral-900"
+  class="relative bg-gradient-to-br from-neutral-900 via-slate-800 to-neutral-900 pb-48 md:pb-56"
   use:inView={{ threshold: 0.3, once: true }}
+  use:scrollProgress={{ offsetTop: 120, offsetBottom: 120, disabled: rm }}
   on:enter={onSectionEnter}
+  on:progress={(e) => (progress = e.detail.progress)}
   aria-label="Frame section - Project portfolio"
 >
   {#if entered}
     <div
-      in:fly={{ y: 32, duration: 700, opacity: 0.2 }}
+      in:fly={{ y: rm ? 0 : 32, duration: rm ? 0 : 700, opacity: rm ? 1 : 0.2 }}
       class="relative z-20 flex flex-col"
     >
       <!-- Section header -->
@@ -79,20 +85,23 @@
       </div>
 
       <!-- Project showcase -->
-      <div class="relative max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 md:px-6">
+  <div class="relative w-full max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 md:px-6">
         {#if PROJECTS.length > 0}
           <!-- Featured Project Hero -->
-          <div class="relative min-h-[70vh] md:min-h-[75vh] w-full overflow-hidden mb-10 rounded-2xl">
+          <div class="relative block w-full min-w-full min-h-[70vh] md:min-h-[75vh] overflow-hidden mb-10 rounded-2xl">
             <!-- Featured badge -->
-            <div class="absolute top-8 left-8 z-30 px-4 py-2 bg-gradient-to-r from-violet-600/90 to-purple-600/90 text-white text-sm font-semibold rounded-lg shadow-lg backdrop-blur-sm border border-violet-400/30">
+            <div
+              class="absolute top-8 left-8 z-30 px-4 py-2 bg-gradient-to-r from-violet-600/90 to-purple-600/90 text-white text-sm font-semibold rounded-lg shadow-lg backdrop-blur-sm border border-violet-400/30"
+              in:fly={{ y: rm ? 0 : -12, duration: rm ? 0 : 400, opacity: rm ? 1 : 0 }}
+            >
               Featured Project
             </div>
 
-            <!-- Background gradient -->
-            <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900 rounded-2xl" />
+            <!-- Background gradient (non-empty block to establish intrinsic size) -->
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900 rounded-2xl" in:fade={{ duration: rm ? 0 : 500 }} aria-hidden="true"></div>
 
             <!-- Content overlay -->
-            <div class="absolute bottom-0 left-0 right-0 z-20 p-8 md:p-16">
+            <div class="absolute bottom-0 left-0 right-0 z-20 p-8 md:p-16" in:fly={{ y: rm ? 0 : 24, duration: rm ? 0 : 520, opacity: rm ? 1 : 0 }}>
               <!-- Gradient fade -->
               <div class="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-black via-black/80 to-transparent rounded-b-2xl" />
 
@@ -188,11 +197,18 @@
             </div>
           </div>
 
+          <!-- Sentinel to trigger grid entrance -->
+          <div aria-hidden="true" use:inView={{ threshold: 0.2, once: true }} on:enter={() => (gridVisible = true)}></div>
+
           <!-- Additional projects grid -->
           {#if rest.length > 0}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {#each rest as project, index}
-                <div class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              {#if gridVisible}
+                {#each rest as project, index}
+                <div
+                  class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                  in:fly|local={{ y: rm ? 0 : 20, duration: rm ? 0 : 420, delay: rm ? 0 : index * 90, opacity: rm ? 1 : 0 }}
+                >
                   <!-- Icon header -->
                   <div class="flex items-center gap-3 px-5 pt-5">
                     <div class="w-10 h-10 rounded-lg bg-violet-500/15 text-violet-300 border border-violet-500/30 flex items-center justify-center">
@@ -247,7 +263,8 @@
                     </div>
                   </div>
                 </div>
-              {/each}
+                {/each}
+              {/if}
             </div>
           {/if}
         {:else}
@@ -257,8 +274,8 @@
         {/if}
       </div>
     </div>
-    <!-- Smooth transition fade -->
-    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-neutral-900 to-transparent z-30 pointer-events-none" />
+    <!-- Smooth transition fade (behind content, animated by scroll) -->
+    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-neutral-900 to-transparent z-[-1] pointer-events-none" style={`opacity: ${rm ? 1 : Math.min(1, Math.max(0, progress))};`} />
   {/if}
 </section>
 

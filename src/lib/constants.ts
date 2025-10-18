@@ -301,8 +301,8 @@ export const ARCHITECTURAL_DOMAINS = [
         area: 'System Design & Architecture',
         description: 'Scalable, event-driven, and decoupled architectures that survive production.',
         capabilities: [
-            'Event-driven order orchestration at 50M+ user scale',
-            'Distributed systems resilience and failure isolation',
+            'Event-driven order orchestration for high-volume commerce',
+            'Distributed systems resilience and failure isolation patterns',
             'API design and microservices decomposition strategies'
         ]
     },
@@ -310,7 +310,7 @@ export const ARCHITECTURAL_DOMAINS = [
         area: 'Data & Orchestration',
         description: 'Designing the "single source of truth" and orchestration engines for complex, real-time data flow.',
         capabilities: [
-            'Real-time data pipelines maintaining 99.97% uptime',
+            'Real-time data pipelines for mission-critical systems',
             'Cross-platform integration architecture',
             'Event sourcing and CQRS pattern implementation'
         ]
@@ -319,16 +319,16 @@ export const ARCHITECTURAL_DOMAINS = [
         area: 'AI & Governance',
         description: 'Implementing frameworks and AI-Ops workflows to move AI from experiment to production safely.',
         capabilities: [
-            'AI governance frameworks reducing deployment risk 73%',
+            'AI governance frameworks for production deployment safety',
             'Multi-agent orchestration and constitutional AI patterns',
-            'Production AI observability and risk mitigation'
+            'Production AI observability and risk mitigation strategies'
         ]
     },
     {
         area: 'Enterprise Commerce',
-        description: 'Platform architecture for commerce systems processing billions in annual revenue.',
+        description: 'Platform architecture for commerce systems where downtime costs millions.',
         capabilities: [
-            'Commerce platforms processing $50B+ annually',
+            'Fortune 500 commerce platform modernization',
             'Headless and composable architecture strategies',
             'Legacy modernization and strangler fig patterns'
         ]
@@ -337,6 +337,98 @@ export const ARCHITECTURAL_DOMAINS = [
 
 // Legacy export for backward compatibility (deprecated)
 export const TECHNICAL_DEPTH = ARCHITECTURAL_DOMAINS;
+
+// Interactive Panel System: Capability Mapping
+// Maps focus areas to their corresponding architectural domains
+export const CAPABILITY_SYSTEM = {
+  'enterprise-commerce': {
+    id: 'enterprise-commerce',
+    focusArea: {
+      title: 'Enterprise Commerce Architecture',
+      description: 'Designing scalable commerce platforms that serve millions of users',
+      color: 'violet'
+    },
+    domain: {
+      area: 'Enterprise Commerce',
+      description: 'Platform architecture for commerce systems where downtime costs millions.',
+      capabilities: [
+        'Fortune 500 commerce platform modernization',
+        'Headless and composable architecture strategies',
+        'Legacy modernization and strangler fig patterns'
+      ]
+    }
+  },
+  'ai-native': {
+    id: 'ai-native',
+    focusArea: {
+      title: 'AI-Native Development',
+      description: 'Building with AI as core infrastructure, not just an add-on',
+      color: 'cyan'
+    },
+    domain: {
+      area: 'AI & Governance',
+      description: 'Implementing frameworks and AI-Ops workflows to move AI from experiment to production safely.',
+      capabilities: [
+        'AI governance frameworks for production deployment safety',
+        'Multi-agent orchestration and constitutional AI patterns',
+        'Production AI observability and risk mitigation strategies'
+      ]
+    }
+  },
+  'systems-integration': {
+    id: 'systems-integration',
+    focusArea: {
+      title: 'Systems Integration',
+      description: 'Connecting legacy systems that were never meant to work together',
+      color: 'green'
+    },
+    domain: {
+      area: 'Data & Orchestration',
+      description: 'Designing the "single source of truth" and orchestration engines for complex, real-time data flow.',
+      capabilities: [
+        'Real-time data pipelines for mission-critical systems',
+        'Cross-platform integration architecture',
+        'Event sourcing and CQRS pattern implementation'
+      ]
+    }
+  },
+  'technical-leadership': {
+    id: 'technical-leadership',
+    focusArea: {
+      title: 'Technical Leadership',
+      description: 'Guiding teams through complex technical challenges',
+      color: 'violet'
+    },
+    domain: {
+      area: 'System Design & Architecture',
+      description: 'Scalable, event-driven, and decoupled architectures that survive production.',
+      capabilities: [
+        'Event-driven order orchestration for high-volume commerce',
+        'Distributed systems resilience and failure isolation patterns',
+        'API design and microservices decomposition strategies'
+      ]
+    }
+  },
+  'performance': {
+    id: 'performance',
+    focusArea: {
+      title: 'Performance Engineering',
+      description: 'Optimizing systems for maximum efficiency and user experience',
+      color: 'cyan'
+    },
+    domain: {
+      area: 'System Design & Architecture',
+      description: 'Scalable, event-driven, and decoupled architectures that survive production.',
+      capabilities: [
+        'Event-driven order orchestration for high-volume commerce',
+        'Distributed systems resilience and failure isolation patterns',
+        'API design and microservices decomposition strategies'
+      ]
+    }
+  }
+} as const;
+
+export const CAPABILITY_IDS = Object.keys(CAPABILITY_SYSTEM) as Array<keyof typeof CAPABILITY_SYSTEM>;
 
 // Named exports only; consumers should import what they need explicitly.
 

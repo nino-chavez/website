@@ -4,16 +4,10 @@
 export const focusCopy = {
   heading: 'Systems Thinking Meets Enterprise Reality',
   subhead:
-    '25 years building commerce infrastructure that holds up when it matters—from early-stage platforms to Fortune 500 enterprise transformations.',
+    'For over 25 years, I have built commerce infrastructure that holds up when it matters—from early-stage platforms to Fortune 500 transformations.',
   narrative1:
-    "Enterprise systems fail in predictable ways: missing ownership boundaries, ignored second-order effects, architecture decisions made without understanding deployment constraints.",
-  narrative2: '26 years building infrastructure that survives production:',
-  bullets: [
-    'Commerce platforms processing $50B+ annually',
-    'Event-driven order orchestration serving 50M+ users',
-    'AI governance frameworks reducing deployment risk 73%',
-    'Real-time systems maintaining 99.97% uptime at scale'
-  ],
+    'My approach is built on a foundational observation: Enterprise systems do not fail by accident. They fail in predictable ways—from missing ownership boundaries to ignoring the second-order effects of a simple architecture decision.',
+  narrative2: 'I build the resilient systems that survive production.',
   timelineLabel: '2020 ← 2000 • Leadership Evolution',
   cta: "Read: The Architect's Principle"
 };

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { currentSection } from '$lib/stores/gameFlow';
+  import { currentSection, reducedMotion } from '$lib/stores/gameFlow';
   import { inView } from '$lib/actions/inView';
   import TextReveal from '$lib/components/TextReveal.svelte';
   import { fade, fly } from 'svelte/transition';
@@ -9,6 +9,7 @@
   // Entry transition state
   let entered = false;
   let progress = 0; // 0..1 scroll progress through this section
+  $: rm = $reducedMotion; // convenience alias
   let cardsVisible = false; // trigger grid item entrance animations
   let headerVisible = false; // animate header block
   let ctaVisible = false; // animate CTA block
@@ -25,24 +26,25 @@
   data-section="portfolio"
   class="min-h-screen relative bg-gradient-to-br from-neutral-900 via-slate-800 to-neutral-900 pb-48 md:pb-56"
   use:inView={{ threshold: 0.3, once: true }}
-  use:scrollProgress={{ offsetTop: 120, offsetBottom: 120 }}
+  use:scrollProgress={{ offsetTop: 120, offsetBottom: 120, disabled: rm }}
   on:enter={onSectionEnter}
   on:progress={(e) => (progress = e.detail.progress)}
   aria-label="Portfolio section - Contact and professional details"
 >
   {#if entered}
     <div
-      in:fly={{ y: 32, duration: 700, opacity: 0.2 }}
+      in:fly={{ y: rm ? 0 : 32, duration: rm ? 0 : 700, opacity: rm ? 1 : 0.2 }}
       class="relative z-20 min-h-screen flex flex-col mb-32 md:mb-40"
     >
       <div class="flex-1 flex items-center justify-center py-16 md:py-24 px-4">
         <div class="max-w-4xl mx-auto text-center">
           <!-- Section header -->
+          <!-- Header trigger and animated block -->
+          <div aria-hidden="true" class="h-px pointer-events-none" use:inView={{ threshold: 0.2, once: true }} on:enter={() => (headerVisible = true)}></div>
+          {#if headerVisible}
           <div
             class="mb-12 md:mb-16"
-            use:inView={{ threshold: 0.2, once: true }}
-            on:enter={() => (headerVisible = true)}
-            in:fly|local={{ y: 16, duration: 420, delay: headerVisible ? 60 : 0, opacity: 0.1 }}
+            in:fly|local={{ y: rm ? 0 : 16, duration: rm ? 0 : 420, delay: rm ? 0 : 60, opacity: rm ? 1 : 0 }}
           >
             <h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">
               <TextReveal text={portfolioCopy.heading1} type="words" delay={0} staggerDelay={100} />
@@ -52,6 +54,7 @@
             </h2>
             <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">{portfolioCopy.intro}</p>
           </div>
+          {/if}
 
           <!-- Contact options -->
           <div
@@ -62,7 +65,7 @@
             <!-- Professional Services -->
             <div
               class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-violet-500/30 transition-all duration-300"
-              in:fly|local={{ y: 24, duration: 450, delay: cardsVisible ? 0 : 0, opacity: 0.1 }}
+              in:fly|local={{ y: rm ? 0 : 24, duration: rm ? 0 : 450, delay: rm ? 0 : (cardsVisible ? 0 : 0), opacity: rm ? 1 : 0 }}
             >
               <div class="w-16 h-16 bg-gradient-to-r from-violet-500 to-purple-500 rounded-xl flex items-center justify-center mb-6 mx-auto">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,7 +89,7 @@
             <!-- Speaking & Content -->
             <div
               class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-cyan-500/30 transition-all duration-300"
-              in:fly|local={{ y: 24, duration: 450, delay: cardsVisible ? 120 : 0, opacity: 0.1 }}
+              in:fly|local={{ y: rm ? 0 : 24, duration: rm ? 0 : 450, delay: rm ? 0 : (cardsVisible ? 120 : 0), opacity: rm ? 1 : 0 }}
             >
               <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center mb-6 mx-auto">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,7 +116,7 @@
             class="bg-gradient-to-r from-violet-500/10 to-cyan-500/10 border border-violet-500/20 rounded-2xl p-8 md:p-12 mt-8"
             use:inView={{ threshold: 0.2, once: true }}
             on:enter={() => (ctaVisible = true)}
-            in:fly|local={{ y: 24, duration: 480, delay: ctaVisible ? 180 : 0, opacity: 0.1 }}
+            in:fly|local={{ y: rm ? 0 : 24, duration: rm ? 0 : 480, delay: rm ? 0 : (ctaVisible ? 180 : 0), opacity: rm ? 1 : 0 }}
           >
             <h3 class="text-3xl font-bold text-white mb-6">{portfolioCopy.ctaHeading}</h3>
             <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
@@ -169,7 +172,7 @@
     <div
       aria-hidden="true"
       class="absolute bottom-0 left-0 right-0 h-44 bg-gradient-to-t from-neutral-900 to-transparent z-[-1] pointer-events-none"
-      style={`opacity: ${Math.min(1, Math.max(0, progress))};`}
+      style={`opacity: ${rm ? 1 : Math.min(1, Math.max(0, progress))};`}
     />
   {/if}
 </section>

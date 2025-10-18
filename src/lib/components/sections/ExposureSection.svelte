@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { currentSection } from '$lib/stores/gameFlow';
+  import { currentSection, reducedMotion } from '$lib/stores/gameFlow';
   import { inView } from '$lib/actions/inView';
   import { INSIGHTS_ARTICLES } from '$lib/constants';
   import type { InsightArticle } from '$lib/types';
@@ -16,6 +16,7 @@
   // Entry transition state
   let entered = false;
   let progress = 0; // 0..1 scroll progress through this section
+  $: rm = $reducedMotion; // convenience alias
 
   // Reactive statement for current article
   $: currentArticle = articles[currentArticleIndex];
@@ -59,14 +60,14 @@
   data-section="exposure"
   class="min-h-screen relative bg-gradient-to-br from-slate-900 via-neutral-800 to-slate-900"
   use:inView={{ threshold: 0.3, once: true }}
-  use:scrollProgress={{ offsetTop: 120, offsetBottom: 120 }}
+  use:scrollProgress={{ offsetTop: 120, offsetBottom: 120, disabled: rm }}
   on:enter={onSectionEnter}
   on:progress={(e) => (progress = e.detail.progress)}
   aria-label="Exposure section - Technical insights and articles"
 >
   {#if entered}
     <div
-      in:fly={{ y: 32, duration: 700, opacity: 0.2 }}
+      in:fly={{ y: rm ? 0 : 32, duration: rm ? 0 : 700, opacity: rm ? 1 : 0.2 }}
       class="relative z-20 min-h-screen flex flex-col training-log-aesthetic"
     >
       <div class="flex-1 flex items-center justify-center py-9 md:py-15">
@@ -107,7 +108,7 @@
 
             <!-- Card with slide animation -->
             <div
-              class="transition-transform duration-300 ease-in-out bg-white/10 backdrop-blur-lg border border-white/10 rounded-3xl px-6 py-7 md:px-10 md:py-8 scannable-typography high-readability w-full max-w-2xl mx-auto flex flex-col shadow-2xl min-h-[260px] md:min-h-[320px]"
+              class="transition-transform duration-300 ease-in-out bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl px-6 py-7 md:px-10 md:py-8 scannable-typography high-readability w-full max-w-2xl mx-auto flex flex-col shadow-2xl min-h-[260px] md:min-h-[320px]"
               class:translate-x-12={slideDirection === 'left'}
               class:-translate-x-12={slideDirection === 'right'}
               class:opacity-0={slideDirection !== null}
@@ -162,8 +163,6 @@
               {:else}
                 <div class="my-4 border-t border-white/10"></div>
               {/if}
-              >
-                Read on Signal Dispatch →
               <div class="flex flex-wrap gap-2 mb-4">
                 {#each currentArticle.tags || [] as tag}
                   <span class="px-2 py-1 text-xs bg-white/10 text-white/70 rounded-md hover:bg-white/20 transition-colors">
@@ -210,7 +209,7 @@
       </div>
     </div>
   <!-- Smooth transition fade (placed behind content and animated by scroll) -->
-  <div aria-hidden="true" class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-slate-900 to-transparent z-[-1] pointer-events-none" style={`opacity: ${Math.min(1, Math.max(0, progress))};`}></div>
+  <div aria-hidden="true" class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-slate-900 to-transparent z-[-1] pointer-events-none" style={`opacity: ${rm ? 1 : Math.min(1, Math.max(0, progress))};`}></div>
   {/if}
 </section>
 
