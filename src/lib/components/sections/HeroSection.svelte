@@ -91,14 +91,14 @@ import { base } from '$app/paths';
 
 			<p
 				in:fly={{ y: 30, duration: 800, delay: 300 }}
-				class="text-xl md:text-2xl lg:text-3xl text-white/70 mb-4 font-light"
+				class="text-xl md:text-2xl lg:text-3xl text-white mb-4 font-light"
 			>
 				Strategic Advisor & Technical Leader
 			</p>
 
 			<p
 				in:fly={{ y: 30, duration: 800, delay: 400 }}
-				class="text-base md:text-lg text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed"
+				class="text-base md:text-lg text-white max-w-3xl mx-auto mb-12 leading-relaxed"
 			>
 				Building commerce infrastructure that holds up when it matters. 25 years designing systems that process billions in revenue, serve millions of users, and adapt to whatever comes next.
 			</p>
@@ -134,16 +134,20 @@ import { base } from '$app/paths';
 				</button>
 			</div>
 
-			<!-- Scroll indicator -->
-			<div
-				in:fade={{ duration: 800, delay: 800 }}
-				class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce"
-			>
-				<span class="text-xs text-white/40 uppercase tracking-wider">Scroll to explore</span>
-				<svg class="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-				</svg>
-			</div>
+					<!-- Scroll indicator: relative to section bottom -->
+					<div in:fade={{ duration: 800, delay: 800 }} class="pointer-events-none w-full flex justify-center mt-12">
+						<button
+							on:click={() => scrollToSection('focus')}
+							class="pointer-events-auto flex flex-col items-center gap-1 rounded-md px-3 py-2 text-white/60 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/40"
+							aria-label="Scroll to explore"
+							type="button"
+						>
+							<span class="text-[11px] uppercase tracking-wider">Scroll to explore</span>
+							<svg class="w-5 h-5 motion-safe:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+							</svg>
+						</button>
+					</div>
 		{/if}
 	</div>
 

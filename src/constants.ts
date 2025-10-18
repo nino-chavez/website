@@ -1,1 +1,0 @@
-// This file defines constants used throughout the application, such as configuration values or static data.

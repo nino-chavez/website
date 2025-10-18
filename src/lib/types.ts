@@ -9,21 +9,22 @@ export interface Project {
   technologies: string[];
   featured?: boolean;
   isShowcase?: boolean;
-  imageUrl: string;
   demo?: string;
   repository?: string;
+  image?: string;
+  imageUrl?: string;
   link?: string;
-  liveUrl?: string;
-  repoUrl?: string;
-  year: number;
-  status: 'live' | 'in-progress' | 'completed';
-  outcomes: string[];
-  metrics: {
-    performance: string;
-    scale: string;
-    timeline: string;
+  year?: number;
+  status?: string;
+  outcomes?: string[];
+  challenges?: string[];
+  architecture?: string[];
+  metrics?: {
+    performance?: string;
+    scale?: string;
+    timeline?: string;
   };
-  tags: string[];
+  tags?: string[];
 }
 
 export interface HeaderProps {

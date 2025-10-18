@@ -2,8 +2,10 @@
 	import { onMount } from 'svelte';
 	import { currentSection, progress as progressStore, depthOfField as dof } from '$lib/stores/gameFlow';
 	import { inView } from '$lib/actions/inView';
-	import { CAREER_MILESTONES, FOCUS_AREAS, TECHNICAL_DEPTH } from '$lib/constants';
+		import { CAREER_MILESTONES, FOCUS_AREAS, TECHNICAL_DEPTH } from '$lib/constants';
+		import { focusCopy } from '$lib/copy';
 	import ThesisModal from '$lib/components/ui/ThesisModal.svelte';
+	import { fade, fly } from 'svelte/transition';
 
 	export let className = '';
 	export let onFocusLock = (target, depth) => {};
@@ -17,6 +19,9 @@
 	let timelineScrollProgress = 0;
 	let localProgress = 0;
 
+	// Entry transition state
+	let entered = false;
+
 	// Subscribe to progress store
 	const unsubProgress = progressStore.subscribe(v => (localProgress = v));
 
@@ -29,6 +34,7 @@
 	function onSectionEnter() {
 		focusTargetLocked = true;
 		currentSection.set('focus');
+		entered = true;
 
 		if (localProgress > 0.2 && focusTargetLocked && sectionEl) {
 			let depthValue = 0;
@@ -77,6 +83,7 @@
 	$: currentRole = CAREER_MILESTONES.find(m => m.current);
 </script>
 
+
 <section
 	bind:this={sectionEl}
 	id="focus"
@@ -87,92 +94,76 @@
 	on:enter={onSectionEnter}
 	aria-label="Focus section - About and expertise details"
 >
-	<div class="relative z-20 py-16 md:py-20 lg:py-24">
-		<div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-12 space-y-12 md:space-y-16">
-			
-			<!-- Section Title -->
-			<div class="transition-all duration-1000 opacity-100 translate-y-0">
-				<div class="text-base md:text-sm text-white/60 uppercase tracking-wider mb-2 md:mb-3">
-					About
+	{#if entered}
+			<div
+				in:fly={{ y: 32, duration: 700, opacity: 0.2 }}
+				class="relative z-20 py-16 md:py-20 lg:py-24"
+			>
+			<div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-12 space-y-12 md:space-y-16">
+				<!-- Section Title -->
+				<div class="transition-all duration-1000 opacity-100 translate-y-0">
+										<div class="text-base md:text-sm text-white/60 uppercase tracking-wider mb-2 md:mb-3">About</div>
+										<h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+											{focusCopy.heading}
+										</h2>
+										<p class="text-base md:text-lg lg:text-xl text-white/70 mt-4 leading-relaxed">{focusCopy.subhead}</p>
 				</div>
-				<h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-					Systems Thinking Meets <span class="text-athletic-brand-violet">Enterprise Reality</span>
-				</h2>
-				<p class="text-base md:text-lg lg:text-xl text-white/70 mt-4 leading-relaxed">
-					25 years building commerce infrastructure that holds up when it matters. From order orchestration handling 50M+ users to AI governance frameworks deployed across Fortune 500s.
-				</p>
-			</div>
 
-			<!-- Narrative + CTA -->
-			<div data-testid="about-narrative">
-				<div class="max-w-4xl mx-auto">
-					<p class="text-lg md:text-xl text-white/90 leading-[1.7] mb-6">
-						Enterprise systems fail in predictable ways. Revenue gets lost in brittle integrations. Teams ship fast but can't sustain velocity. AI projects stall because no one's thinking about data governance until it's too late.
-					</p>
-					<p class="text-lg md:text-xl text-white/90 leading-[1.7] mb-8">
-						I've spent two decades preventing those failures—designing commerce platforms that process billions in GMV, orchestrating real-time inventory across omnichannel networks, and building AI governance models that let enterprises move fast without breaking compliance.
-					</p>
+				<!-- Narrative + CTA -->
+				<div data-testid="about-narrative">
+								<div class="max-w-4xl mx-auto">
+													<p class="text-lg md:text-xl text-white/90 leading-[1.7] mb-6">{focusCopy.narrative1}</p>
+													<p class="text-base md:text-lg text-white/80 leading-[1.8] mb-8">{focusCopy.narrative2}</p>
 
-					<div class="bg-black/10 border border-white/5 rounded-lg p-6 md:p-8 mb-8">
-						<ul class="space-y-4 text-base md:text-lg text-white/85 mb-8">
-							<li class="flex items-start">
-								<span class="text-violet-400 mr-4 mt-1 flex-shrink-0">✓</span>
-								<span>Commerce platforms processing $50B+ annually</span>
-							</li>
-							<li class="flex items-start">
-								<span class="text-violet-400 mr-4 mt-1 flex-shrink-0">✓</span>
-								<span>Event-driven order orchestration serving 50M+ users</span>
-							</li>
-							<li class="flex items-start">
-								<span class="text-violet-400 mr-4 mt-1 flex-shrink-0">✓</span>
-								<span>AI governance frameworks reducing deployment risk 73%</span>
-							</li>
-							<li class="flex items-start">
-								<span class="text-violet-400 mr-4 mt-1 flex-shrink-0">✓</span>
-								<span>Real-time systems maintaining 99.97% uptime at scale</span>
-							</li>
-						</ul>
+						<div class="bg-black/10 border border-white/5 rounded-lg p-6 md:p-8 mb-8">
+											<ul class="space-y-4 text-base md:text-lg text-white/85 mb-8">
+																	{#each focusCopy.bullets as b}
+																		<li class="flex items-start">
+																			<span class="text-violet-400 mr-4 mt-1 flex-shrink-0">✓</span>
+																			<span>{b}</span>
+																		</li>
+																	{/each}
+											</ul>
 
-						<div class="flex justify-center md:justify-start">
-							<button
-								class="bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
-								data-testid="architect-principle-button"
-								aria-label="Read: The Architect's Principle"
-								on:click={() => (isThesisModalOpen = true)}
-							>
-								<span class="flex items-center gap-3">
-									<span>Read: The Architect's Principle</span>
-									<svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
-									</svg>
-								</span>
-							</button>
+							<div class="flex justify-center md:justify-start">
+								<button
+									class="bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
+									data-testid="architect-principle-button"
+									aria-label="Read: The Architect's Principle"
+									on:click={() => (isThesisModalOpen = true)}
+								>
+									<span class="flex items-center gap-3">
+										<span>{focusCopy.cta}</span>
+										<svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+											<path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+										</svg>
+									</span>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<!-- Two Column Layout: Focus Areas + Technical Depth -->
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 mt-14 px-2 md:px-6 lg:px-8">
-				
-				<!-- Focus Areas -->
-				<div>
-					<div class="bg-black/10 border border-white/5 rounded-lg p-6">
-						<h3 class="text-xl font-semibold text-white mb-6">Areas of Focus</h3>
-						<div class="space-y-6">
-							{#each FOCUS_AREAS as area}
-								<div class="group">
-									<div class="flex items-start gap-4">
-										<div
-											class={`w-3 h-3 rounded-full mt-1 flex-shrink-0 ${
-												area.color === 'violet'
-													? 'bg-violet-400'
-													: area.color === 'cyan'
-													? 'bg-cyan-400'
-													: area.color === 'green'
-													? 'bg-green-400'
-													: 'bg-gray-400'
-											}`}
+				<!-- Two Column Layout: Focus Areas + Technical Depth -->
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 mt-14 px-2 md:px-6 lg:px-8">
+					<!-- Focus Areas -->
+					<div>
+						<div class="bg-black/10 border border-white/5 rounded-lg p-6">
+							<h3 class="text-xl font-semibold text-white mb-6">Areas of Focus</h3>
+							<div class="space-y-6">
+								{#each FOCUS_AREAS as area}
+									<div class="group">
+										<div class="flex items-start gap-4">
+											<div
+												class={`w-3 h-3 rounded-full mt-1 flex-shrink-0 ${
+													area.color === 'violet'
+														? 'bg-violet-400'
+														: area.color === 'cyan'
+														? 'bg-cyan-400'
+														: area.color === 'green'
+														? 'bg-green-400'
+														: 'bg-gray-400'
+												}`}
 										/>
 										<div class="flex-1">
 											<h4 class="text-white font-semibold text-lg mb-2">{area.area}</h4>
@@ -185,26 +176,23 @@
 					</div>
 				</div>
 
-				<!-- Technical Depth -->
+				<!-- Architectural Domains -->
 				<div data-testid="integrated-stats-card">
 					<div class="bg-black/10 border border-white/5 rounded-lg p-6">
-						<h3 class="text-xl font-semibold text-white mb-6">Technical Depth</h3>
+						<h3 class="text-xl font-semibold text-white mb-6">Architectural Domains</h3>
 						<div class="grid gap-6">
-							{#each TECHNICAL_DEPTH as area}
-								<div class="border-b border-white/5 pb-4 last:border-b-0">
-									<div class="flex items-center justify-between mb-3">
-										<h4 class="text-white font-medium text-lg">{area.area}</h4>
-										<span class="text-sm text-athletic-brand-violet font-medium">{area.years}</span>
-									</div>
-									<div class="flex flex-wrap gap-2">
-										{#each area.stack as tech}
-											<span
-												class="px-3 py-1 bg-athletic-brand-violet/10 text-athletic-brand-violet border border-athletic-brand-violet/20 rounded-md text-sm font-medium"
-											>
-												{tech}
-											</span>
+							{#each TECHNICAL_DEPTH as domain}
+								<div class="border-b border-white/5 pb-5 last:border-b-0">
+									<h4 class="text-white font-semibold text-lg mb-2">{domain.area}</h4>
+									<p class="text-white/70 text-sm mb-4 leading-relaxed">{domain.description}</p>
+									<ul class="space-y-2">
+										{#each domain.capabilities as capability}
+											<li class="flex items-start text-sm text-white/80">
+												<span class="text-violet-400 mr-3 mt-0.5 flex-shrink-0">✓</span>
+												<span class="leading-relaxed">{capability}</span>
+											</li>
 										{/each}
-									</div>
+									</ul>
 								</div>
 							{/each}
 						</div>
@@ -219,7 +207,6 @@
 					data-testid="career-timeline-card"
 				>
 					<div class="bg-white/5 border border-white/5 rounded-lg p-6 md:p-8">
-						
 						<!-- Current Role Highlight -->
 						{#if currentRole}
 							<div
@@ -252,7 +239,7 @@
 									{expanded.size}/{timelineMilestones.length} explored
 								</div>
 							</div>
-							<p class="text-sm text-white/60">2020 ← 2000 • Leadership Evolution</p>
+							  <p class="text-sm text-white/60">{focusCopy.timelineLabel}</p>
 							<p class="text-xs text-white/40 mt-2">
 								Click timeline dots or scroll to explore career progression
 							</p>
@@ -269,7 +256,6 @@
 							{#each timelineMilestones as milestone, idx (milestone.year)}
 								<div class="relative" data-timeline-index={idx}>
 									<div class="flex items-start gap-6">
-										
 										<!-- Timeline Dot + Year -->
 										<div class="flex-shrink-0 flex flex-col items-center pt-1">
 											<button
@@ -328,8 +314,9 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Thesis Modal -->
-	<ThesisModal bind:isOpen={isThesisModalOpen} />
+		<!-- Thesis Modal -->
+		<ThesisModal bind:isOpen={isThesisModalOpen} />
+	</div>
+	{/if}
 </section>
