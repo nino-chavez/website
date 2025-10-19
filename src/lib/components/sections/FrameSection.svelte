@@ -88,23 +88,17 @@
   <div class="relative w-full max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 md:px-6">
         {#if PROJECTS.length > 0}
           <!-- Featured Project Hero -->
-          <div class="relative block w-full min-w-full min-h-[70vh] md:min-h-[75vh] overflow-hidden mb-10 rounded-2xl">
+          <div class="relative block w-full min-w-full overflow-hidden mb-10 rounded-2xl bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900 pt-32 pb-16 px-8 md:px-16">
             <!-- Featured badge -->
             <div
-              class="absolute top-8 left-8 z-30 px-4 py-2 bg-gradient-to-r from-violet-600/90 to-purple-600/90 text-white text-sm font-semibold rounded-lg shadow-lg backdrop-blur-sm border border-violet-400/30"
+              class="absolute top-6 left-8 z-30 px-4 py-2 bg-gradient-to-r from-violet-600/90 to-purple-600/90 text-white text-sm font-semibold rounded-lg shadow-lg backdrop-blur-sm border border-violet-400/30"
               in:fly={{ y: rm ? 0 : -12, duration: rm ? 0 : 400, opacity: rm ? 1 : 0 }}
             >
               Featured Project
             </div>
 
-            <!-- Background gradient (non-empty block to establish intrinsic size) -->
-            <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900 rounded-2xl" in:fade={{ duration: rm ? 0 : 500 }} aria-hidden="true"></div>
-
             <!-- Content overlay -->
-            <div class="absolute bottom-0 left-0 right-0 z-20 p-8 md:p-16" in:fly={{ y: rm ? 0 : 24, duration: rm ? 0 : 520, opacity: rm ? 1 : 0 }}>
-              <!-- Gradient fade -->
-              <div class="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-black via-black/80 to-transparent rounded-b-2xl" />
-
+            <div class="relative z-20" in:fly={{ y: rm ? 0 : 24, duration: rm ? 0 : 520, opacity: rm ? 1 : 0 }}>
               <!-- Project details -->
               <div class="relative">
                 <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 leading-tight">

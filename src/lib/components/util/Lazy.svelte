@@ -16,12 +16,18 @@
   export let threshold = 0.1;
 
   let component = null;
+  let error = null;
   let hostEl;
 
   async function load() {
     if (!component && loader) {
-      const mod = await loader();
-      component = mod.default;
+      try {
+        const mod = await loader();
+        component = mod.default;
+      } catch (err) {
+        console.error('Lazy component load failed:', err);
+        error = err;
+      }
     }
   }
 

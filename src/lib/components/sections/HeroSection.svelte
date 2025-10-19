@@ -47,7 +47,7 @@ import { base } from '$app/paths';
 	on:enter={onSectionEnter}
 	aria-label="Hero section - Introduction"
 >
-	<!-- Responsive hero background image (mobile first) -->
+	<!-- Responsive hero background image (mobile first) with explicit dimensions -->
 	<picture class="absolute inset-0 z-0">
 		<source srcset={`${base}/images/hero.webp`} media="(min-width: 640px)" type="image/webp" />
 		<source srcset={`${base}/images/hero-mobile.webp`} media="(max-width: 639px)" type="image/webp" />
@@ -55,7 +55,10 @@ import { base } from '$app/paths';
 			src={`${base}/images/hero.jpg`}
 			alt=""
 			aria-hidden="true"
+			width="1920"
+			height="1080"
 			class="w-full h-full object-cover opacity-60"
+			style="aspect-ratio: 16/9;"
 			decoding="async"
 			loading="eager"
 			fetchpriority="high"

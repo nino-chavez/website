@@ -1,12 +1,15 @@
 
 <script>
-
 import HeroSection from '$lib/components/sections/HeroSection.svelte';
 import Header from '$lib/components/layout/Header.svelte';
 import Footer from '$lib/components/Footer.svelte';
 import Lazy from '$lib/components/util/Lazy.svelte';
 import ScrollDetector from '$lib/components/ScrollDetector.svelte';
+import ErrorBoundary from '$lib/components/ErrorBoundary.svelte';
 import { lockFocus } from '$lib/stores/gameFlow';
+
+// Receive server data
+export let data;
 
 function handleFocusLock(target, depth) {
 	lockFocus(target, depth);
@@ -42,29 +45,31 @@ async function handleNavigate(sectionId) {
 	<meta property="og:type" content="website" />
 </svelte:head>
 
-<main class="relative">
+<main id="main-content" class="relative">
 	<Header onNavigate={handleNavigate} />
 
 	 <HeroSection />
 
 			 <Lazy loader={() => import('$lib/components/sections/FocusSection.svelte')} onFocusLock={handleFocusLock}>
-				 <div slot="placeholder" style="min-height:1px"></div>
+			  <div slot="placeholder" class="min-h-screen bg-neutral-800/20 animate-pulse"></div>
 			 </Lazy>
 
 			 <Lazy loader={() => import('$lib/components/sections/FrameSection.svelte')} mode="visible">
-				 <div slot="placeholder" style="min-height:1px"></div>
+			  <div slot="placeholder" class="min-h-screen bg-neutral-800/20 animate-pulse"></div>
 			 </Lazy>
 
-			 <Lazy loader={() => import('$lib/components/sections/ExposureSection.svelte')} mode="idle">
-				 <div slot="placeholder" style="min-height:1px"></div>
-			 </Lazy>
+			 <ErrorBoundary>
+			  <Lazy loader={() => import('$lib/components/sections/ExposureSection.svelte')} mode="idle" data={data}>
+			 	 <div slot="placeholder" class="min-h-[600px] bg-neutral-800/20 animate-pulse"></div>
+			  </Lazy>
+			 </ErrorBoundary>
 
 			 <Lazy loader={() => import('$lib/components/sections/GallerySection.svelte')} mode="idle">
-				 <div slot="placeholder" style="min-height:1px"></div>
+			  <div slot="placeholder" class="min-h-screen bg-neutral-800/20 animate-pulse"></div>
 			 </Lazy>
 
 			 <Lazy loader={() => import('$lib/components/sections/PortfolioSection.svelte')} mode="idle">
-				 <div slot="placeholder" style="min-height:1px"></div>
+			  <div slot="placeholder" class="min-h-screen bg-neutral-800/20 animate-pulse"></div>
 			 </Lazy>
 
 	<ScrollDetector />

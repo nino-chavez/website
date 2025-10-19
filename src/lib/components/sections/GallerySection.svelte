@@ -24,7 +24,8 @@
     if (width < 640) perSlide = 1;        // Mobile: 1-up (tall)
     else if (width < 1024) perSlide = 2;  // Tablet: 2-up
     else if (width < 1440) perSlide = 2;  // Desktop: favor height (2-up)
-    else perSlide = 3;                    // XL+: 3-up
+    else if (width < 1536) perSlide = 3;  // XL: 3-up
+    else perSlide = 4;                    // 2XL+: 4-up
   }
 
   // Build slides: chunk all images by perSlide
@@ -188,7 +189,7 @@
               {#each slides as group, slideIdx (slideIdx)}
                 <div class="snap-start shrink-0 w-full px-4 flex justify-center">
                   <!-- Responsive grid: 1/2/3/4 columns -->
-                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 lg:gap-6 justify-center mx-auto" style="max-width:1200px;">
+                  <div class={`grid gap-4 lg:gap-6 justify-center mx-auto grid-cols-${perSlide}`} style="max-width:1600px;">
                     {#each group as image, cardIdx (image.id)}
                       {@const globalIndex = slideIdx * perSlide + cardIdx}
                       {@const isVisible = slideIdx === index}

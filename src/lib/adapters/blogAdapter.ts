@@ -1,5 +1,65 @@
 import type { InsightArticle } from '../types';
 
+// Fallback static posts when blog is unavailable
+export const FALLBACK_BLOG_POSTS: InsightArticle[] = [
+  {
+    id: 'commerce-integration-reality',
+    title: 'When "Simple Integration" Isn\'t',
+    subtitle: 'Commerce platform field notes',
+    platform: 'Blog',
+    excerpt: 'Connecting SAP Commerce to warehouse systems sounds straightforward in the architecture deck. Then you meet the legacy ERP that thinks it\'s 1997, inventory data that updates "eventually," and business rules that exist only in someone\'s head.',
+    imageUrl: 'https://picsum.photos/seed/integration-reality/600/400',
+    link: 'https://blog.nino.photos',
+    readTime: '7 min read',
+    date: '2024-09-15',
+    category: 'Field Notes',
+    tags: ['Commerce', 'Integration', 'Reality Check', 'Legacy Systems'],
+    insights: []
+  },
+  {
+    id: 'reading-the-road',
+    title: 'Reading the Road',
+    subtitle: 'Pattern recognition in systems and surfing',
+    platform: 'Blog',
+    excerpt: 'Surfers read conditions, not predictions. Position, timing, response. Enterprise architecture operates the same way: constraint analysis over roadmap promises, deployment windows over sprint velocity.',
+    imageUrl: 'https://picsum.photos/seed/pattern-recognition/600/400',
+    link: 'https://blog.nino.photos',
+    readTime: '6 min read',
+    date: '2024-08-22',
+    category: 'Systems Thinking',
+    tags: ['Strategy', 'Pattern Recognition', 'Surfing', 'Architecture'],
+    insights: []
+  },
+  {
+    id: 'quiet-leadership',
+    title: 'Holding Up the Mirror',
+    subtitle: 'Quiet leadership in loud organizations',
+    platform: 'LinkedIn',
+    excerpt: 'Fortune 500 companies don\'t need another voice in the room. They need someone to reflect what\'s actually happening—the gaps between strategy and execution, the technical debt nobody wants to talk about, the assumptions that stopped being true three years ago.',
+    imageUrl: 'https://picsum.photos/seed/leadership/600/400',
+    link: 'https://www.linkedin.com/in/nino-chavez/',
+    readTime: '8 min read',
+    date: '2024-07-18',
+    category: 'Leadership',
+    tags: ['Enterprise', 'Strategy', 'Consulting', 'Signal'],
+    insights: []
+  },
+  {
+    id: 'ai-native-shift',
+    title: 'Answer-First Commerce',
+    subtitle: 'Rethinking assumptions in an AI-native world',
+    platform: 'Blog',
+    excerpt: 'Current work at Accenture Song: AI commerce transformation frameworks for Fortune 500 retailers. When customers expect answers instead of search results, your entire commerce platform needs rethinking—not retrofitting.',
+    imageUrl: 'https://picsum.photos/seed/ai-commerce/600/400',
+    link: 'https://blog.nino.photos',
+    readTime: '10 min read',
+    date: '2024-06-25',
+    category: 'AI Strategy',
+    tags: ['AI', 'Commerce', 'Transformation', 'Strategy'],
+    insights: []
+  }
+];
+
 export interface BlogPostMeta {
   slug: string;
   title: string;
@@ -10,6 +70,8 @@ export interface BlogPostMeta {
   featured?: boolean;
   author?: string;
   featureImage?: string;
+  featureImageWidth?: number;
+  featureImageHeight?: number;
   source?: 'linkedin' | 'mdx' | string;
   linkedinUrl?: string;
 }
@@ -43,6 +105,12 @@ let manifestCache: BlogManifest | null = null;
 let manifestCacheTimestamp = 0;
 const CACHE_DURATION = 5 * 60 * 1000;
 
+// Circuit breaker state
+let failureCount = 0;
+let circuitBreakerOpenUntil = 0;
+const MAX_FAILURES = 3;
+const CIRCUIT_BREAKER_TIMEOUT = 60 * 1000; // 1 minute
+
 async function fetchBlogManifest(): Promise<BlogManifest | null> {
   const now = Date.now();
   if (manifestCache && (now - manifestCacheTimestamp) < CACHE_DURATION) {
@@ -50,9 +118,16 @@ async function fetchBlogManifest(): Promise<BlogManifest | null> {
   }
   try {
     const isDevelopment = import.meta.env.DEV;
-    const envOrigin = (import.meta as any).env?.VITE_BLOG_ORIGIN as string | undefined;
+    // Use PUBLIC_ prefix for client-side accessible env vars in SvelteKit
+    const envOrigin = import.meta.env.PUBLIC_BLOG_ORIGIN as string | undefined;
     const defaultOrigin = isDevelopment ? 'http://localhost:3002' : 'https://blog.nino.photos';
     const blogOrigin = envOrigin || defaultOrigin;
+    
+    // Validate blog origin
+    if (!blogOrigin || (!blogOrigin.startsWith('http://') && !blogOrigin.startsWith('https://'))) {
+      console.error('[blogAdapter] Invalid blog origin:', blogOrigin);
+      return null;
+    }
     const endpoints = isDevelopment ? [
       `${blogOrigin.replace(/\/$/, '')}/manifest.json`,
       'http://localhost:3000/manifest.json',
