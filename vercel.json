@@ -6,7 +6,7 @@
     },
     {
       "source": "/blog/:path*",
-      "destination": "https://signal-dispatch-blog.vercel.app/blog/:path*"
+      "destination": "https://signal-dispatch-blog.vercel.app/:path*"
     },
     {
       "source": "/gallery",
