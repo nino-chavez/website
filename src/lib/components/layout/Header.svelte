@@ -131,9 +131,9 @@
           "
         >
           <img
-            src="{base}/brand/logo.svg"
+            src="{base}/brand/logo.png"
             alt="Nino Chavez Logo"
-            class="w-10 h-10 transition-all duration-300 ease-out group-hover:scale-110 filter drop-shadow-lg"
+            class="w-10 h-10 transition-all duration-300 ease-out group-hover:scale-110 filter drop-shadow-lg rounded-full"
             style="filter: drop-shadow(0 4px 8px rgba(139, 92, 246, 0.3));"
           />
         </div>

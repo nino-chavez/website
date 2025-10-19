@@ -1,0 +1,229 @@
+/* Modern Animation System - 2024/2025 Web Standards */
+
+/* Base animation classes with modern easing */
+.animate-in {
+  animation: modern-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-in-stagger {
+  animation: modern-slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Modern entrance animations with natural easing */
+@keyframes modern-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modern-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll-driven section transitions */
+.section-transition {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-enter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-exit {
+  opacity: 0.7;
+  transform: translateY(-1rem) scale(0.98);
+}
+
+/* Modern hover micro-interactions */
+.modern-hover {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.modern-hover:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
+}
+
+/* Enhanced card animations */
+.card-entrance {
+  animation: card-slide-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes card-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem) rotateX(10deg);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(-0.5rem) rotateX(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+/* Text reveal animations */
+.text-reveal-fade {
+  animation: text-fade-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.text-reveal-slide {
+  animation: text-slide-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes text-fade-in {
+  0% {
+    opacity: 0;
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes text-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Parallax and scroll effects */
+.parallax-layer {
+  will-change: transform;
+}
+
+.scroll-fade {
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* Modern loading states */
+.skeleton-loading {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 2s infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Morphing transitions between sections */
+.morphing-background {
+  transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              border-radius 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced focus states for accessibility */
+.modern-focus:focus-visible {
+  outline: 2px solid rgba(139, 92, 246, 0.8);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.2);
+  transition: all 0.15s ease-out;
+}
+
+/* Spring-like button animations */
+.spring-button {
+  transition: transform 0.15s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.spring-button:active {
+  transform: scale(0.95);
+}
+
+/* Staggered list animations */
+.stagger-container > * {
+  animation: stagger-item 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+.stagger-container > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-container > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-container > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-container > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-container > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-container > *:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes stagger-item {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-in,
+  .animate-in-stagger,
+  .card-entrance,
+  .text-reveal-fade,
+  .text-reveal-slide,
+  .stagger-container > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .modern-hover,
+  .spring-button,
+  .section-transition,
+  .scroll-fade,
+  .morphing-background {
+    transition: none;
+  }
+  
+  .skeleton-loading {
+    animation: none;
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .modern-hover:hover {
+    box-shadow: 0 0 0 3px currentColor;
+  }
+  
+  .modern-focus:focus-visible {
+    outline: 3px solid currentColor;
+    box-shadow: none;
+  }
+}

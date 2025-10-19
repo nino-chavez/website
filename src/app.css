@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Modern Animation System */
+@import './lib/styles/modernAnimations.css';
+
 @layer base {
 	html {
 		scroll-behavior: smooth;

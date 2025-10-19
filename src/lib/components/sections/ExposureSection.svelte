@@ -8,6 +8,7 @@
   import { fade, fly } from 'svelte/transition';
   import { exposureCopy } from '$lib/copy';
   import { scrollProgress } from '$lib/actions/scrollProgress';
+  import { textReveal } from '$lib/actions/modernTransitions.js';
 
   // Receive SSR data from +page.server.ts
   export let data: {
@@ -105,10 +106,22 @@
       {/if}
       
       <!-- Title Section -->
-      <div class="max-w-4xl mx-auto px-6 text-center mb-6">
-        <p class="text-violet-400 text-sm font-semibold uppercase tracking-wide mb-2">{exposureCopy.kicker}</p>
-        <h2 class="text-4xl md:text-5xl font-black text-white mb-2">{exposureCopy.heading1}</h2>
-        <p class="text-xl text-white/70">{exposureCopy.heading2}</p>
+      <div class="max-w-4xl mx-auto px-6 text-center mb-6 title-section" class:entered>
+        <p 
+          class="text-violet-400 text-sm font-semibold uppercase tracking-wide mb-2 title-kicker"
+        >
+          {exposureCopy.kicker}
+        </p>
+        <h2 
+          class="text-4xl md:text-5xl font-black text-white mb-2 title-heading"
+        >
+          {exposureCopy.heading1}
+        </h2>
+        <p 
+          class="text-xl text-white/70 title-subtitle"
+        >
+          {exposureCopy.heading2}
+        </p>
       </div>
       
       {#if hasArticles}
@@ -153,5 +166,53 @@
 
   .scannable-typography p {
     max-width: 65ch;
+  }
+  
+  /* Title animations */
+  .title-section {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .title-section.entered {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .title-kicker,
+  .title-heading,
+  .title-subtitle {
+    opacity: 0;
+    transform: translateY(1rem);
+    animation: titleSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .entered .title-kicker { animation-delay: 0.2s; }
+  .entered .title-heading { animation-delay: 0.4s; }
+  .entered .title-subtitle { animation-delay: 0.6s; }
+  
+  @keyframes titleSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .title-section,
+    .title-kicker,
+    .title-heading,
+    .title-subtitle {
+      opacity: 1;
+      transform: none;
+      animation: none;
+      transition: none;
+    }
   }
 </style>
