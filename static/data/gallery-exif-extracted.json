@@ -1,46 +1,6 @@
 {
   "images": [
     {
-      "id": "portfolio-01",
-      "filename": "portfolio-01.jpg",
-      "exif": {
-        "make": "SONY",
-        "model": "ILCE-7M4",
-        "lens": "FE 85mm F1.4 GM II",
-        "iso": 4000,
-        "aperture": "f/2",
-        "shutterSpeed": "1/1600",
-        "focalLength": "85mm",
-        "focalLength35mm": 127,
-        "dateTaken": "2025-03-22T20:58:23.000Z",
-        "gps": null,
-        "whiteBalance": "Auto",
-        "flash": "Flash mode Flash did not fire, compulsory flash mode",
-        "meteringMode": "Mode Pattern",
-        "exposureMode": "Mode Manual",
-        "exposureProgram": "Program Manual",
-        "width": null,
-        "height": null,
-        "colorSpace": "sRGB",
-        "_raw": {
-          "FNumber": 2,
-          "ExposureTime": 0.000625,
-          "FocalLength": 85,
-          "ISO": 4000
-        }
-      },
-      "metadata": {
-        "camera": "SONY ILCE-7M4",
-        "lens": "FE 85mm F1.4 GM II",
-        "iso": 4000,
-        "aperture": "f/2",
-        "shutterSpeed": "1/1600",
-        "focalLength": "85mm",
-        "dateTaken": "2025-03-22T20:58:23.000Z",
-        "location": null
-      }
-    },
-    {
       "id": "portfolio-02",
       "filename": "portfolio-02.jpg",
       "exif": {

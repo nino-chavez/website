@@ -13,9 +13,9 @@ export const focusCopy = {
 };
 
 export const exposureCopy = {
-  kicker: 'Essays',
-  heading1: 'Essays and Field Notes',
-  heading2: 'Long-form writing on systems, AI, and enterprise architecture',
+  kicker: 'Field Notes',
+  heading1: 'Systems & Strategy',
+  heading2: 'What you learn building enterprise infrastructure that processes billions',
   intro:
     'Long-form essays and technical field notes from 25 years in enterprise architecture.\nLessons learned, systems built, and the road ahead.',
   keyInsightsLabel: 'Key Insights',
@@ -65,11 +65,14 @@ export const portfolioCopy = {
   ctaHeading: 'Ready to Connect?',
   emailButtonLabel: 'nino@signalx.studio',
   linkedInButtonLabel: 'LinkedIn Profile',
+  calendarButtonLabel: 'Schedule a Call',
+  githubPersonalButtonLabel: 'GitHub',
+  githubStudioButtonLabel: 'Signal-X-Studio',
   // Additional info
   locationLabel: 'Location',
-  locationValue: 'San Francisco Bay Area',
+  locationValue: 'Chicago',
   timezoneLabel: 'Timezone',
-  timezoneValue: 'PST (UTC-8)',
+  timezoneValue: 'Central',
   responseLabel: 'Response Time',
   responseValue: 'Within 24 hours'
 };

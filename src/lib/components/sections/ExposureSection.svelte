@@ -1,14 +1,10 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import { currentSection, reducedMotion } from '$lib/stores/gameFlow';
   import { inView } from '$lib/actions/inView';
   import type { InsightArticle } from '$lib/types';
-  import TextReveal from '$lib/components/TextReveal.svelte';
   import EssaysEditorialGrid from '$lib/components/sections/EssaysEditorialGrid.svelte';
-  import { fade, fly } from 'svelte/transition';
   import { exposureCopy } from '$lib/copy';
   import { scrollProgress } from '$lib/actions/scrollProgress';
-  import { textReveal } from '$lib/actions/modernTransitions.js';
 
   // Receive SSR data from +page.server.ts
   export let data: {
@@ -17,29 +13,9 @@
     errorMessage?: string;
   };
 
-  let currentArticleIndex = 0;
-  let slideDirection: 'left' | 'right' | null = null;
-  let selectedFilter = '';
-
   // Use server-loaded data
   $: articles = data.blogPosts || [];
   $: hasError = data.blogStatus === 'error';
-
-  // Compute unique filters (categories) from articles
-  $: filters = Array.from(
-    new Set(
-      articles.flatMap(a => a.category ? [a.category] : []).filter(Boolean)
-    )
-  );
-
-  // Filtered articles based on selectedFilter
-  $: filteredArticles = selectedFilter
-    ? articles.filter(a => a.category === selectedFilter)
-    : articles;
-
-  function handleFilterSelect(filter: string) {
-    selectedFilter = filter;
-  }
 
   // Entry transition state
   let entered = false;
@@ -48,46 +24,26 @@
 
   // Ensure articles is always a valid array
   $: hasArticles = Array.isArray(articles) && articles.length > 0;
-  $: currentArticle = hasArticles ? articles[currentArticleIndex] : null;
+
+  // Animation calculations based on scroll progress
+  // Push/pull: slide up effect as section enters (0 to -20px translateY)
+  $: translateY = rm ? 0 : Math.max(-20, -20 * (1 - progress));
+
+  // Scale: subtle scale from 0.98 to 1.0
+  $: scale = rm ? 1 : 0.98 + (progress * 0.02);
 
   // Section enter handler
   function onSectionEnter() {
     currentSection.set('exposure');
     entered = true;
   }
-
-  // Navigation functions
-  function handleNextArticle() {
-    slideDirection = 'right';
-    setTimeout(() => {
-      currentArticleIndex = (currentArticleIndex + 1) % articles.length;
-      slideDirection = null;
-    }, 250);
-  }
-
-  function handlePreviousArticle() {
-    slideDirection = 'left';
-    setTimeout(() => {
-      currentArticleIndex = currentArticleIndex === 0 ? articles.length - 1 : currentArticleIndex - 1;
-      slideDirection = null;
-    }, 250);
-  }
-
-  // Keyboard navigation
-  onMount(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') handlePreviousArticle();
-      if (e.key === 'ArrowRight') handleNextArticle();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  });
 </script>
 
 <section
   id="exposure"
   data-section="exposure"
-  class="relative bg-gradient-to-br from-slate-900 via-neutral-800 to-slate-900 py-20"
+  class="relative bg-gradient-to-br from-slate-900 via-neutral-800 to-slate-900 py-20 transition-all duration-300"
+  style="transform: translateY({translateY}px) scale({scale});"
   use:inView={{ threshold: 0.3, once: true }}
   use:scrollProgress={{ offsetTop: 120, offsetBottom: 120, disabled: rm }}
   on:enter={onSectionEnter}
@@ -106,31 +62,20 @@
       {/if}
       
       <!-- Title Section -->
-      <div class="max-w-4xl mx-auto px-6 text-center mb-6 title-section" class:entered>
-        <p 
-          class="text-violet-400 text-sm font-semibold uppercase tracking-wide mb-2 title-kicker"
-        >
+      <div class="max-w-7xl mx-auto px-4 md:px-8 mb-6 title-section" class:entered>
+        <p class="text-violet-400 text-xs md:text-sm font-semibold uppercase tracking-wide mb-2 title-kicker">
           {exposureCopy.kicker}
         </p>
-        <h2 
-          class="text-4xl md:text-5xl font-black text-white mb-2 title-heading"
-        >
+        <h2 class="text-4xl md:text-5xl font-black text-white mb-2 leading-tight title-heading">
           {exposureCopy.heading1}
         </h2>
-        <p 
-          class="text-xl text-white/70 title-subtitle"
-        >
+        <p class="text-base md:text-lg text-white/70 max-w-4xl leading-relaxed title-subtitle">
           {exposureCopy.heading2}
         </p>
       </div>
       
       {#if hasArticles}
-        <EssaysEditorialGrid
-          articles={filteredArticles}
-          filters={filters}
-          selectedFilter={selectedFilter}
-          onFilterSelect={handleFilterSelect}
-        />
+        <EssaysEditorialGrid articles={articles} />
       {:else}
         <div class="flex flex-col items-center justify-center min-h-[300px] text-center">
           <h3 class="text-2xl font-bold text-white/80 mb-2">No essays available</h3>

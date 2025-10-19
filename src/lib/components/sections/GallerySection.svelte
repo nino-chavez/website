@@ -113,7 +113,7 @@
 <section
   id="gallery"
   data-section="gallery"
-  class="relative min-h-screen flex items-center justify-center bg-neutral-900"
+  class="relative bg-neutral-900 pt-16 md:pt-20 pb-20 md:pb-24"
   use:inView={{ threshold: 0.3, once: true }}
   on:enter={onSectionEnter}
   aria-label="Gallery section - Photography portfolio"
@@ -121,14 +121,15 @@
   {#if entered}
       <div
         in:fly={{ y: 32, duration: 700, opacity: 0.2 }}
-        class="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 md:px-8 py-10 md:py-12 lg:py-14"
+        class="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 md:px-8 py-6 md:py-8"
       >
-      <div class="text-center mb-8 md:mb-10">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-white/95 mb-2">
-          Photography
+      <div>
+        <p class="text-violet-400 text-xs md:text-sm font-semibold uppercase tracking-wide mb-2">Photography</p>
+        <h2 class="text-4xl md:text-5xl font-black text-white mb-2 leading-tight">
+          Visual Stories
         </h2>
-        <p class="text-base md:text-lg text-white/70 max-w-2xl mx-auto">
-          Capturing moments through the lens of action sports and urban exploration
+        <p class="text-base md:text-lg text-white/70 max-w-4xl leading-relaxed mb-4">
+          Action sports and urban landscapes captured through the lens
         </p>
       </div>
 
@@ -180,7 +181,7 @@
           <div
             bind:this={containerRef}
             on:scroll={handleScroll}
-            class="overflow-x-auto no-scrollbar snap-x snap-mandatory w-full py-4 md:py-6"
+            class="overflow-x-auto no-scrollbar snap-x snap-mandatory w-full"
             style="scroll-behavior: smooth; scroll-snap-type: x proximity;"
             aria-roledescription="carousel"
             aria-label="Photography portfolio gallery"
@@ -194,13 +195,7 @@
                       {@const globalIndex = slideIdx * perSlide + cardIdx}
                       {@const isVisible = slideIdx === index}
 
-                      <div
-                        class="opacity-0 translate-y-16 scale-90 transition-all duration-600 ease-out"
-                        class:opacity-100={isVisible}
-                        class:translate-y-0={isVisible}
-                        class:scale-100={isVisible}
-                        style="transition-delay: {cardIdx * 150}ms;"
-                      >
+                      <div>
                         <button
                           class="relative group overflow-hidden rounded-xl shadow-lg bg-neutral-800 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full"
                           on:click={() => openModal(image.id)}
@@ -210,7 +205,7 @@
                             src={`${base}/images/gallery/${image.filename}`}
                             alt={image.alt || 'Gallery image'}
                             class="w-full aspect-[4/5] sm:aspect-[3/4] lg:aspect-auto lg:h-[64vh] xl:h-[68vh] 2xl:h-[72vh] object-cover group-hover:scale-110 transition-transform duration-500"
-                            loading="lazy"
+                            loading={slideIdx === 0 ? 'eager' : 'lazy'}
                             decoding="async"
                           />
 

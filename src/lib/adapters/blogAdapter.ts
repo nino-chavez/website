@@ -14,7 +14,56 @@ export const FALLBACK_BLOG_POSTS: InsightArticle[] = [
     date: '2024-09-15',
     category: 'Field Notes',
     tags: ['Commerce', 'Integration', 'Reality Check', 'Legacy Systems'],
-    insights: []
+    insights: [],
+    content: `
+      <p>The architecture diagram shows two clean boxes connected by a single line labeled "API". Everyone nods in the meeting. The timeline looks reasonable. The integration seems straightforward.</p>
+
+      <p>Then implementation starts.</p>
+
+      <h2>The Reality Gap</h2>
+
+      <p>You're connecting a modern SAP Commerce platform to a warehouse management system that was cutting-edge in 1997. The WMS speaks FTP and fixed-width files. Your commerce platform expects JSON over HTTPS with OAuth2. The diagram's single line just became three adapters, two message queues, and a transformation layer that needs to handle 47 different edge cases.</p>
+
+      <p><strong>The inventory data?</strong> It updates "eventually." Sometimes in real-time. Sometimes in 6-hour batches. Sometimes never, because someone manually overrode it in the WMS and forgot to tell anyone.</p>
+
+      <h2>The Invisible Business Rules</h2>
+
+      <p>Here's what kills integration timelines: undocumented business logic that exists only in people's heads.</p>
+
+      <ul>
+        <li>"Oh, we always show that SKU as in-stock, even when it's not—customers get mad otherwise"</li>
+        <li>"Vendor X items need a 48-hour buffer because their shipping is unreliable"</li>
+        <li>"If the warehouse code starts with 'R', multiply the lead time by 2.5"</li>
+        <li>"We promised customer service they could override anything, so there's a spreadsheet..."</li>
+      </ul>
+
+      <p>None of this is in the requirements doc. All of it is critical to the business.</p>
+
+      <h2>What Actually Works</h2>
+
+      <p>After doing this enough times, here's what I've learned:</p>
+
+      <p><strong>Map the human workflows first.</strong> The integration isn't connecting systems—it's connecting how people work. Talk to the warehouse manager, the customer service lead, and the person who's been here 15 years and "just knows how things work."</p>
+
+      <p><strong>Build for the exceptions, not the happy path.</strong> The architecture diagram shows the ideal flow. Build for split shipments, cancelled backorders, inventory corrections, and the dreaded "customer already called and we told them it shipped."</p>
+
+      <p><strong>Version everything.</strong> That inventory feed format? It will change. Build transformation layers that can handle multiple versions simultaneously. Future you will thank current you.</p>
+
+      <h2>The Truth About "Simple" Integrations</h2>
+
+      <p>There's no such thing. Every integration is a negotiation between:</p>
+
+      <ul>
+        <li>What the systems can technically do</li>
+        <li>What the business actually needs</li>
+        <li>What the existing humans and processes expect</li>
+        <li>What you can reasonably build and maintain</li>
+      </ul>
+
+      <p>The integrations that work aren't the ones with the cleanest architecture diagrams. They're the ones that acknowledge reality—messy data, evolving requirements, and the fact that somewhere, someone will always need to override the rules.</p>
+
+      <p>Build for that world, not the one in the diagram.</p>
+    `
   },
   {
     id: 'reading-the-road',
@@ -117,23 +166,16 @@ async function fetchBlogManifest(): Promise<BlogManifest | null> {
     return manifestCache;
   }
   try {
-    const isDevelopment = import.meta.env.DEV;
     // Use PUBLIC_ prefix for client-side accessible env vars in SvelteKit
     const envOrigin = import.meta.env.PUBLIC_BLOG_ORIGIN as string | undefined;
-    const defaultOrigin = isDevelopment ? 'http://localhost:3002' : 'https://blog.nino.photos';
-    const blogOrigin = envOrigin || defaultOrigin;
+    const blogOrigin = envOrigin || 'https://blog.nino.photos';
     
     // Validate blog origin
     if (!blogOrigin || (!blogOrigin.startsWith('http://') && !blogOrigin.startsWith('https://'))) {
       console.error('[blogAdapter] Invalid blog origin:', blogOrigin);
       return null;
     }
-    const endpoints = isDevelopment ? [
-      `${blogOrigin.replace(/\/$/, '')}/manifest.json`,
-      'http://localhost:3000/manifest.json',
-      'http://127.0.0.1:3002/manifest.json',
-      'http://127.0.0.1:3000/manifest.json',
-    ] : [
+    const endpoints = [
       `${blogOrigin.replace(/\/$/, '')}/manifest.json`,
       `${blogOrigin.replace(/\/$/, '')}/api/manifest`,
     ];
@@ -152,16 +194,12 @@ async function fetchBlogManifest(): Promise<BlogManifest | null> {
           if (isBlogManifest(data)) {
             manifestCache = data;
             manifestCacheTimestamp = now;
-            if (isDevelopment) {
-              console.info('[blogAdapter] Loaded manifest from', endpoint);
-            }
+            console.info('[blogAdapter] Loaded manifest from', endpoint);
             return data;
           }
         }
       } catch (e) {
-        if (isDevelopment) {
-          console.warn('[blogAdapter] Failed endpoint, trying next:', endpoint, e);
-        }
+        console.warn('[blogAdapter] Failed endpoint, trying next:', endpoint, e);
         continue;
       }
     }

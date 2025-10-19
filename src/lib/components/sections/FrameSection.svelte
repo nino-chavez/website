@@ -18,6 +18,13 @@
   $: rm = $reducedMotion; // convenience alias
   let gridVisible = false; // trigger additional projects entrance
 
+  // Animation calculations based on scroll progress
+  // Push/pull: slide up effect as section enters (0 to -20px translateY)
+  $: translateY = rm ? 0 : Math.max(-20, -20 * (1 - progress));
+
+  // Scale: subtle scale from 0.98 to 1.0
+  $: scale = rm ? 1 : 0.98 + (progress * 0.02);
+
   function getProjectIconSVG(category: string) {
     // Simple, sleek glyphs per category (placeholder for generated icons)
     const base = 'currentColor';
@@ -51,7 +58,8 @@
 <section
   id="frame"
   data-section="frame"
-  class="relative bg-gradient-to-br from-neutral-900 via-slate-800 to-neutral-900 pb-48 md:pb-56"
+  class="relative bg-gradient-to-br from-neutral-900 via-slate-800 to-neutral-900 pb-20 md:pb-24 transition-all duration-300"
+  style="transform: translateY({translateY}px) scale({scale});"
   use:inView={{ threshold: 0.3, once: true }}
   use:scrollProgress={{ offsetTop: 120, offsetBottom: 120, disabled: rm }}
   on:enter={onSectionEnter}
@@ -63,29 +71,24 @@
       in:fly={{ y: rm ? 0 : 32, duration: rm ? 0 : 700, opacity: rm ? 1 : 0.2 }}
       class="relative z-20 flex flex-col"
     >
-      <!-- Section header -->
-      <div class="text-center py-10 md:py-14 px-4">
-        <div class="text-xs md:text-sm text-white/60 uppercase tracking-wider mb-2">{frameCopy.kicker}</div>
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-2">
-          {frameCopy.heading1}
-        </h2>
-        <p class="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-violet-400 mb-3">
-          {frameCopy.heading2}
-        </p>
-        <p class="text-base md:text-lg lg:text-xl text-white/85 max-w-4xl 2xl:max-w-5xl mx-auto leading-relaxed mb-4">
-          {#each frameCopy.subhead.split('\n') as line, i}
-            {#if i === 0}
-              {line}<br class="hidden md:inline" />
-            {:else}
-              {line}
-            {/if}
-          {/each}
-        </p>
-        <!-- Filters removed: small portfolio benefits from focused curation -->
-      </div>
-
       <!-- Project showcase -->
   <div class="relative w-full max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 md:px-6">
+        <!-- Section header -->
+        <div class="py-6 md:py-8">
+          <p class="text-violet-400 text-xs md:text-sm font-semibold uppercase tracking-wide mb-2">{frameCopy.kicker}</p>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2 leading-tight">
+            {frameCopy.heading1}
+          </h2>
+          <p class="text-base md:text-lg text-white/70 max-w-4xl leading-relaxed mb-4">
+            {#each frameCopy.subhead.split('\n') as line, i}
+              {#if i === 0}
+                {line}<br class="hidden md:inline" />
+              {:else}
+                {line}
+              {/if}
+            {/each}
+          </p>
+        </div>
         {#if PROJECTS.length > 0}
           <!-- Featured Project Hero -->
           <div class="relative block w-full min-w-full overflow-hidden mb-10 rounded-2xl bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900 pt-32 pb-16 px-8 md:px-16">
@@ -187,7 +190,8 @@
               {#if gridVisible}
                 {#each rest as project, index}
                 <div
-                  class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                  class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl project-card"
+                  style="animation-delay: {rm ? '0s' : `${index * 90}ms`};"
                   in:fly|local={{ y: rm ? 0 : 20, duration: rm ? 0 : 420, delay: rm ? 0 : index * 90, opacity: rm ? 1 : 0 }}
                 >
                   <!-- Icon header -->
@@ -255,8 +259,6 @@
         {/if}
       </div>
     </div>
-    <!-- Smooth transition fade (behind content, animated by scroll) -->
-  <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-neutral-900 to-transparent z-[-1] pointer-events-none" style={`opacity: ${rm ? 1 : Math.min(1, Math.max(0, progress))};`}></div>
   {/if}
 </section>
 
@@ -267,5 +269,27 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  /* Scale animation for project cards */
+  .project-card {
+    animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes scaleIn {
+    0% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(1.0);
+    }
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .project-card {
+      animation: none;
+      transform: none;
+    }
   }
 </style>

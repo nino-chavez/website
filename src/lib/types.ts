@@ -59,4 +59,5 @@ export interface InsightArticle {
   category?: string;
   tags?: string[];
   insights?: string[];
+  content?: string; // Full post content for featured articles
 }

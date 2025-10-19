@@ -18,12 +18,19 @@
   const exifVariants = ['minimal', 'classic', 'modern', 'instagram'];
 
   $: if (isOpen && initialImageId) {
-    currentIndex = images.findIndex(img => img.id === initialImageId) || 0;
+    const foundIndex = images.findIndex(img => img.id === initialImageId);
+    currentIndex = foundIndex !== -1 ? foundIndex : 0;
     isImageLoaded = false;
     hasImageError = false;
   }
 
   $: currentImage = images[currentIndex];
+
+  // Reset loading state when image changes
+  $: if (currentImage) {
+    isImageLoaded = false;
+    hasImageError = false;
+  }
 
   function close() {
     dispatch('close');
@@ -115,15 +122,28 @@
     aria-label="Close image viewer"
   ></button>
 
-  <div 
-    class="relative z-10 w-full h-full flex items-center justify-center" 
-    bind:this={modalElement} 
-    role="dialog" 
-    aria-modal="true" 
-    aria-labelledby="gallery-modal-title" 
+  <div
+    class="relative z-10 w-full h-full flex items-center justify-center"
+    bind:this={modalElement}
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="gallery-modal-title"
     tabindex="-1"
   >
     <h2 id="gallery-modal-title" class="sr-only">Gallery image viewer</h2>
+
+    <!-- Close button -->
+    <button
+      class="absolute top-4 right-4 z-20 p-2 bg-black/60 backdrop-blur-sm text-white/70 hover:text-white rounded-full transition-all duration-200 border border-white/10 hover:border-white/30"
+      on:click|stopPropagation={close}
+      aria-label="Close image viewer (Esc)"
+      title="Close (Esc)"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
     {#if isImageLoaded && currentImage?.metadata}
       <button
         class="absolute top-4 left-4 z-10 px-3 py-2 bg-black/60 backdrop-blur-sm text-white/70 hover:text-white rounded-lg text-sm font-medium transition-all duration-200 border border-white/10 hover:border-white/30"
@@ -161,14 +181,16 @@
 
     <div class="relative max-w-4xl max-h-screen p-4">
       {#if currentImage}
-        <img
-          bind:this={imageElement}
-          src={`${base}/images/gallery/${currentImage.filename}`}
-          alt={currentImage.alt || 'Gallery image'}
-          class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-          on:load={handleImageLoad}
-          on:error={handleImageError}
-        />
+        {#key currentImage.id}
+          <img
+            bind:this={imageElement}
+            src={`${base}/images/gallery/${currentImage.filename}`}
+            alt={currentImage.alt || 'Gallery image'}
+            class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            on:load={handleImageLoad}
+            on:error={handleImageError}
+          />
+        {/key}
 
         {#if !isImageLoaded && !hasImageError}
           <div class="absolute inset-0 flex items-center justify-center bg-neutral-800 rounded-lg">
@@ -254,7 +276,7 @@
               </div>
             </div>
           {:else if exifOverlayVariant === 'modern'}
-            <div class="absolute bottom-4 left-4 right-4 bg-gradient-to-t from-black via-black/95 to-transparent pt-12 pb-6 px-8 rounded-lg">
+            <div class="absolute bottom-4 left-4 right-4 bg-gradient-to-t from-black via-black/95 to-transparent pt-12 pb-6 px-8 rounded-lg max-h-[80vh] overflow-y-auto">
               <div class="space-y-4">
                 <div class="flex items-start gap-3">
                   <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -267,7 +289,9 @@
                     <div class="text-white/70 text-sm">{currentImage.metadata.lens}</div>
                   </div>
                 </div>
-                <div class="grid grid-cols-4 gap-4">
+
+                <!-- Primary Exposure Settings -->
+                <div class="grid grid-cols-4 gap-3">
                   <div class="bg-white/5 backdrop-blur-sm rounded-lg px-3 py-2">
                     <div class="text-white/50 text-xs uppercase tracking-wider mb-1">Aperture</div>
                     <div class="text-white font-bold text-base font-mono">{currentImage.metadata.aperture}</div>
@@ -285,6 +309,49 @@
                     <div class="text-white font-bold text-base font-mono">{currentImage.metadata.focalLength}</div>
                   </div>
                 </div>
+
+                <!-- Additional EXIF Data -->
+                {#if currentImage.exif}
+                  <div class="grid grid-cols-2 gap-3">
+                    {#if currentImage.exif.whiteBalance}
+                      <div class="bg-white/5 backdrop-blur-sm rounded-lg px-3 py-2">
+                        <div class="text-white/50 text-xs uppercase tracking-wider mb-1">White Balance</div>
+                        <div class="text-white/90 text-sm font-mono">{currentImage.exif.whiteBalance}</div>
+                      </div>
+                    {/if}
+                    {#if currentImage.exif.exposureMode}
+                      <div class="bg-white/5 backdrop-blur-sm rounded-lg px-3 py-2">
+                        <div class="text-white/50 text-xs uppercase tracking-wider mb-1">Exposure Mode</div>
+                        <div class="text-white/90 text-sm font-mono">{currentImage.exif.exposureMode.replace('Mode ', '')}</div>
+                      </div>
+                    {/if}
+                    {#if currentImage.exif.meteringMode}
+                      <div class="bg-white/5 backdrop-blur-sm rounded-lg px-3 py-2">
+                        <div class="text-white/50 text-xs uppercase tracking-wider mb-1">Metering</div>
+                        <div class="text-white/90 text-sm font-mono">{currentImage.exif.meteringMode.replace('Mode ', '')}</div>
+                      </div>
+                    {/if}
+                    {#if currentImage.exif.flash}
+                      <div class="bg-white/5 backdrop-blur-sm rounded-lg px-3 py-2">
+                        <div class="text-white/50 text-xs uppercase tracking-wider mb-1">Flash</div>
+                        <div class="text-white/90 text-sm font-mono">{currentImage.exif.flash.includes('did not fire') ? 'Off' : 'On'}</div>
+                      </div>
+                    {/if}
+                    {#if currentImage.exif.focalLength35mm}
+                      <div class="bg-white/5 backdrop-blur-sm rounded-lg px-3 py-2">
+                        <div class="text-white/50 text-xs uppercase tracking-wider mb-1">35mm Equiv</div>
+                        <div class="text-white/90 text-sm font-mono">{currentImage.exif.focalLength35mm}mm</div>
+                      </div>
+                    {/if}
+                    {#if currentImage.exif.colorSpace}
+                      <div class="bg-white/5 backdrop-blur-sm rounded-lg px-3 py-2">
+                        <div class="text-white/50 text-xs uppercase tracking-wider mb-1">Color Space</div>
+                        <div class="text-white/90 text-sm font-mono">{currentImage.exif.colorSpace}</div>
+                      </div>
+                    {/if}
+                  </div>
+                {/if}
+
                 {#if currentImage.metadata.dateTaken || currentImage.metadata.location}
                   <div class="flex items-center gap-3 text-xs text-white/50 font-mono">
                     {#if currentImage.metadata.dateTaken}
@@ -311,74 +378,142 @@
               </div>
             </div>
           {:else if exifOverlayVariant === 'instagram'}
-            <div class="absolute top-0 left-0 bottom-0 w-72 bg-gradient-to-r from-black/90 via-black/70 to-transparent backdrop-blur-md flex flex-col justify-between p-8">
-              <div class="space-y-4">
-                <div class="flex items-center gap-4 text-white">
-                  <div class="w-8 h-8 flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="absolute top-0 left-0 bottom-0 w-80 bg-black/95 backdrop-blur-md flex flex-col p-6 overflow-y-auto">
+              <!-- Header: Camera & Lens -->
+              <div class="mb-6 pb-4 border-b border-white/10">
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A2 2 0 0011.172 3H8.828a2 2 0 00-1.414.586L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <div class="text-white font-semibold text-sm">{humanizeCamera(currentImage.metadata.camera)}</div>
+                    <div class="text-white/60 text-xs">{currentImage.metadata.lens}</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Primary Exposure Settings -->
+              <div class="space-y-3 mb-6">
+                <div class="text-white/40 text-xs uppercase tracking-wider font-semibold mb-3">Exposure</div>
+
+                <div class="flex items-center justify-between text-white">
+                  <div class="flex items-center gap-2 text-white/60 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
+                    <span>Aperture</span>
                   </div>
-                  <span class="text-2xl font-light tracking-wide">{currentImage.metadata.aperture}</span>
+                  <span class="font-mono font-semibold">{currentImage.metadata.aperture}</span>
                 </div>
-                <div class="flex items-center gap-3 text-white">
-                  <div class="w-8 h-8 flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                <div class="flex items-center justify-between text-white">
+                  <div class="flex items-center gap-2 text-white/60 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
+                    <span>Shutter Speed</span>
                   </div>
-                  <span class="text-2xl font-light tracking-wide">{currentImage.metadata.shutterSpeed} sec</span>
+                  <span class="font-mono font-semibold">{currentImage.metadata.shutterSpeed}</span>
                 </div>
-                <div class="flex items-center gap-3 text-white">
-                  <div class="w-8 h-8 flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                <div class="flex items-center justify-between text-white">
+                  <div class="flex items-center gap-2 text-white/60 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                     </svg>
+                    <span>ISO</span>
                   </div>
-                  <span class="text-2xl font-light tracking-wide">ISO {currentImage.metadata.iso}</span>
+                  <span class="font-mono font-semibold">{currentImage.metadata.iso}</span>
                 </div>
-                <div class="flex items-center gap-3 text-white">
-                  <div class="w-8 h-8 flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                <div class="flex items-center justify-between text-white">
+                  <div class="flex items-center gap-2 text-white/60 text-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
                     </svg>
+                    <span>Focal Length</span>
                   </div>
-                  <span class="text-2xl font-light tracking-wide">{currentImage.metadata.focalLength}</span>
+                  <span class="font-mono font-semibold">{currentImage.metadata.focalLength}</span>
                 </div>
-              </div>
-              <div class="space-y-4 text-white">
-                <div class="flex items-center gap-2 text-sm">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M4 5a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2h-1.586a1 1 0 01-.707-.293l-1.121-1.121A2 2 0 0011.172 3H8.828a2 2 0 00-1.414.586L6.293 4.707A1 1 0 015.586 5H4zm6 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
-                  </svg>
-                  <span class="font-semibold">{humanizeCamera(currentImage.metadata.camera)}</span>
-                </div>
-                <div class="flex items-center gap-2 text-sm">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span class="font-light">{currentImage.metadata.lens}</span>
-                </div>
-                <div class="h-px bg-white/20 my-3"></div>
-                {#if currentImage.metadata.dateTaken}
-                  <div class="flex items-center gap-2 text-sm font-light">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>{formatDate(currentImage.metadata.dateTaken)}</span>
-                  </div>
-                {/if}
-                {#if currentImage.metadata.location}
-                  <div class="flex items-center gap-2 text-sm font-light">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <span>{currentImage.metadata.location}</span>
+
+                {#if currentImage.exif?.focalLength35mm}
+                  <div class="flex items-center justify-between text-white">
+                    <div class="text-white/60 text-sm pl-6">35mm Equivalent</div>
+                    <span class="font-mono font-semibold">{currentImage.exif.focalLength35mm}mm</span>
                   </div>
                 {/if}
               </div>
+
+              <!-- Advanced Settings -->
+              {#if currentImage.exif}
+                <div class="space-y-3 mb-6 pb-6 border-t border-white/10 pt-6">
+                  <div class="text-white/40 text-xs uppercase tracking-wider font-semibold mb-3">Advanced</div>
+
+                  {#if currentImage.exif.exposureMode}
+                    <div class="flex items-center justify-between text-white text-sm">
+                      <span class="text-white/60">Exposure Mode</span>
+                      <span class="font-mono">{currentImage.exif.exposureMode.replace('Mode ', '')}</span>
+                    </div>
+                  {/if}
+
+                  {#if currentImage.exif.meteringMode}
+                    <div class="flex items-center justify-between text-white text-sm">
+                      <span class="text-white/60">Metering</span>
+                      <span class="font-mono">{currentImage.exif.meteringMode.replace('Mode ', '')}</span>
+                    </div>
+                  {/if}
+
+                  {#if currentImage.exif.whiteBalance}
+                    <div class="flex items-center justify-between text-white text-sm">
+                      <span class="text-white/60">White Balance</span>
+                      <span class="font-mono">{currentImage.exif.whiteBalance}</span>
+                    </div>
+                  {/if}
+
+                  {#if currentImage.exif.flash}
+                    <div class="flex items-center justify-between text-white text-sm">
+                      <span class="text-white/60">Flash</span>
+                      <span class="font-mono">{currentImage.exif.flash.includes('did not fire') ? 'Off' : 'On'}</span>
+                    </div>
+                  {/if}
+
+                  {#if currentImage.exif.colorSpace}
+                    <div class="flex items-center justify-between text-white text-sm">
+                      <span class="text-white/60">Color Space</span>
+                      <span class="font-mono">{currentImage.exif.colorSpace}</span>
+                    </div>
+                  {/if}
+                </div>
+              {/if}
+
+              <!-- Metadata: Date & Location -->
+              {#if currentImage.metadata.dateTaken || currentImage.metadata.location}
+                <div class="space-y-3 border-t border-white/10 pt-6 mt-auto">
+                  <div class="text-white/40 text-xs uppercase tracking-wider font-semibold mb-3">Details</div>
+
+                  {#if currentImage.metadata.dateTaken}
+                    <div class="flex items-center gap-2 text-white text-sm">
+                      <svg class="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <span class="font-mono">{formatDate(currentImage.metadata.dateTaken)}</span>
+                    </div>
+                  {/if}
+
+                  {#if currentImage.metadata.location}
+                    <div class="flex items-center gap-2 text-white text-sm">
+                      <svg class="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      <span>{currentImage.metadata.location}</span>
+                    </div>
+                  {/if}
+                </div>
+              {/if}
             </div>
           {/if}
         {/if}

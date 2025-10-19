@@ -107,14 +107,14 @@
 				in:fly={{ y: 32, duration: 700, opacity: 0.2 }}
 				class="relative z-20 py-16 md:py-20 lg:py-24"
 			>
-			<div class="max-w-6xl mx-auto px-6 md:px-8 lg:px-12 space-y-10 md:space-y-14">
+			<div class="max-w-7xl mx-auto px-4 md:px-8 space-y-10 md:space-y-14">
 				<!-- Section Title -->
 				<div class="transition-all duration-1000 opacity-100 translate-y-0">
-					<div class="text-base md:text-sm text-white/60 uppercase tracking-wider mb-2 md:mb-3">About</div>
-					<h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
+					<p class="text-violet-400 text-xs md:text-sm font-semibold uppercase tracking-wide mb-2">About</p>
+					<h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2 leading-tight">
 						{focusCopy.heading}
 					</h2>
-					<p class="text-base md:text-lg lg:text-xl text-white/70 leading-relaxed max-w-4xl">
+					<p class="text-base md:text-lg text-white/70 leading-relaxed max-w-4xl">
 						{focusCopy.subhead}
 					</p>
 				</div>
@@ -289,11 +289,11 @@
 			<!-- Career Timeline -->
 			<div class="relative">
 				<div
-					class="transition-all duration-1000 delay-500 opacity-100 translate-y-0 max-w-6xl mx-auto px-6 md:px-8 lg:px-12"
+					class="transition-all duration-1000 delay-500 opacity-100 translate-y-0 max-w-7xl mx-auto px-4 md:px-8"
 					data-testid="career-timeline-card"
 				>
 					<div class="bg-white/5 border border-white/5 rounded-lg p-6 md:p-8">
-						<div class="max-w-6xl lg:max-w-7xl mx-auto">
+						<div class="max-w-7xl mx-auto">
 						<!-- Current Role Highlight -->
 						{#if currentRole}
 							<div
