@@ -64,6 +64,7 @@
   on:enter={onSectionEnter}
   on:progress={(e) => (progress = e.detail.progress)}
   aria-label="Exposure section - Technical insights and articles"
+  aria-labelledby="exposure-title"
 >
   {#if entered}
     <div
@@ -73,14 +74,17 @@
       <div class="flex-1 flex items-center justify-center py-9 md:py-15">
         <div class="max-w-6xl mx-auto px-4 md:px-6">
           <!-- Section header -->
-          <div class="text-center mb-12 md:mb-20 pb-2 md:pb-4">
-            <h2 class="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3 md:mb-4 leading-tight border border-white/10 inline-block px-6 py-3 rounded-lg">
-              <TextReveal text={exposureCopy.heading1} type="words" delay={0} staggerDelay={100} />
-              <span class="block text-violet-400">
-                <TextReveal text={exposureCopy.heading2} type="words" delay={400} staggerDelay={100} />
-              </span>
+          <div class="text-center mb-10 md:mb-16">
+            <div class="inline-block mb-3 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/70 border border-white/15">
+              {exposureCopy.kicker}
+            </div>
+            <h2 id="exposure-title" class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white/95 leading-tight mb-3">
+              {exposureCopy.heading1}
             </h2>
-            <p class="text-sm md:text-base lg:text-lg text-white/70 max-w-2xl mx-auto leading-relaxed px-4">
+            <p class="text-lg md:text-xl lg:text-2xl font-semibold text-violet-300 mb-5">
+              {exposureCopy.heading2}
+            </p>
+            <p class="text-base md:text-lg lg:text-xl text-white/80 max-w-[72ch] mx-auto leading-relaxed px-4">
               {#each exposureCopy.intro.split('\n') as line, i}
                 {#if i === 0}
                   {line}<br class="hidden md:inline" />
@@ -108,7 +112,7 @@
 
             <!-- Card with slide animation -->
             <div
-              class="transition-transform duration-300 ease-in-out bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl px-6 py-7 md:px-10 md:py-8 scannable-typography high-readability w-full max-w-2xl mx-auto flex flex-col shadow-2xl min-h-[260px] md:min-h-[320px]"
+              class="transition-transform duration-300 ease-in-out bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl px-6 py-7 md:px-10 md:py-8 scannable-typography high-readability w-full max-w-3xl mx-auto flex flex-col shadow-2xl min-h-[280px] md:min-h-[340px]"
               class:translate-x-12={slideDirection === 'left'}
               class:-translate-x-12={slideDirection === 'right'}
               class:opacity-0={slideDirection !== null}

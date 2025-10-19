@@ -55,6 +55,51 @@ export const PROJECTS: Project[] = [
         },
         tags: ['Writing', 'AI', 'Architecture']
     },
+    // AI Answer Intelligence Platform
+    {
+        id: 'aiq-platform',
+        title: 'AIQ — Answer Intelligence Platform',
+        subtitle: 'Measure brand visibility in AI-generated answers',
+        description:
+            'Enterprise SaaS platform measuring how LLMs (ChatGPT, Claude, Gemini, Perplexity) cite your brand in AI-generated answers. Multi-tenant architecture with real-time analytics, cost tracking, citation intelligence, and automated competitive analysis across 2.5B daily prompts.',
+        category: 'enterprise-commerce',
+        technologies: ['Next.js 15', 'React 19', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind CSS', 'Multiple LLM APIs'],
+        featured: false,
+        imageUrl: 'https://picsum.photos/seed/aiq-platform/1200/800',
+        demo: 'https://clear-cite.vercel.app',
+        repository: 'https://github.com/signal-x-studio/aiq',
+        year: 2024,
+        status: 'live',
+        outcomes: ['Multi-LLM citation tracking', 'Real-time analytics (<100ms latency)', 'Automated competitive intelligence', 'Multi-tenant SaaS with RLS'],
+        metrics: {
+            performance: 'Realtime updates via Supabase',
+            scale: 'Enterprise multi-org platform',
+            timeline: 'Phase 15+ (Beta production)'
+        },
+        tags: ['SaaS', 'Enterprise', 'Answer Engine Optimization', 'Analytics']
+    },
+    // Commerce transformation consulting tool
+    {
+        id: 'commerce-transformation-navigator',
+        title: 'Commerce Transformation Navigator',
+        subtitle: 'Multi-mode strategic capability explorer for consultants',
+        description:
+            'Strategic presentation tool for Accenture consultants exploring agentic commerce transformation. Features 567 capabilities across 10 domains, 52 personas, 193 orchestrator agents, and interactive architecture diagrams. Supports 4 modes: Browse, Visualize, Wizard, and Present for C-suite narratives.',
+        category: 'enterprise-commerce',
+        technologies: ['React 19', 'TypeScript', 'Vite', 'Tailwind CSS v4', 'React Flow', 'Framer Motion'],
+        featured: false,
+        imageUrl: 'https://picsum.photos/seed/commerce-navigator/1200/800',
+        repository: 'https://github.com/signal-x-studio/commerce-transformation-navigator',
+        year: 2024,
+        status: 'in-progress',
+        outcomes: ['567 capabilities mapped', '4 consultant workflow modes', 'Interactive architecture visualization', 'NLP-powered semantic search'],
+        metrics: {
+            performance: 'Sub-100ms search',
+            scale: 'Enterprise consulting tool',
+            timeline: 'Phase 1 active development'
+        },
+        tags: ['Consulting', 'Agentic Commerce', 'Strategy', 'Visualization']
+    },
     // Enterprise AI governance framework
     {
         id: 'aegis-framework',
@@ -124,6 +169,57 @@ export const PROJECTS: Project[] = [
             timeline: 'Ongoing improvements'
         },
         tags: ['AI', 'Prototype']
+    },
+    // AI development workflow optimization
+    {
+        id: 'agent-os-workflow-system',
+        title: 'Agent‑OS Workflow System',
+        subtitle: '3‑mode implementation framework for AI agents',
+        description:
+            'Configurable workflow system with direct, selective, and thorough modes for AI‑assisted development. Delivers 3.5x faster implementation and 73% token savings while maintaining production quality standards.',
+        category: 'ai-native-systems',
+        technologies: ['YAML', 'Documentation', 'Workflow Design'],
+        featured: false,
+        imageUrl: 'https://picsum.photos/seed/agent-workflow/1200/800',
+        link: 'https://github.com/signal-x-studio/agent-os-workflow-system',
+        repository: 'https://github.com/signal-x-studio/agent-os-workflow-system',
+        year: 2024,
+        status: 'completed',
+        outcomes: ['3.5x faster delivery vs baseline', '73% token reduction', 'Same quality (WCAG AA, 60fps)'],
+        metrics: {
+            performance: '3.5x velocity improvement',
+            scale: 'Enterprise‑ready framework',
+            timeline: 'Production‑validated'
+        },
+        tags: ['AI Workflow', 'Developer Tools', 'Efficiency']
+    }
+    ,
+    // AI-accelerated photo gallery app
+    {
+        id: 'gallery-app',
+        title: 'Gallery — AI-Accelerated Photo App',
+        subtitle: 'Rapid photo gallery with reference API integration',
+        description:
+            'Photo gallery app built with accelerated development by referencing the SmugMug API reference app. Features fast image browsing, EXIF overlays, and modern UI. Demonstrates how internal reference implementations can dramatically speed up new product delivery.',
+        category: 'ai-native-systems',
+        technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'EXIF.js'],
+        featured: false,
+        imageUrl: 'https://picsum.photos/seed/gallery-app/1200/800',
+        repository: 'https://github.com/nino-chavez/gallery',
+        year: 2024,
+        status: 'in-progress',
+        outcomes: [
+            'Development velocity: 2x faster by leveraging internal reference',
+            'EXIF-aware gallery modal',
+            'Modern, responsive UI',
+            'Demonstrates value of reference architectures'
+        ],
+        metrics: {
+            performance: 'Instant image loads (optimized)',
+            scale: 'Personal and client-ready',
+            timeline: 'Accelerated by SmugMug reference app'
+        },
+        tags: ['Gallery', 'AI-accelerated', 'Reference Implementation', 'React']
     }
 ];
 

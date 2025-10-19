@@ -21,10 +21,10 @@
   // Responsive slide count
   function updatePerSlide() {
     const width = window.innerWidth;
-    if (width < 640) perSlide = 1;       // Mobile: 1-up
+    if (width < 640) perSlide = 1;        // Mobile: 1-up (tall)
     else if (width < 1024) perSlide = 2;  // Tablet: 2-up
-    else if (width < 1536) perSlide = 3;  // Desktop: 3-up
-    else perSlide = 4;                    // XL+: 4-up
+    else if (width < 1440) perSlide = 2;  // Desktop: favor height (2-up)
+    else perSlide = 3;                    // XL+: 3-up
   }
 
   // Build slides: chunk all images by perSlide
@@ -120,13 +120,13 @@
   {#if entered}
       <div
         in:fly={{ y: 32, duration: 700, opacity: 0.2 }}
-        class="max-w-7xl mx-auto px-4 md:px-8 py-20"
+        class="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 md:px-8 py-10 md:py-12 lg:py-14"
       >
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-6xl font-black text-white mb-6">
+      <div class="text-center mb-8 md:mb-10">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-white/95 mb-2">
           Photography
         </h2>
-        <p class="text-xl text-white/70 max-w-2xl mx-auto">
+        <p class="text-base md:text-lg text-white/70 max-w-2xl mx-auto">
           Capturing moments through the lens of action sports and urban exploration
         </p>
       </div>
@@ -150,7 +150,7 @@
             <button
               on:click={handlePrev}
               disabled={index === 0}
-              class="absolute left-2 lg:-left-12 top-1/2 -translate-y-1/2 z-20 text-white/80 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-violet-500 rounded-full p-2 transition-all duration-200"
+              class="absolute left-1 md:left-2 top-1/2 -translate-y-1/2 z-20 text-white/80 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-violet-500 rounded-full p-1.5 md:p-2 transition-all duration-200"
               aria-label="Previous images"
               class:scale-110={false}
               class:-translate-x-1={false}
@@ -163,7 +163,7 @@
             <button
               on:click={handleNext}
               disabled={index === slides.length - 1}
-              class="absolute right-2 lg:-right-12 top-1/2 -translate-y-1/2 z-20 text-white/80 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-violet-500 rounded-full p-2 transition-all duration-200"
+              class="absolute right-1 md:right-2 top-1/2 -translate-y-1/2 z-20 text-white/80 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-violet-500 rounded-full p-1.5 md:p-2 transition-all duration-200"
               aria-label="Next images"
               class:scale-110={false}
               class:translate-x-1={false}
@@ -179,16 +179,16 @@
           <div
             bind:this={containerRef}
             on:scroll={handleScroll}
-            class="overflow-x-auto no-scrollbar snap-x snap-mandatory w-full py-8"
+            class="overflow-x-auto no-scrollbar snap-x snap-mandatory w-full py-4 md:py-6"
             style="scroll-behavior: smooth; scroll-snap-type: x proximity;"
             aria-roledescription="carousel"
             aria-label="Photography portfolio gallery"
           >
             <div class="flex w-full">
               {#each slides as group, slideIdx (slideIdx)}
-                <div class="snap-start shrink-0 w-full px-4">
+                <div class="snap-start shrink-0 w-full px-4 flex justify-center">
                   <!-- Responsive grid: 1/2/3/4 columns -->
-                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 lg:gap-6">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 lg:gap-6 justify-center mx-auto" style="max-width:1200px;">
                     {#each group as image, cardIdx (image.id)}
                       {@const globalIndex = slideIdx * perSlide + cardIdx}
                       {@const isVisible = slideIdx === index}
@@ -208,7 +208,7 @@
                           <img
                             src={`${base}/images/gallery/${image.filename}`}
                             alt={image.alt || 'Gallery image'}
-                            class="w-full aspect-[3/4] object-cover group-hover:scale-110 transition-transform duration-500"
+                            class="w-full aspect-[4/5] sm:aspect-[3/4] lg:aspect-auto lg:h-[64vh] xl:h-[68vh] 2xl:h-[72vh] object-cover group-hover:scale-110 transition-transform duration-500"
                             loading="lazy"
                             decoding="async"
                           />
@@ -245,7 +245,7 @@
 
           <!-- Progress indicator dots -->
           {#if slides.length > 1}
-            <div class="mt-6 flex items-center justify-center gap-2">
+            <div class="mt-3 md:mt-4 flex items-center justify-center gap-2">
               {#each slides as _, i}
                 <button
                   on:click={() => scrollToIndex(i)}
@@ -259,7 +259,7 @@
 
           <!-- Slide counter -->
           {#if slides.length > 1}
-            <div class="mt-4 text-center">
+            <div class="mt-2 text-center">
               <p class="text-sm text-white/60 font-mono">
                 {index + 1} / {slides.length}
               </p>

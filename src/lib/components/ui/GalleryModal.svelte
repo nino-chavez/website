@@ -97,21 +97,33 @@
     document.addEventListener('keydown', handleKeydown);
     return () => document.removeEventListener('keydown', handleKeydown);
   });
+
+  // Focus modal when it opens for accessibility
+  $: if (isOpen && modalElement) {
+    // Defer to next tick so element is in DOM
+    setTimeout(() => {
+      try { modalElement.focus(); } catch {}
+    }, 0);
+  }
 </script>
 
 <div class="fixed inset-0 z-50" style="display: {isOpen ? 'block' : 'none'}">
-  <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" on:click={close} aria-hidden="true"></div>
+  <button
+    type="button"
+    class="absolute inset-0 bg-black/90 backdrop-blur-sm"
+    on:click={close}
+    aria-label="Close image viewer"
+  ></button>
 
   <div 
     class="relative z-10 w-full h-full flex items-center justify-center" 
     bind:this={modalElement} 
     role="dialog" 
     aria-modal="true" 
-    aria-label="Gallery image viewer" 
-    on:click|stopPropagation
-    on:keydown={(e) => e.key === 'Enter' && e.stopPropagation()}
+    aria-labelledby="gallery-modal-title" 
     tabindex="-1"
   >
+    <h2 id="gallery-modal-title" class="sr-only">Gallery image viewer</h2>
     {#if isImageLoaded && currentImage?.metadata}
       <button
         class="absolute top-4 left-4 z-10 px-3 py-2 bg-black/60 backdrop-blur-sm text-white/70 hover:text-white rounded-lg text-sm font-medium transition-all duration-200 border border-white/10 hover:border-white/30"

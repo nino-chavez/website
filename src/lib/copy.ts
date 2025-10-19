@@ -13,8 +13,9 @@ export const focusCopy = {
 };
 
 export const exposureCopy = {
-  heading1: 'Essays & Field Notes',
-  heading2: 'Signal Dispatch',
+  kicker: 'Essays',
+  heading1: 'Essays and Field Notes',
+  heading2: 'Long-form writing on systems, AI, and enterprise architecture',
   intro:
     'Long-form essays and technical field notes from 25 years in enterprise architecture.\nLessons learned, systems built, and the road ahead.',
   keyInsightsLabel: 'Key Insights',
