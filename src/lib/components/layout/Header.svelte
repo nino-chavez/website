@@ -160,7 +160,7 @@
         <div
           class="absolute -bottom-1 left-0 h-0.5 w-0 group-hover:w-full transition-all duration-300"
           style="background: linear-gradient(90deg, #f97316 0%, #8b5cf6 100%);"
-        />
+        ></div>
       </button>
 
       <!-- Technical HUD Navigation -->

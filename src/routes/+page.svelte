@@ -46,7 +46,7 @@ async function handleNavigate(sectionId) {
 </svelte:head>
 
 <main id="main-content" class="relative">
-	<Header onNavigate={handleNavigate} />
+	<Header onNavigate={handleNavigate}></Header>
 
 	 <HeroSection />
 
@@ -73,5 +73,5 @@ async function handleNavigate(sectionId) {
 			 </Lazy>
 
 	<ScrollDetector />
-	<Footer />
+	<Footer></Footer>
 </main>

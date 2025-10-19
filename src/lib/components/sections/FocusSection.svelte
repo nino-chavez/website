@@ -200,11 +200,11 @@
 												{currentCapability.domain.area}
 											</h4>
 										</div>
-										<div class={`w-4 h-4 rounded-full ${
-											currentCapability.focusArea.color === 'violet' ? 'bg-violet-400' :
-											currentCapability.focusArea.color === 'cyan' ? 'bg-cyan-400' :
-											currentCapability.focusArea.color === 'green' ? 'bg-green-400' : 'bg-gray-400'
-										}`} />
+												<div class={`w-4 h-4 rounded-full ${
+													currentCapability.focusArea.color === 'violet' ? 'bg-violet-400' :
+													currentCapability.focusArea.color === 'cyan' ? 'bg-cyan-400' :
+													currentCapability.focusArea.color === 'green' ? 'bg-green-400' : 'bg-gray-400'
+												}`}></div>
 									</div>
 									
 									<p class="text-white/70 text-lg mb-8 leading-relaxed">
@@ -331,10 +331,10 @@
 								Click timeline dots or scroll to explore career progression
 							</p>
 							<div class="mt-4 w-full bg-white/10 rounded-full h-1">
-								<div
-									class="bg-gradient-to-r from-athletic-brand-violet to-violet-400 h-1 rounded-full transition-all duration-300"
-									style={`width: ${timelineScrollProgress * 100}%`}
-								/>
+										<div
+											class="bg-gradient-to-r from-athletic-brand-violet to-violet-400 h-1 rounded-full transition-all duration-300"
+											style={`width: ${timelineScrollProgress * 100}%`}
+										></div>
 							</div>
 						</div>
 
@@ -350,10 +350,10 @@
 											aria-label="Toggle details for {milestone.year}"
 											on:click={() => toggleExpand(idx)}
 										>
-											<span
-												class="block w-3 h-3 rounded-full border-2 transition-transform duration-300 group-hover:scale-125 bg-white/20 border-white/30 group-hover:bg-white/40"
-												aria-hidden="true"
-											/>
+													<span
+														class="block w-3 h-3 rounded-full border-2 transition-transform duration-300 group-hover:scale-125 bg-white/20 border-white/30 group-hover:bg-white/40"
+														aria-hidden="true"
+													></span>
 										</button>
 											<div class="text-lg font-bold mt-2 text-white">{milestone.year}</div>
 											<div class="text-xs text-white/50 mt-1 font-medium">{milestone.era}</div>

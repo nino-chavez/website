@@ -136,7 +136,7 @@
             <div
               class="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-neutral-900/95 border-l border-t border-cyan-400/30 rotate-45"
               aria-hidden="true"
-            />
+            ></div>
 
             <div class="text-xs font-mono text-orange-400 font-medium">
               {section.metric}

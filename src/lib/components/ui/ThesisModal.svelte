@@ -42,7 +42,7 @@
       tabindex="0"
       on:click={onClose}
       on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && onClose()}
-    />
+    ></div>
 
     <div
       bind:this={modalContent}

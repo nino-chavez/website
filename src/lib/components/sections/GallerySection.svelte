@@ -253,7 +253,7 @@
                   aria-label={`Go to slide ${i + 1}`}
                   class="rounded-full transition-all duration-300 {i === index ? 'bg-violet-500' : 'bg-white/30 hover:bg-white/50'}"
                   style="width: {i === index ? '40px' : '10px'}; height: 10px;"
-                />
+                ></button>
               {/each}
             </div>
           {/if}

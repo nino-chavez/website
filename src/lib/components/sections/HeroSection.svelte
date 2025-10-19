@@ -65,13 +65,13 @@ import { base } from '$app/paths';
 		/>
 	</picture>
 	<!-- Animated brand glow layered over image -->
-	<div
-		class="absolute inset-0 pointer-events-none transition-transform duration-1000 ease-out z-10"
-		style={`background: radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(139, 92, 246, 0.20), transparent 55%)`}
-	/>
+		<div
+			class="absolute inset-0 pointer-events-none transition-transform duration-1000 ease-out z-10"
+			style={`background: radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(139, 92, 246, 0.20), transparent 55%)`}
+		></div>
 
 	<!-- Subtle grid overlay for texture -->
-	<div class="absolute inset-0 pointer-events-none opacity-[0.02] z-10" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;" />
+	<div class="absolute inset-0 pointer-events-none opacity-[0.02] z-10" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
 
 	<!-- Content -->
 	<div class="relative z-20 max-w-6xl mx-auto px-6 md:px-8 lg:px-12 text-center">
@@ -155,9 +155,9 @@ import { base } from '$app/paths';
 	</div>
 
 	<!-- Floating elements for visual interest -->
-	<div class="absolute top-20 left-10 w-2 h-2 bg-violet-400/30 rounded-full animate-pulse" />
-	<div class="absolute top-40 right-20 w-3 h-3 bg-cyan-400/20 rounded-full animate-pulse delay-500" />
-	<div class="absolute bottom-32 left-1/4 w-2 h-2 bg-green-400/20 rounded-full animate-pulse delay-1000" />
+	<div class="absolute top-20 left-10 w-2 h-2 bg-violet-400/30 rounded-full animate-pulse"></div>
+	<div class="absolute top-40 right-20 w-3 h-3 bg-cyan-400/20 rounded-full animate-pulse delay-500"></div>
+	<div class="absolute bottom-32 left-1/4 w-2 h-2 bg-green-400/20 rounded-full animate-pulse delay-1000"></div>
 </section>
 
 <style>

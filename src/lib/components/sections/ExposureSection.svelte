@@ -143,31 +143,6 @@
 </section>
 
 <style>
-  .training-log-aesthetic {
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.9));
-  }
-
-  .scannable-typography {
-    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
-    line-height: 1.6;
-  }
-
-  .high-readability {
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  .scannable-typography h3,
-  .scannable-typography h4 {
-    line-height: 1.3;
-    letter-spacing: -0.02em;
-  }
-
-  .scannable-typography p {
-    max-width: 65ch;
-  }
-  
   /* Title animations */
   .title-section {
     opacity: 0;

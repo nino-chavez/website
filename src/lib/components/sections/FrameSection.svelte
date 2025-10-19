@@ -256,7 +256,7 @@
       </div>
     </div>
     <!-- Smooth transition fade (behind content, animated by scroll) -->
-    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-neutral-900 to-transparent z-[-1] pointer-events-none" style={`opacity: ${rm ? 1 : Math.min(1, Math.max(0, progress))};`} />
+  <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-neutral-900 to-transparent z-[-1] pointer-events-none" style={`opacity: ${rm ? 1 : Math.min(1, Math.max(0, progress))};`}></div>
   {/if}
 </section>
 
