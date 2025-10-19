@@ -10,7 +10,7 @@
     },
     {
       "source": "/gallery",
-      "destination": "https://nino-chavez-gallery.vercel.app"
+      "destination": "https://nino-chavez-gallery.vercel.app/gallery"
     },
     {
       "source": "/gallery/:path*",
