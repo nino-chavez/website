@@ -26,7 +26,7 @@ export const GET: RequestHandler = async () => {
 		// Professional Profiles
 		url: 'https://ninochavez.co',
 		sameAs: [
-			'https://linkedin.com/in/abelinochavez',
+			'https://linkedin.com/in/nino-chavez',
 			'https://github.com/nino-chavez'
 		],
 

@@ -89,8 +89,8 @@ async function handleNavigate(sectionId) {
 			"addressCountry": "US"
 		},
 		"sameAs": [
-			"https://linkedin.com/in/abelinochavez",
-			"https://github.com/ninocha"
+			"https://linkedin.com/in/nino-chavez",
+			"https://github.com/nino-chavez"
 		],
 		"knowsAbout": [
 			"Enterprise Architecture",

@@ -110,8 +110,13 @@ Allow: /
 # METADATA
 # ============================================================================
 
-# Sitemap location
+# Sitemap locations
+# Main site sitemap
 Sitemap: https://ninochavez.co/sitemap.xml
+# Blog sitemap (served via rewrite from signal-dispatch-blog project)
+Sitemap: https://ninochavez.co/blog/sitemap.xml
+# Gallery sitemap (served via rewrite from gallery project)
+Sitemap: https://ninochavez.co/gallery/sitemap.xml
 
 # ============================================================================
 # RATIONALE & DOCUMENTATION

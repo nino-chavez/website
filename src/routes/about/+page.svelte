@@ -305,7 +305,7 @@
 					Email: abelino.chavez@gmail.com
 				</a>
 				<a
-					href="https://linkedin.com/in/abelinochavez"
+					href="https://linkedin.com/in/nino-chavez"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="px-8 py-4 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-500/50 text-blue-300 rounded-lg transition-colors font-semibold"
