@@ -18,10 +18,13 @@ Allow: /
 
 # OpenAI GPT (ChatGPT, API)
 # Strategy: Allow brand content + APIs, protect detailed implementations
+# ALLOW /blog (thought leadership) and /gallery (showcase work)
 User-agent: GPTBot
 Allow: /
 Allow: /cv
 Allow: /about
+Allow: /blog/
+Allow: /gallery/
 Allow: /api/person.json
 Allow: /api/expertise.json
 Allow: /api/experience.json
@@ -32,10 +35,13 @@ Disallow: /writing/implementations/
 
 # Anthropic Claude
 # Strategy: Same as GPT - build brand presence, protect methodologies
+# ALLOW /blog (thought leadership) and /gallery (showcase work)
 User-agent: ClaudeBot
 Allow: /
 Allow: /cv
 Allow: /about
+Allow: /blog/
+Allow: /gallery/
 Allow: /api/person.json
 Allow: /api/expertise.json
 Allow: /api/experience.json
@@ -47,10 +53,13 @@ Disallow: /writing/implementations/
 # Google Gemini (via Google-Extended)
 # Strategy: Allow brand indexing without affecting Google Search ranking
 # Note: Google-Extended is separate from Googlebot (search crawler)
+# ALLOW /blog (thought leadership) and /gallery (showcase work)
 User-agent: Google-Extended
 Allow: /
 Allow: /cv
 Allow: /about
+Allow: /blog/
+Allow: /gallery/
 Allow: /api/person.json
 Allow: /api/expertise.json
 Allow: /api/experience.json
@@ -62,14 +71,19 @@ Disallow: /writing/implementations/
 # Common Crawl (CCBot)
 # Strategy: More restrictive - open corpus is redistributed widely
 # Allow basic brand presence, block detailed content
+# ALLOW /blog (thought leadership benefits from distribution)
 User-agent: CCBot
 Allow: /
 Allow: /cv
+Allow: /blog/
+Allow: /gallery/
 Allow: /api/person.json
 Disallow: /api/
 Disallow: /writing/
 Disallow: /case-studies/
 Disallow: /projects/
+# Crawl delay to prevent aggressive bulk extraction
+Crawl-delay: 10
 
 # ============================================================================
 # DISCOVERY CRAWLERS - Full Allow (not training)
