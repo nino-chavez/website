@@ -119,33 +119,15 @@
 					</p>
 				</div>
 
-				<!-- Hero Grid: Diagnosis + CTA (2-column on desktop, stacks on mobile) -->
-				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12" data-testid="about-narrative">
-					<!-- Left: The Diagnosis -->
+				<!-- Narrative Content -->
+				<div class="max-w-4xl" data-testid="about-narrative">
 					<div class="space-y-6">
-						<p class="text-lg md:text-xl text-white/90 leading-[1.7] max-w-prose">
+						<p class="text-lg md:text-xl text-white/90 leading-[1.7]">
 							{focusCopy.narrative1}
 						</p>
-						<p class="text-base md:text-lg text-white/80 leading-[1.8] max-w-prose">
+						<p class="text-base md:text-lg text-white/80 leading-[1.8]">
 							{focusCopy.narrative2}
 						</p>
-					</div>
-
-					<!-- Right: The Call to Action -->
-					<div class="flex items-start lg:justify-end">
-						<button
-							class="bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group w-full lg:w-auto"
-							data-testid="architect-principle-button"
-							aria-label="Read: The Architect's Principle"
-							on:click={() => (isThesisModalOpen = true)}
-						>
-							<span class="flex items-center justify-center gap-3">
-								<span>{focusCopy.cta}</span>
-								<svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
-								</svg>
-							</span>
-						</button>
 					</div>
 				</div>
 
