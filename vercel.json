@@ -9,12 +9,12 @@
       "destination": "https://signal-dispatch-blog.vercel.app/:path*"
     },
     {
-      "source": "/gallery",
-      "destination": "https://nino-chavez-gallery.vercel.app/gallery"
+      "source": "/galleries",
+      "destination": "https://nino-chavez-gallery.vercel.app/galleries"
     },
     {
-      "source": "/gallery/:path*",
-      "destination": "https://nino-chavez-gallery.vercel.app/:path*"
+      "source": "/galleries/:path*",
+      "destination": "https://nino-chavez-gallery.vercel.app/galleries/:path*"
     }
   ],
   "trailingSlash": false,
