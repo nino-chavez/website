@@ -13,7 +13,7 @@
 			client: 'Multi-Brand Specialty Retail',
 			role: 'Enterprise Architect',
 			duration: '3 years',
-			budget: '$10M+',
+			budget: '$25M',
 			team: '100+ global resources',
 			objective: 'Architected enterprise omnichannel transformation spanning 6+ brands with unified commerce platform, in-store technology ecosystem, distributed order management, and marketplace integration',
 			details: 'Led end-to-end SAP Commerce Cloud replatform with integrated POS systems, store associate mobile tools, distributed warehouse fulfillment, and marketplace capabilities. Orchestrated 50+ system integrations through MuleSoft ESB layer and Informatica-based PIM, enabling real-time inventory visibility across 2,000+ retail locations and online channels.',

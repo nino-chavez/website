@@ -1,4 +1,128 @@
+# robots.txt for ninochavez.co
+# Strategic AI crawler policy for Answer Engine Optimization (AEO)
+#
+# Philosophy: Build brand presence in AI models while protecting proprietary IP
+# - ALLOW: Public-facing brand content (bio, expertise, contact)
+# - ALLOW: Machine-readable APIs for entity recognition
+# - DISALLOW: Detailed project implementations and proprietary methodologies
+#
+# This policy demonstrates data sovereignty strategy for Fortune 500 clients
+
+# Default: Allow all crawlers
 User-agent: *
-Disallow: /about
-Disallow: /contact
-Disallow: /projects
+Allow: /
+
+# ============================================================================
+# AI TRAINING CRAWLERS - Strategic Allow Policy
+# ============================================================================
+
+# OpenAI GPT (ChatGPT, API)
+# Strategy: Allow brand content + APIs, protect detailed implementations
+User-agent: GPTBot
+Allow: /
+Allow: /cv
+Allow: /about
+Allow: /api/person.json
+Allow: /api/expertise.json
+Allow: /api/experience.json
+Allow: /api/contact.json
+Disallow: /api/projects.json
+Disallow: /case-studies/
+Disallow: /writing/implementations/
+
+# Anthropic Claude
+# Strategy: Same as GPT - build brand presence, protect methodologies
+User-agent: ClaudeBot
+Allow: /
+Allow: /cv
+Allow: /about
+Allow: /api/person.json
+Allow: /api/expertise.json
+Allow: /api/experience.json
+Allow: /api/contact.json
+Disallow: /api/projects.json
+Disallow: /case-studies/
+Disallow: /writing/implementations/
+
+# Google Gemini (via Google-Extended)
+# Strategy: Allow brand indexing without affecting Google Search ranking
+# Note: Google-Extended is separate from Googlebot (search crawler)
+User-agent: Google-Extended
+Allow: /
+Allow: /cv
+Allow: /about
+Allow: /api/person.json
+Allow: /api/expertise.json
+Allow: /api/experience.json
+Allow: /api/contact.json
+Disallow: /api/projects.json
+Disallow: /case-studies/
+Disallow: /writing/implementations/
+
+# Common Crawl (CCBot)
+# Strategy: More restrictive - open corpus is redistributed widely
+# Allow basic brand presence, block detailed content
+User-agent: CCBot
+Allow: /
+Allow: /cv
+Allow: /api/person.json
+Disallow: /api/
+Disallow: /writing/
+Disallow: /case-studies/
+Disallow: /projects/
+
+# ============================================================================
+# DISCOVERY CRAWLERS - Full Allow (not training)
+# ============================================================================
+
+# Perplexity AI - Discovery engine, not training
+# Strategy: Allow full access for answer engine results
+User-agent: PerplexityBot
+Allow: /
+
+# ============================================================================
+# STANDARD SEARCH ENGINES - Full Allow
+# ============================================================================
+
+# Google Search (standard indexing)
+User-agent: Googlebot
+Allow: /
+
+# Bing Search
+User-agent: Bingbot
+Allow: /
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+# Sitemap location
+Sitemap: https://ninochavez.co/sitemap.xml
+
+# ============================================================================
+# RATIONALE & DOCUMENTATION
+# ============================================================================
+#
+# This robots.txt implements a strategic AEO (Answer Engine Optimization) policy:
+#
+# 1. AI Model Training (GPT, Claude, Gemini):
+#    - ALLOW brand content → Enables AI to answer "Who is Nino Chavez?"
+#    - ALLOW expertise APIs → Enables AI to answer "What does Nino Chavez do?"
+#    - DISALLOW implementations → Protects competitive advantage
+#
+# 2. Open Corpus (Common Crawl):
+#    - More restrictive due to open redistribution
+#    - Allow basic brand presence only
+#
+# 3. Discovery Engines (Perplexity):
+#    - Full access → Not used for training, helps discoverability
+#
+# 4. Traditional Search (Google, Bing):
+#    - Full access → Standard SEO optimization
+#
+# This approach:
+# - Builds brand presence in AI models (marketing value)
+# - Protects detailed methodologies from competitors (business value)
+# - Demonstrates data sovereignty strategy to consulting clients (sales value)
+#
+# See /docs/AEO-ARCHITECTURE.md for full technical specification

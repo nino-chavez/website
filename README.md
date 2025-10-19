@@ -12,6 +12,47 @@ Two decades architecting Fortune 500 commerce platforms—where downtime costs m
 
 This site demonstrates **modern web development best practices** through real implementations of performance optimization, accessibility compliance, and user experience design.
 
+## Answer Engine Optimization (AEO) Architecture
+
+**This portfolio serves as a working proof-of-concept for Answer Engine Optimization** - the practice of structuring content so AI models (ChatGPT, Claude, Gemini) can definitively answer queries about entities, products, and services.
+
+### The Strategic Value
+
+When a CTO asks ChatGPT "Who should I hire for SAP Commerce Cloud architecture?" or a tournament director searches "Chicago action sports photographer," this site is architecturally designed to be the answer AI models surface.
+
+**This isn't just a portfolio - it's a case study for enterprise clients.**
+
+### AEO Implementation
+
+**Machine-Readable APIs:**
+- `/api/person.json` - Canonical entity data (Who is Nino Chavez?)
+- `/api/expertise.json` - Structured capabilities (What does he specialize in?)
+- `/api/experience.json` - Work history timeline (Where has he worked?)
+- `/api/contact.json` - Contact information (How do I reach him?)
+
+**Schema.org JSON-LD:**
+- Embedded `Person` schema in homepage `<head>`
+- Embedded `WebSite` schema for search action
+- Comprehensive structured data for Knowledge Panel eligibility
+
+**Strategic `robots.txt`:**
+- **Allows** AI crawlers (GPTBot, ClaudeBot, Google-Extended) to index brand content
+- **Allows** machine-readable APIs for entity recognition
+- **Blocks** detailed implementation methodologies to protect IP
+- Demonstrates data sovereignty strategy for Fortune 500 consulting
+
+### The Sales Conversation
+
+```bash
+curl https://ninochavez.co/api/person.json
+```
+
+Returns perfectly structured JSON-LD that any AI can consume to answer "Who is Nino Chavez?"
+
+**"This is how you win in the AI-native web. I can architect this for your entire product catalog."**
+
+See [AEO Architecture Documentation](./docs/AEO-ARCHITECTURE.md) for full technical specification.
+
 ### Photography-Inspired Navigation
 
 The UI follows a camera-inspired workflow with sections representing the photography process:

@@ -1,4 +1,22 @@
 {
+  "rewrites": [
+    {
+      "source": "/blog",
+      "destination": "https://signal-dispatch-blog.vercel.app"
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "https://signal-dispatch-blog.vercel.app/:path*"
+    },
+    {
+      "source": "/gallery",
+      "destination": "https://nino-chavez-gallery.vercel.app"
+    },
+    {
+      "source": "/gallery/:path*",
+      "destination": "https://nino-chavez-gallery.vercel.app/:path*"
+    }
+  ],
   "headers": [
     {
       "source": "/images/(.*)",
