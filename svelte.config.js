@@ -15,7 +15,8 @@ const config = {
       $stores: 'src/lib/stores',
       $actions: 'src/lib/actions'
     }
-  }
+  },
+  trailingSlash: 'never',
 };
 
 export default config;
