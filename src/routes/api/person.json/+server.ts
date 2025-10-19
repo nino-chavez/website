@@ -44,7 +44,7 @@ export const GET: RequestHandler = async () => {
 		// Professional Profiles
 		sameAs: [
 			'https://linkedin.com/in/abelinochavez',
-			'https://github.com/[your-username]' // TODO: Update with actual GitHub profile
+			'https://github.com/nino-chavez'
 		],
 
 		// Areas of Expertise

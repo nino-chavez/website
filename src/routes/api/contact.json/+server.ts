@@ -27,7 +27,7 @@ export const GET: RequestHandler = async () => {
 		url: 'https://ninochavez.co',
 		sameAs: [
 			'https://linkedin.com/in/abelinochavez',
-			'https://github.com/[your-username]' // TODO: Update with actual GitHub
+			'https://github.com/nino-chavez'
 		],
 
 		// Contact Types
