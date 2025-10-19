@@ -10,11 +10,11 @@
     },
     {
       "source": "/galleries",
-      "destination": "https://nino-chavez-gallery.vercel.app/galleries"
+      "destination": "https://nino-chavez-gallery-pi.vercel.app/galleries"
     },
     {
       "source": "/galleries/:path*",
-      "destination": "https://nino-chavez-gallery.vercel.app/galleries/:path*"
+      "destination": "https://nino-chavez-gallery-pi.vercel.app/galleries/:path*"
     }
   ],
   "trailingSlash": false,
