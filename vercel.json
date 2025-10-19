@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/blog",
-      "destination": "https://signal-dispatch-blog.vercel.app"
+      "destination": "https://signal-dispatch-blog.vercel.app/blog"
     },
     {
       "source": "/blog/:path*",
-      "destination": "https://signal-dispatch-blog.vercel.app/:path*"
+      "destination": "https://signal-dispatch-blog.vercel.app/blog/:path*"
     },
     {
       "source": "/gallery",
