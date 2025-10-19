@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { base } from '$app/paths';
-  import GalleryModal from '$lib/components/ui/GalleryModal.svelte';
+  import PortfolioModal from '$lib/components/ui/PortfolioModal.svelte';
   import { currentSection } from '$lib/stores/gameFlow';
   import { inView } from '$lib/actions/inView';
   import { fade, fly } from 'svelte/transition';
@@ -75,8 +75,8 @@
     window.addEventListener('resize', updatePerSlide);
     window.addEventListener('keydown', handleKeydown);
 
-    // Load gallery data
-    loadGalleryData();
+  // Load portfolio data
+  loadPortfolioData();
 
     return () => {
       window.removeEventListener('resize', updatePerSlide);
@@ -84,9 +84,9 @@
     };
   });
 
-  async function loadGalleryData() {
+  async function loadPortfolioData() {
     try {
-      const res = await fetch(`${base}/data/gallery-exif-extracted.json`);
+      const res = await fetch(`${base}/data/portfolio-exif-extracted.json`);
       const data = await res.json();
       images = data.images || [];
     } finally {
@@ -105,18 +105,18 @@
   }
 
   function onSectionEnter() {
-    currentSection.set('gallery');
+  currentSection.set('portfolio');
     entered = true;
   }
 </script>
 
 <section
-  id="gallery"
-  data-section="gallery"
+  id="portfolio"
+  data-section="portfolio"
   class="relative bg-neutral-900 pt-16 md:pt-20 pb-20 md:pb-24"
   use:inView={{ threshold: 0.3, once: true }}
   on:enter={onSectionEnter}
-  aria-label="Gallery section - Photography portfolio"
+  aria-label="Portfolio section - Photography portfolio"
 >
   {#if entered}
       <div
@@ -136,7 +136,7 @@
       {#if loading}
         <div class="flex items-center justify-center py-20">
           <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-400"></div>
-          <span class="ml-4 text-white/60">Loading gallery...</span>
+          <span class="ml-4 text-white/60">Loading portfolio...</span>
         </div>
       {:else if images.length === 0}
         <div class="text-white/60 text-center py-20">
@@ -184,7 +184,7 @@
             class="overflow-x-auto no-scrollbar snap-x snap-mandatory w-full"
             style="scroll-behavior: smooth; scroll-snap-type: x proximity;"
             aria-roledescription="carousel"
-            aria-label="Photography portfolio gallery"
+            aria-label="Photography portfolio portfolio"
           >
             <div class="flex w-full">
               {#each slides as group, slideIdx (slideIdx)}
@@ -265,7 +265,7 @@
       {/if}
     </div>
 
-    <GalleryModal
+    <PortfolioModal
       images={images}
       initialImageId={selectedImageId}
       isOpen={isModalOpen}

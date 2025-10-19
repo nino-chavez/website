@@ -9,7 +9,7 @@ export const PROJECTS: Project[] = [
         title: 'AI‑Native Portfolio Experience',
         subtitle: 'This site — SvelteKit + multi‑agent workflow',
         description:
-            "Complete AI‑native portfolio orchestrating specialized agents for development, validation, and visual QA. Production‑grade SvelteKit, centralized copy, lazy‑loaded sections, EXIF‑aware gallery modal, and Playwright audits.",
+            "Complete AI‑native portfolio orchestrating specialized agents for development, validation, and visual QA. Production‑grade SvelteKit, centralized copy, lazy‑loaded sections, EXIF‑aware portfolio modal, and Playwright audits.",
         category: 'ai-native-systems',
         technologies: ['SvelteKit', 'Svelte 4', 'TypeScript', 'Tailwind CSS', 'Playwright', 'Vercel'],
         featured: true,
@@ -22,7 +22,7 @@ export const PROJECTS: Project[] = [
         outcomes: [
             'Centralized copy system to prevent drift',
             'Lazy‑loaded sections with accessible transitions',
-            'Gallery modal with EXIF overlays and proper semantics',
+            'Portfolio modal with EXIF overlays and proper semantics',
             'Automated visual and accessibility checks via Playwright'
         ],
         metrics: {
@@ -194,23 +194,23 @@ export const PROJECTS: Project[] = [
         tags: ['AI Workflow', 'Developer Tools', 'Efficiency']
     }
     ,
-    // AI-accelerated photo gallery app
+    // AI-accelerated photo portfolio app
     {
-        id: 'gallery-app',
-        title: 'Gallery — AI-Accelerated Photo App',
-        subtitle: 'Rapid photo gallery with reference API integration',
+    id: 'portfolio-app',
+    title: 'Portfolio — AI-Accelerated Photo App',
+    subtitle: 'Rapid photo portfolio with reference API integration',
         description:
-            'Photo gallery app built with accelerated development by referencing the SmugMug API reference app. Features fast image browsing, EXIF overlays, and modern UI. Demonstrates how internal reference implementations can dramatically speed up new product delivery.',
+            'Photo portfolio app built with accelerated development by referencing the SmugMug API reference app. Features fast image browsing, EXIF overlays, and modern UI. Demonstrates how internal reference implementations can dramatically speed up new product delivery.',
         category: 'ai-native-systems',
         technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'EXIF.js'],
         featured: false,
-        imageUrl: 'https://picsum.photos/seed/gallery-app/1200/800',
-        repository: 'https://github.com/nino-chavez/gallery',
+    imageUrl: 'https://picsum.photos/seed/portfolio-app/1200/800',
+    repository: 'https://github.com/nino-chavez/portfolio',
         year: 2024,
         status: 'in-progress',
         outcomes: [
             'Development velocity: 2x faster by leveraging internal reference',
-            'EXIF-aware gallery modal',
+            'EXIF-aware portfolio modal',
             'Modern, responsive UI',
             'Demonstrates value of reference architectures'
         ],
@@ -219,7 +219,7 @@ export const PROJECTS: Project[] = [
             scale: 'Personal and client-ready',
             timeline: 'Accelerated by SmugMug reference app'
         },
-        tags: ['Gallery', 'AI-accelerated', 'Reference Implementation', 'React']
+    tags: ['Portfolio', 'AI-accelerated', 'Reference Implementation', 'React']
     }
 ];
 
