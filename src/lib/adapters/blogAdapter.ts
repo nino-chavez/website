@@ -151,13 +151,28 @@ export function mapBlogPostsToInsights(posts: BlogPostMeta[]): InsightArticle[] 
     // Calculate read time if not provided
     const readTime = post.readTime || calculateReadTime(post.excerpt || post.title, post.wordCount);
     
+    // Construct full image URL from blog origin
+    const blogOrigin = 'https://blog.ninochavez.co';
+    let imageUrl = `${blogOrigin}/og-image.png`; // Default fallback
+    
+    if (post.featureImage) {
+      // If featureImage is a full URL, use it directly
+      if (post.featureImage.startsWith('http://') || post.featureImage.startsWith('https://')) {
+        imageUrl = post.featureImage;
+      } else {
+        // Otherwise, construct full URL (handles both /path and path)
+        const imagePath = post.featureImage.startsWith('/') ? post.featureImage : `/${post.featureImage}`;
+        imageUrl = `${blogOrigin}${imagePath}`;
+      }
+    }
+    
     return {
       id: post.slug,
       title: post.title,
       subtitle: post.category || '',
       platform: post.source === 'linkedin' ? 'LinkedIn' : 'Blog',
       excerpt: post.excerpt || '',
-      imageUrl: post.featureImage || 'https://blog.ninochavez.co/og-image.jpg',
+      imageUrl,
       link: post.source === 'linkedin' && post.linkedinUrl ? post.linkedinUrl : `https://blog.ninochavez.co/${post.slug}`,
       readTime,
       date: new Date(post.publishedAt).toISOString().slice(0, 10),
