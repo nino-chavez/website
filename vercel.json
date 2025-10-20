@@ -11,7 +11,7 @@
       "permanent": true
     }
   ],
-  "rewrites": [
+  "redirects": [
     {
       "source": "/blog",
       "destination": "https://blog.ninochavez.co"
