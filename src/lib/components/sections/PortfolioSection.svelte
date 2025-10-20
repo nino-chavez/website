@@ -5,6 +5,12 @@
   import { fade, fly } from 'svelte/transition';
   import { portfolioCopy } from '$lib/copy';
   import { scrollProgress } from '$lib/actions/scrollProgress';
+  
+  // Cal.com integration components
+  import AvailabilityIndicator from '$lib/components/cal/AvailabilityIndicator.svelte';
+  import EventTypeCards from '$lib/components/cal/EventTypeCards.svelte';
+  import SmartSuggestionToast from '$lib/components/cal/SmartSuggestionToast.svelte';
+  import type { AvailabilityStatus } from '$lib/types/cal';
 
   // Entry transition state
   let entered = false;
@@ -13,11 +19,31 @@
   let cardsVisible = false; // trigger grid item entrance animations
   let headerVisible = false; // animate header block
   let ctaVisible = false; // animate CTA block
+  
+  // Cal.com state
+  let availability: AvailabilityStatus | null = null;
 
   // Section enter handler
   function onSectionEnter() {
     currentSection.set('portfolio');
     entered = true;
+  }
+  
+  // Handle availability updates from child component
+  async function fetchAvailability() {
+    try {
+      const response = await fetch('/api/cal/availability');
+      if (response.ok) {
+        availability = await response.json();
+      }
+    } catch (err) {
+      console.error('Error fetching availability:', err);
+    }
+  }
+  
+  // Fetch availability when section enters
+  $: if (entered) {
+    fetchAvailability();
   }
 </script>
 
@@ -80,8 +106,13 @@
             </a>
           </div>
 
+          <!-- Cal.com Event Type Cards (only if API returns data) -->
+          <div class="max-w-6xl mx-auto mb-12">
+            <EventTypeCards />
+          </div>
+
           <!-- Secondary actions -->
-          <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-16">
+          <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12">
             <a
               href="https://cal.com/nino-chavez"
               target="_blank"
@@ -94,8 +125,10 @@
                 </svg>
               </div>
               <div class="flex-1 text-left">
-                <div class="text-white font-semibold mb-1">Schedule a Call</div>
-                <div class="text-white/50 text-sm">30-minute consultation</div>
+                <div class="text-white font-semibold mb-1">View Full Calendar</div>
+                <div class="text-white/50 text-sm">
+                  <AvailabilityIndicator />
+                </div>
               </div>
               <svg class="w-5 h-5 text-white/40 group-hover:text-white/60 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -157,6 +190,9 @@
       style={`opacity: ${rm ? 1 : Math.min(1, Math.max(0, progress))};`}
     ></div>
   {/if}
+  
+  <!-- Smart Suggestion Toast (Phase 3) -->
+  <SmartSuggestionToast {availability} />
 </section>
 
 <style>
