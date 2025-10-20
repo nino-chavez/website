@@ -50,7 +50,12 @@
           <div class="p-6 md:p-8 flex flex-col">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs font-semibold text-violet-400 uppercase">{featured.category}</span>
+              <span class="text-xs text-white/50">•</span>
               <span class="text-xs text-white/50">{featured.date}</span>
+              {#if featured.readTime}
+                <span class="text-xs text-white/50">•</span>
+                <span class="text-xs text-white/50">{featured.readTime}</span>
+              {/if}
             </div>
             <h3 class="text-3xl md:text-4xl font-extrabold text-white mb-4">{featured.title}</h3>
             <p class="text-base md:text-lg text-white/80 mb-6 leading-relaxed line-clamp-4 md:line-clamp-6">{featured.excerpt}</p>
@@ -81,7 +86,12 @@
             <div class="p-5 md:p-6">
               <div class="flex items-center gap-2 mb-2">
                 <span class="text-xs font-semibold text-violet-400 uppercase">{post.category}</span>
+                <span class="text-xs text-white/50">•</span>
                 <span class="text-xs text-white/50">{post.date}</span>
+                {#if post.readTime}
+                  <span class="text-xs text-white/50">•</span>
+                  <span class="text-xs text-white/50">{post.readTime}</span>
+                {/if}
               </div>
               <h4 class="text-lg md:text-xl font-bold text-white mb-3 line-clamp-2">{post.title}</h4>
               <p class="text-sm md:text-base text-white/70 mb-4 line-clamp-3">{post.excerpt}</p>

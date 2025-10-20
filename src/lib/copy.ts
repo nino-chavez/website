@@ -41,7 +41,7 @@ export const portfolioCopy = {
     'From initial capture to final development, every frame in this portfolio represents the same precision I bring to enterprise architecture.',
   ctaIntro:
     "Whether you're modernizing legacy systems, building AI-native platforms, or need strategic architecture guidance—let's start the conversation.",
-  email: 'nino@signalx.studio',
+  email: 'hello@ninochavez.co',
   // Contact cards
   enterpriseCard: {
     title: 'Enterprise Consulting',
@@ -62,9 +62,10 @@ export const portfolioCopy = {
     ]
   },
   // Contact CTA
-  ctaHeading: 'Ready to Connect?',
-  emailButtonLabel: 'nino@signalx.studio',
-  linkedInButtonLabel: 'LinkedIn Profile',
+  ctaHeading: 'Start the Conversation',
+  ctaSubheading: 'Enterprise architecture. AI systems. Strategic guidance.',
+  emailButtonLabel: 'hello@nino.photos',
+  linkedInButtonLabel: 'LinkedIn',
   calendarButtonLabel: 'Schedule a Call',
   githubPersonalButtonLabel: 'GitHub',
   githubStudioButtonLabel: 'Signal-X-Studio',
@@ -72,7 +73,7 @@ export const portfolioCopy = {
   locationLabel: 'Location',
   locationValue: 'Chicago',
   timezoneLabel: 'Timezone',
-  timezoneValue: 'Central',
+  timezoneValue: 'Central (UTC-6)',
   responseLabel: 'Response Time',
   responseValue: 'Within 24 hours'
 };

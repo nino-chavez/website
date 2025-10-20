@@ -513,12 +513,12 @@ export const CAPABILITY_SYSTEM = {
       color: 'cyan'
     },
     domain: {
-      area: 'System Design & Architecture',
-      description: 'Scalable, event-driven, and decoupled architectures that survive production.',
+      area: 'Performance Optimization & Scale',
+      description: 'Engineering systems for speed, efficiency, and reliability under heavy load.',
       capabilities: [
-        'Event-driven order orchestration for high-volume commerce',
-        'Distributed systems resilience and failure isolation patterns',
-        'API design and microservices decomposition strategies'
+        'Sub-second response times for high-traffic commerce endpoints',
+        'Database query optimization and caching strategies',
+        'Performance monitoring, profiling, and continuous optimization'
       ]
     }
   }

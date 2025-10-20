@@ -31,7 +31,7 @@
       icon: 'instagram'
     },
     {
-      href: 'mailto:hello@nino.photos',
+      href: 'mailto:hello@ninochavez.co',
       label: 'Email',
       icon: 'email'
     }
@@ -54,34 +54,33 @@
   }
 </script>
 
-<footer class={`py-16 px-6 bg-neutral-900 border-t border-white/10 ${className}`}>
+<footer class={`relative py-20 px-6 bg-neutral-900 border-t border-white/5 ${className}`}>
   <div class="max-w-7xl mx-auto">
 
     <!-- Main footer content -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
 
-      <!-- Brand section -->
-      <div class="md:col-span-1">
-        <div class="mb-6">
-          <h3 class="text-2xl font-bold text-white mb-2">Nino Chavez</h3>
-          <p class="text-white/60 text-sm leading-relaxed">
-            Enterprise Architect & AI Systems Builder.<br>
-            Transforming complex systems into scalable solutions.
+      <!-- Brand section - takes more space -->
+      <div class="lg:col-span-5">
+        <div class="mb-8">
+          <h3 class="text-3xl font-black text-white mb-4 tracking-tight">Nino Chavez</h3>
+          <p class="text-white/50 text-base leading-relaxed max-w-md">
+            Enterprise architect building AI-native commerce platforms. 25 years transforming complex systems into scalable infrastructure that processes billions.
           </p>
         </div>
 
         <!-- Social links -->
-        <div class="flex gap-4">
+        <div class="flex gap-3">
           {#each socialLinks as link}
             <a
               href={link.href}
               target={link.icon !== 'email' ? '_blank' : null}
               rel={link.icon !== 'email' ? 'noopener noreferrer' : null}
-              class="w-10 h-10 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-lg flex items-center justify-center transition-all duration-300 group"
+              class="w-11 h-11 bg-white/5 hover:bg-violet-600/20 border border-white/10 hover:border-violet-400/30 rounded-xl flex items-center justify-center transition-all duration-300 group"
               aria-label={link.label}
             >
               <svg
-                class="w-5 h-5 text-white/60 group-hover:text-white transition-colors duration-300"
+                class="w-5 h-5 text-white/50 group-hover:text-violet-400 transition-colors duration-300"
                 fill={link.icon === 'email' ? 'none' : 'currentColor'}
                 stroke={link.icon === 'email' ? 'currentColor' : 'none'}
                 viewBox="0 0 24 24"
@@ -93,62 +92,78 @@
         </div>
       </div>
 
-      <!-- External Sites -->
-      <div class="md:col-span-1">
-        <h4 class="text-lg font-semibold text-white mb-6">Explore</h4>
-        <nav class="space-y-3">
-          {#each siteLinks as link}
-            <a
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block text-white/60 hover:text-white transition-colors duration-300 hover:translate-x-1 transform"
-            >
-              {link.label}
-            </a>
-          {/each}
-        </nav>
-      </div>
+      <!-- Navigation columns -->
+      <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+        
+        <!-- Explore -->
+        <div>
+          <h4 class="text-xs font-bold text-white/40 uppercase tracking-widest mb-4">Explore</h4>
+          <nav class="space-y-3">
+            {#each siteLinks as link}
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group block text-white/60 hover:text-white transition-colors duration-200 text-sm"
+              >
+                <span class="inline-flex items-center gap-2">
+                  {link.label}
+                  <svg class="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </span>
+              </a>
+            {/each}
+          </nav>
+        </div>
 
-      <!-- Contact info -->
-      <div class="md:col-span-1">
-        <h4 class="text-lg font-semibold text-white mb-6">Connect</h4>
-        <div class="space-y-4">
-          <div>
-            <div class="text-white/60 text-sm uppercase tracking-wider mb-1">Email</div>
-            <a
-              href="mailto:hello@nino.photos"
-              class="text-white hover:text-violet-400 transition-colors duration-300"
-            >
-              hello@nino.photos
-            </a>
-          </div>
-          <div>
-            <div class="text-white/60 text-sm uppercase tracking-wider mb-1">Location</div>
-            <div class="text-white">Chicago</div>
-          </div>
-          <div>
-            <div class="text-white/60 text-sm uppercase tracking-wider mb-1">Availability</div>
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 bg-green-400 rounded-full"></span>
-              <span class="text-white">Available for projects</span>
+        <!-- Expertise -->
+        <div>
+          <h4 class="text-xs font-bold text-white/40 uppercase tracking-widest mb-4">Expertise</h4>
+          <div class="space-y-3 text-sm text-white/50">
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-violet-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Enterprise Commerce Architecture</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-violet-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>AI-Native Platform Development</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-violet-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Legacy System Modernization</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-violet-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Strategic Technical Advisory</span>
             </div>
           </div>
         </div>
+
       </div>
     </div>
 
     <!-- Bottom section -->
-    <div class="pt-8 border-t border-white/10">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="text-white/60 text-sm">
-          &copy; {currentYear} Nino Chavez. All rights reserved.
+    <div class="pt-8 border-t border-white/5">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div class="text-white/30 text-xs">
+          &copy; {currentYear} Nino Chavez. Built with precision.
         </div>
 
-        <div class="flex items-center gap-6 text-sm text-white/60">
-          <span>Built with SvelteKit & Tailwind CSS</span>
-          <span class="text-white/30">•</span>
-          <span>Hosted on Vercel</span>
+        <div class="flex items-center gap-4 text-xs text-white/30">
+          <span class="hover:text-white/50 transition-colors">SvelteKit</span>
+          <span class="text-white/20">•</span>
+          <span class="hover:text-white/50 transition-colors">Tailwind CSS</span>
+          <span class="text-white/20">•</span>
+          <span class="hover:text-white/50 transition-colors">Vercel</span>
         </div>
       </div>
     </div>

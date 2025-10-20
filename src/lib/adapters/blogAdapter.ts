@@ -123,6 +123,8 @@ export interface BlogPostMeta {
   featureImageHeight?: number;
   source?: 'linkedin' | 'mdx' | string;
   linkedinUrl?: string;
+  readTime?: string;
+  wordCount?: number;
 }
 
 interface BlogManifest {
@@ -133,21 +135,37 @@ function isBlogManifest(data: any): data is BlogManifest {
   return data && Array.isArray(data.posts);
 }
 
+/**
+ * Calculate estimated read time based on word count
+ * Average reading speed: 200-250 words per minute
+ * We use 225 as a middle ground
+ */
+function calculateReadTime(text: string, wordCount?: number): string {
+  const words = wordCount || text.split(/\s+/).filter(word => word.length > 0).length;
+  const minutes = Math.ceil(words / 225);
+  return `${minutes} min read`;
+}
+
 export function mapBlogPostsToInsights(posts: BlogPostMeta[]): InsightArticle[] {
-  return posts.map((post): InsightArticle => ({
-    id: post.slug,
-    title: post.title,
-    subtitle: post.category || '',
-    platform: post.source === 'linkedin' ? 'LinkedIn' : 'Blog',
-    excerpt: post.excerpt || '',
-    imageUrl: post.featureImage || 'https://picsum.photos/seed/signal-dispatch/600/400',
-    link: post.source === 'linkedin' && post.linkedinUrl ? post.linkedinUrl : `https://blog.ninochavez.co/${post.slug}`,
-    readTime: '',
-    date: new Date(post.publishedAt).toISOString().slice(0, 10),
-    category: post.category || 'Essay',
-    tags: post.tags || [],
-    insights: [],
-  }));
+  return posts.map((post): InsightArticle => {
+    // Calculate read time if not provided
+    const readTime = post.readTime || calculateReadTime(post.excerpt || post.title, post.wordCount);
+    
+    return {
+      id: post.slug,
+      title: post.title,
+      subtitle: post.category || '',
+      platform: post.source === 'linkedin' ? 'LinkedIn' : 'Blog',
+      excerpt: post.excerpt || '',
+      imageUrl: post.featureImage || 'https://blog.ninochavez.co/og-image.jpg',
+      link: post.source === 'linkedin' && post.linkedinUrl ? post.linkedinUrl : `https://blog.ninochavez.co/${post.slug}`,
+      readTime,
+      date: new Date(post.publishedAt).toISOString().slice(0, 10),
+      category: post.category || 'Essay',
+      tags: post.tags || [],
+      insights: [],
+    };
+  });
 }
 
 let manifestCache: BlogManifest | null = null;
