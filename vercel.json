@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/photography",
+      "destination": "https://photography.ninochavez.co",
+      "permanent": true
+    },
+    {
+      "source": "/photography/:path*",
+      "destination": "https://photography.ninochavez.co/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/blog",
@@ -7,14 +19,6 @@
     {
       "source": "/blog/:path*",
       "destination": "https://signal-dispatch-blog.vercel.app/:path*"
-    },
-    {
-      "source": "/photography",
-      "destination": "https://nino-chavez-gallery.vercel.app/photography"
-    },
-    {
-      "source": "/photography/:path*",
-      "destination": "https://nino-chavez-gallery.vercel.app/photography/:path*"
     }
   ],
   "headers": [
