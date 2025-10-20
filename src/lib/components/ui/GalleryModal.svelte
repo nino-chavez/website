@@ -20,13 +20,17 @@
   $: if (isOpen && initialImageId) {
     const foundIndex = images.findIndex(img => img.id === initialImageId);
     currentIndex = foundIndex !== -1 ? foundIndex : 0;
-    isImageLoaded = false;
-    hasImageError = false;
   }
 
   $: currentImage = images[currentIndex];
 
-  // Reset loading state when image changes
+  // Reset loading state when modal opens or image changes
+  $: if (isOpen) {
+    isImageLoaded = false;
+    hasImageError = false;
+  }
+
+  // Also reset when image changes (for navigation)
   $: if (currentImage) {
     isImageLoaded = false;
     hasImageError = false;
