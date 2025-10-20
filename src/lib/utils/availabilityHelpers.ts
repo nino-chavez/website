@@ -232,12 +232,13 @@ export function sortEventTypesByPriority(
 
 /**
  * Filter event types for display (max 3, exclude hidden)
+ * Note: Availability slots are optional - show cards even without specific times
  */
 export function filterEventTypesForDisplay(
   eventTypes: EnrichedEventType[],
   maxCount: number = 3
 ): EnrichedEventType[] {
   return sortEventTypesByPriority(eventTypes)
-    .filter(et => !et.hidden && et.availability.length > 0)
+    .filter(et => !et.hidden) // Remove availability requirement
     .slice(0, maxCount);
 }

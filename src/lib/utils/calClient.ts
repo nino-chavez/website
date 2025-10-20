@@ -13,6 +13,7 @@ class CalComAPIError extends Error {
 
 /**
  * Base fetch wrapper for Cal.com API calls
+ * Uses API v2 with Bearer token authentication
  */
 async function calFetch<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   const apiKey = env.CAL_API_KEY;
@@ -27,7 +28,7 @@ async function calFetch<T>(endpoint: string, options: RequestInit = {}): Promise
   const response = await fetch(url, {
     ...options,
     headers: {
-      'x-cal-secret-key': apiKey,
+      'Authorization': `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
       ...options.headers,
     },
@@ -46,11 +47,31 @@ async function calFetch<T>(endpoint: string, options: RequestInit = {}): Promise
 
 /**
  * Fetch all event types for the authenticated user
+ * v2 API returns nested structure: { data: { eventTypeGroups: [{ eventTypes: [...] }] } }
  */
 export async function getEventTypes(): Promise<CalEventType[]> {
   try {
-    const data = await calFetch<{ data: CalEventType[] }>('/event-types');
-    return data.data || [];
+    const response = await calFetch<{
+      data: {
+        eventTypeGroups: Array<{ eventTypes: any[] }>
+      }
+    }>('/event-types');
+    
+    // Extract event types from nested structure
+    const allEventTypes = response.data?.eventTypeGroups?.flatMap(group =>
+      (group.eventTypes || []).map(et => ({
+        id: et.id,
+        title: et.title,
+        slug: et.slug,
+        description: et.description,
+        length: et.length,
+        bookingUrl: `https://cal.com/nino-chavez/${et.slug}`,
+        hidden: et.hidden,
+        metadata: et.metadata
+      }))
+    ) || [];
+    
+    return allEventTypes;
   } catch (error) {
     console.error('Error fetching event types:', error);
     return [];
@@ -59,6 +80,7 @@ export async function getEventTypes(): Promise<CalEventType[]> {
 
 /**
  * Fetch a specific event type by ID
+ * v2 API returns { data: {...} }
  */
 export async function getEventType(eventTypeId: number): Promise<CalEventType | null> {
   try {
@@ -72,6 +94,7 @@ export async function getEventType(eventTypeId: number): Promise<CalEventType | 
 
 /**
  * Fetch user schedules
+ * v2 API endpoint
  */
 export async function getSchedules(): Promise<CalSchedule[]> {
   try {
@@ -85,6 +108,7 @@ export async function getSchedules(): Promise<CalSchedule[]> {
 
 /**
  * Fetch authenticated user profile
+ * v2 API: /users/me
  */
 export async function getUserProfile(): Promise<CalUser | null> {
   try {
@@ -98,7 +122,7 @@ export async function getUserProfile(): Promise<CalUser | null> {
 
 /**
  * Get available slots for a specific event type
- * Note: Cal.com API v2 may require different endpoint - adjust as needed
+ * v2 API: /slots?eventTypeId=X&start=YYYY-MM-DD&end=YYYY-MM-DD
  */
 export async function getAvailableSlots(
   eventTypeId: number,
@@ -106,11 +130,31 @@ export async function getAvailableSlots(
   endDate: string
 ): Promise<string[]> {
   try {
-    // This endpoint structure may vary - consult Cal.com API docs
-    const data = await calFetch<{ data: { slots: string[] } }>(
-      `/slots?eventTypeId=${eventTypeId}&startTime=${startDate}&endTime=${endDate}`
+    // Convert ISO datetime to date format (YYYY-MM-DD)
+    const start = startDate.split('T')[0];
+    const end = endDate.split('T')[0];
+    
+    // Slots endpoint requires cal-api-version header
+    const data = await calFetch<{ data: Record<string, Array<{ start: string }>> }>(
+      `/slots?eventTypeId=${eventTypeId}&start=${start}&end=${end}`,
+      {
+        headers: {
+          'cal-api-version': '2024-09-04'
+        }
+      }
     );
-    return data.data?.slots || [];
+    
+    // v2 slots API returns: { data: { "2050-09-05": [{ start: "..." }] } }
+    const allSlots: string[] = [];
+    if (data.data) {
+      Object.values(data.data).forEach(daySlots => {
+        daySlots.forEach(slot => {
+          if (slot.start) allSlots.push(slot.start);
+        });
+      });
+    }
+    
+    return allSlots.sort();
   } catch (error) {
     console.error(`Error fetching slots for event type ${eventTypeId}:`, error);
     return [];

@@ -8,7 +8,11 @@
   import type { EnrichedEventType } from '$lib/types/cal';
   import { PUBLIC_CAL_USERNAME } from '$env/static/public';
   
+  // Optional filter by intent
+  export let filter: 'enterprise' | 'photography' | null = null;
+  
   let eventTypes: EnrichedEventType[] = [];
+  let filteredEventTypes: EnrichedEventType[] = [];
   let loading = true;
   let error = false;
   let cardsVisible = false;
@@ -36,6 +40,31 @@
       loading = false;
     }
   }
+  
+  // Filter event types based on intent
+  $: {
+    if (filter === 'enterprise') {
+      // Show tech-related meetings (exclude photography)
+      filteredEventTypes = eventTypes.filter(et =>
+        !et.title.toLowerCase().includes('photo') &&
+        !et.title.toLowerCase().includes('portrait') &&
+        !et.title.toLowerCase().includes('shoot')
+      );
+    } else if (filter === 'photography') {
+      // Show photography-specific meetings
+      filteredEventTypes = eventTypes.filter(et =>
+        et.title.toLowerCase().includes('photo') ||
+        et.title.toLowerCase().includes('portrait') ||
+        et.title.toLowerCase().includes('shoot')
+      );
+    } else {
+      // No filter - show all
+      filteredEventTypes = eventTypes;
+    }
+  }
+  
+  // Use filtered list for display
+  $: displayEventTypes = filteredEventTypes;
 
   function getUrgencyStyle(urgency: string): string {
     switch (urgency) {
@@ -77,28 +106,28 @@
   <div class="flex justify-center py-4">
     <div class="w-6 h-6 border-2 border-violet-400/30 border-t-violet-400 rounded-full animate-spin"></div>
   </div>
-{:else if error || eventTypes.length === 0}
+{:else if error || displayEventTypes.length === 0}
   <!-- Minimal fallback - don't show anything if no event types -->
   <!-- The "View Full Calendar" card below will handle navigation -->
 {:else}
   <!-- Compact heading when cards exist -->
   <div class="mb-6 text-center">
-    <h3 class="text-xl font-bold text-white mb-1">Choose Your Meeting</h3>
-    <p class="text-white/50 text-sm">Select the consultation that fits your needs</p>
+    <h3 class="text-xl md:text-2xl font-bold text-white mb-1">Choose Your Meeting</h3>
+    <p class="text-white/50 text-sm md:text-base">Select the consultation that fits your needs</p>
   </div>
   
   <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+    class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
     use:inView={{ threshold: 0.2, once: true }}
     on:enter={handleCardsVisible}
   >
-    {#each eventTypes as eventType, i}
+    {#each displayEventTypes as eventType, i}
       <article
-        class="group relative p-5 border rounded-xl transition-all duration-300 hover:scale-[1.02] {getUrgencyStyle(eventType.urgency)}"
-        in:fly={{ 
-          y: cardsVisible ? 0 : 32, 
-          duration: 500, 
-          delay: cardsVisible ? i * 100 : 0 
+        class="group relative p-6 border rounded-xl transition-all duration-300 md:hover:scale-[1.02] {getUrgencyStyle(eventType.urgency)}"
+        in:fly={{
+          y: cardsVisible ? 0 : 32,
+          duration: 500,
+          delay: cardsVisible ? i * 100 : 0
         }}
       >
         <!-- Urgency indicator -->
@@ -111,7 +140,24 @@
 
         <!-- Icon and Title -->
         <div class="mb-3">
-          <div class="text-3xl mb-2">{eventType.icon}</div>
+          <div class="mb-3 w-12 h-12 bg-violet-600/20 border border-violet-400/30 rounded-lg flex items-center justify-center">
+            {#if eventType.length <= 15}
+              <!-- Quick meetings: clock icon -->
+              <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            {:else if eventType.length >= 45}
+              <!-- Deep dive meetings: layers icon -->
+              <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+            {:else}
+              <!-- Standard meetings: calendar icon -->
+              <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            {/if}
+          </div>
           <h3 class="text-xl font-bold text-white mb-1 group-hover:text-violet-300 transition-colors">
             {eventType.title}
           </h3>
@@ -136,12 +182,13 @@
             </div>
             <div class="flex flex-wrap gap-2">
               {#each eventType.availability.slice(0, 3) as slot}
-                <time
-                  datetime={slot.dateTime}
-                  class="px-3 py-1.5 bg-white/5 border rounded-lg text-sm text-white/80 {slot.isToday ? 'border-green-400/30 bg-green-400/10' : 'border-white/10'}"
+                <div
+                  class="px-3 py-1.5 border rounded-lg text-sm font-medium {slot.isToday ? 'bg-green-400/10 border-green-400/30 text-green-300' : 'bg-white/5 border-white/10 text-white/80'}"
                 >
-                  {slot.displayTime}
-                </time>
+                  <time datetime={slot.dateTime}>
+                    {slot.displayTime}
+                  </time>
+                </div>
               {/each}
             </div>
           </div>
@@ -151,16 +198,16 @@
           </div>
         {/if}
 
-        <!-- CTA Button -->
+        <!-- CTA Button - Full width on mobile, clear action -->
         <a
           href={getBookingUrl(eventType)}
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center justify-between w-full px-4 py-3 bg-violet-600/20 hover:bg-violet-600/30 border border-violet-400/30 hover:border-violet-400/50 rounded-lg transition-all duration-300 group/btn"
+          class="flex items-center justify-center md:justify-between w-full px-4 py-3 bg-violet-600 hover:bg-violet-500 rounded-lg transition-all duration-300 group/btn shadow-lg shadow-violet-600/20"
         >
-          <span class="text-white font-semibold">Book Now</span>
-          <svg 
-            class="w-5 h-5 text-violet-400 transform group-hover/btn:translate-x-1 transition-transform duration-300" 
+          <span class="text-white font-bold text-center md:text-left">Book This Meeting</span>
+          <svg
+            class="hidden md:block w-5 h-5 text-violet-400 transform group-hover/btn:translate-x-1 transition-transform duration-300"
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"

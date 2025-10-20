@@ -18,9 +18,12 @@ export const GET: RequestHandler = async ({ setHeaders }) => {
     });
 
     // Fetch event types
+    console.log('[event-types] Fetching event types from Cal.com...');
     const eventTypes = await getEventTypes();
+    console.log('[event-types] Received event types:', eventTypes.length, eventTypes);
 
     if (eventTypes.length === 0) {
+      console.log('[event-types] No event types returned, sending empty array');
       return json([]);
     }
 
@@ -49,13 +52,15 @@ export const GET: RequestHandler = async ({ setHeaders }) => {
       });
 
     const enrichedEventTypes = await Promise.all(enrichedPromises);
+    console.log('[event-types] Enriched event types:', enrichedEventTypes.length);
 
     // Filter and sort for display (max 3)
     const displayEventTypes = filterEventTypesForDisplay(enrichedEventTypes, 3);
+    console.log('[event-types] Filtered for display:', displayEventTypes.length, displayEventTypes);
 
     return json(displayEventTypes);
   } catch (err) {
-    console.error('Error fetching event types:', err);
+    console.error('[event-types] ERROR:', err);
     return json([]);
   }
 };
