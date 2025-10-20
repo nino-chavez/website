@@ -17,7 +17,7 @@
       "destination": "https://nino-chavez-gallery.vercel.app/photography/:path*"
     }
   ],
-  "trailingSlash": false,
+  "trailingSlash": true,
   "headers": [
     {
       "source": "/images/(.*)",
