@@ -86,7 +86,7 @@
 
   async function loadPortfolioData() {
     try {
-      const res = await fetch(`${base}/data/portfolio-exif-extracted.json`);
+      const res = await fetch(`${base}/data/gallery-exif-extracted.json`);
       const data = await res.json();
       images = data.images || [];
     } finally {
@@ -105,18 +105,18 @@
   }
 
   function onSectionEnter() {
-  currentSection.set('portfolio');
+    currentSection.set('gallery');
     entered = true;
   }
 </script>
 
 <section
-  id="portfolio"
-  data-section="portfolio"
+  id="gallery"
+  data-section="gallery"
   class="relative bg-neutral-900 pt-16 md:pt-20 pb-20 md:pb-24"
   use:inView={{ threshold: 0.3, once: true }}
   on:enter={onSectionEnter}
-  aria-label="Portfolio section - Photography portfolio"
+  aria-label="Gallery section - Photography portfolio"
 >
   {#if entered}
       <div
@@ -184,7 +184,7 @@
             class="overflow-x-auto no-scrollbar snap-x snap-mandatory w-full"
             style="scroll-behavior: smooth; scroll-snap-type: x proximity;"
             aria-roledescription="carousel"
-            aria-label="Photography portfolio portfolio"
+            aria-label="Photography gallery carousel"
           >
             <div class="flex w-full">
               {#each slides as group, slideIdx (slideIdx)}

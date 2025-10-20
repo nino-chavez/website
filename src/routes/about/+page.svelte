@@ -85,6 +85,16 @@
 	/>
 	<meta property="og:type" content="profile" />
 	<meta property="og:url" content="https://ninochavez.co/about" />
+	<meta property="og:image" content="https://ninochavez.co/images/og-about-image.jpeg" />
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="About Nino Chavez - Enterprise Architect & Photographer" />
+	<meta
+		name="twitter:description"
+		content="25+ years architecting Fortune 500 commerce platforms. Strategic advisor at Accenture Song."
+	/>
+	<meta name="twitter:image" content="https://ninochavez.co/images/og-about-image.jpeg" />
 
 	<!-- Schema.org Breadcrumbs -->
 	{@html `
@@ -281,7 +291,7 @@
 					moments, reading patterns, and executing with precision under pressure.
 				</p>
 				<a
-					href="/#portfolio"
+					href="/#gallery"
 					class="inline-block px-6 py-3 bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/50 text-purple-300 rounded-lg transition-colors"
 				>
 					View Photography Portfolio →

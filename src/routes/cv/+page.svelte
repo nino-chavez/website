@@ -175,6 +175,25 @@
 <svelte:head>
 	<title>CV - Nino Chavez | Enterprise Architect & Strategic Advisor</title>
 	<meta name="description" content="Digital CV for Nino Chavez - 25+ years architecting AI-native platforms and leading enterprise transformation" />
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="CV - Nino Chavez | Enterprise Architect & Strategic Advisor" />
+	<meta
+		property="og:description"
+		content="Digital CV for Nino Chavez - 25+ years architecting AI-native platforms and leading enterprise transformation"
+	/>
+	<meta property="og:type" content="profile" />
+	<meta property="og:url" content="https://ninochavez.co/cv" />
+	<meta property="og:image" content="https://ninochavez.co/images/og-cv-image.jpeg" />
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="CV - Nino Chavez | Enterprise Architect & Strategic Advisor" />
+	<meta
+		name="twitter:description"
+		content="Digital CV for Nino Chavez - 25+ years architecting AI-native platforms and leading enterprise transformation"
+	/>
+	<meta name="twitter:image" content="https://ninochavez.co/images/og-cv-image.jpeg" />
 </svelte:head>
 
 <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white text-gray-900">

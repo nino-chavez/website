@@ -52,16 +52,18 @@ async function handleNavigate(sectionId) {
 	/>
 	<meta property="og:type" content="profile" />
 	<meta property="og:url" content="https://ninochavez.co" />
+	<meta property="og:image" content="https://ninochavez.co/images/og-image.jpeg" />
 	<meta property="profile:first_name" content="Nino" />
 	<meta property="profile:last_name" content="Chavez" />
 
 	<!-- Twitter Card -->
-	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Nino Chavez - Enterprise Architect & Strategic Advisor" />
 	<meta
 		name="twitter:description"
 		content="25 years building AI-native platforms and enterprise commerce infrastructure."
 	/>
+	<meta name="twitter:image" content="https://ninochavez.co/images/og-image.jpeg" />
 
 	<!-- Schema.org JSON-LD for Answer Engine Optimization (AEO) -->
 	<!-- This structured data helps AI models (ChatGPT, Claude, Gemini) answer queries about "Who is Nino Chavez?" -->
