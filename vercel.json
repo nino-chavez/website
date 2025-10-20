@@ -14,11 +14,11 @@
   "rewrites": [
     {
       "source": "/blog",
-      "destination": "https://signal-dispatch-blog.vercel.app/blog"
+      "destination": "https://blog.ninochavez.co"
     },
     {
       "source": "/blog/:path*",
-      "destination": "https://signal-dispatch-blog.vercel.app/:path*"
+      "destination": "https://blog.ninochavez.co/:path*"
     }
   ],
   "headers": [
