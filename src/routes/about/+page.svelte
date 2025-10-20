@@ -291,7 +291,9 @@
 					moments, reading patterns, and executing with precision under pressure.
 				</p>
 				<a
-					href="/#gallery"
+					href="https://photography.ninochavez.co"
+					target="_blank"
+					rel="noopener noreferrer"
 					class="inline-block px-6 py-3 bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/50 text-purple-300 rounded-lg transition-colors"
 				>
 					View Photography Portfolio →

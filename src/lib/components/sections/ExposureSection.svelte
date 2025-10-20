@@ -79,7 +79,7 @@
       {:else}
         <div class="flex flex-col items-center justify-center min-h-[300px] text-center">
           <h3 class="text-2xl font-bold text-white/80 mb-2">No essays available</h3>
-          <p class="text-white/60 mb-4">Could not load essays from <a href="https://blog.nino.photos" class="underline hover:text-violet-400" target="_blank" rel="noopener">blog.nino.photos</a>. Please check back soon.</p>
+          <p class="text-white/60 mb-4">Could not load essays from <a href="https://blog.ninochavez.co" class="underline hover:text-violet-400" target="_blank" rel="noopener">blog.ninochavez.co</a>. Please check back soon.</p>
         </div>
       {/if}
   <!-- Smooth transition fade (placed behind content and animated by scroll) -->

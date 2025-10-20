@@ -13,7 +13,7 @@
 			client: 'Multi-Brand Specialty Retail',
 			role: 'Enterprise Architect',
 			duration: '3 years',
-			budget: '$25M',
+					budget: '$25M',
 			team: '100+ global resources',
 			objective: 'Architected enterprise omnichannel transformation spanning 6+ brands with unified commerce platform, in-store technology ecosystem, distributed order management, and marketplace integration',
 			details: 'Led end-to-end SAP Commerce Cloud replatform with integrated POS systems, store associate mobile tools, distributed warehouse fulfillment, and marketplace capabilities. Orchestrated 50+ system integrations through MuleSoft ESB layer and Informatica-based PIM, enabling real-time inventory visibility across 2,000+ retail locations and online channels.',
@@ -238,24 +238,21 @@
 				<!-- Key Stats Grid -->
 				<div
 					in:fly={{ y: 20, duration: 800, delay: 500 }}
-					class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
+					class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12"
 				>
 					<div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
 						<div class="text-4xl font-bold text-blue-600 mb-2">25+</div>
 						<div class="text-sm font-medium text-blue-700">Years Experience</div>
 					</div>
 					<div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg border border-green-200">
-						<div class="text-4xl font-bold text-green-600 mb-2">$10M</div>
+						<div class="text-4xl font-bold text-green-600 mb-2">$25M</div>
 						<div class="text-sm font-medium text-green-700">Largest Project</div>
 					</div>
 					<div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-lg border border-purple-200">
 						<div class="text-4xl font-bold text-purple-600 mb-2">100+</div>
 						<div class="text-sm font-medium text-purple-700">Team Resources</div>
 					</div>
-					<div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-lg border border-orange-200">
-						<div class="text-4xl font-bold text-orange-600 mb-2">6</div>
-						<div class="text-sm font-medium text-orange-700">Major Platforms</div>
-					</div>
+
 				</div>
 
 				<!-- Contact Quick Access -->

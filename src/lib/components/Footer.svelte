@@ -7,8 +7,8 @@
 
   // External site links
   const siteLinks = [
-    { href: 'https://gallery.nino.photos', label: 'Photo Gallery' },
-    { href: 'https://blog.nino.photos', label: 'Blog' },
+    { href: 'https://photography.ninochavez.co', label: 'Photography' },
+    { href: 'https://blog.ninochavez.co', label: 'Blog' },
     { href: 'https://signalx.studio', label: 'Signal-X-Studio' },
     { href: 'https://letspepper.com', label: 'LetsPepper' }
   ];

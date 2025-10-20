@@ -9,7 +9,7 @@ export const FALLBACK_BLOG_POSTS: InsightArticle[] = [
     platform: 'Blog',
     excerpt: 'Connecting SAP Commerce to warehouse systems sounds straightforward in the architecture deck. Then you meet the legacy ERP that thinks it\'s 1997, inventory data that updates "eventually," and business rules that exist only in someone\'s head.',
     imageUrl: 'https://picsum.photos/seed/integration-reality/600/400',
-    link: 'https://blog.nino.photos',
+    link: 'https://blog.ninochavez.co',
     readTime: '7 min read',
     date: '2024-09-15',
     category: 'Field Notes',
@@ -72,7 +72,7 @@ export const FALLBACK_BLOG_POSTS: InsightArticle[] = [
     platform: 'Blog',
     excerpt: 'Surfers read conditions, not predictions. Position, timing, response. Enterprise architecture operates the same way: constraint analysis over roadmap promises, deployment windows over sprint velocity.',
     imageUrl: 'https://picsum.photos/seed/pattern-recognition/600/400',
-    link: 'https://blog.nino.photos',
+    link: 'https://blog.ninochavez.co',
     readTime: '6 min read',
     date: '2024-08-22',
     category: 'Systems Thinking',
@@ -100,7 +100,7 @@ export const FALLBACK_BLOG_POSTS: InsightArticle[] = [
     platform: 'Blog',
     excerpt: 'Current work at Accenture Song: AI commerce transformation frameworks for Fortune 500 retailers. When customers expect answers instead of search results, your entire commerce platform needs rethinking—not retrofitting.',
     imageUrl: 'https://picsum.photos/seed/ai-commerce/600/400',
-    link: 'https://blog.nino.photos',
+    link: 'https://blog.ninochavez.co',
     readTime: '10 min read',
     date: '2024-06-25',
     category: 'AI Strategy',
@@ -141,7 +141,7 @@ export function mapBlogPostsToInsights(posts: BlogPostMeta[]): InsightArticle[] 
     platform: post.source === 'linkedin' ? 'LinkedIn' : 'Blog',
     excerpt: post.excerpt || '',
     imageUrl: post.featureImage || 'https://picsum.photos/seed/signal-dispatch/600/400',
-    link: post.source === 'linkedin' && post.linkedinUrl ? post.linkedinUrl : `https://blog.nino.photos/${post.slug}`,
+    link: post.source === 'linkedin' && post.linkedinUrl ? post.linkedinUrl : `https://blog.ninochavez.co/${post.slug}`,
     readTime: '',
     date: new Date(post.publishedAt).toISOString().slice(0, 10),
     category: post.category || 'Essay',
@@ -168,7 +168,7 @@ async function fetchBlogManifest(): Promise<BlogManifest | null> {
   try {
     // Use PUBLIC_ prefix for client-side accessible env vars in SvelteKit
     const envOrigin = import.meta.env.PUBLIC_BLOG_ORIGIN as string | undefined;
-    const blogOrigin = envOrigin || 'https://blog.nino.photos';
+    const blogOrigin = envOrigin || 'https://blog.ninochavez.co';
     
     // Validate blog origin
     if (!blogOrigin || (!blogOrigin.startsWith('http://') && !blogOrigin.startsWith('https://'))) {
