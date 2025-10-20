@@ -153,7 +153,7 @@ export function mapBlogPostsToInsights(posts: BlogPostMeta[]): InsightArticle[] 
     
     // Construct full image URL from blog origin
     const blogOrigin = 'https://blog.ninochavez.co';
-    let imageUrl = `${blogOrigin}/og-image.png`; // Default fallback
+    let imageUrl = `${blogOrigin}/og_image.png`; // Default fallback
     
     if (post.featureImage) {
       // If featureImage is a full URL, use it directly
