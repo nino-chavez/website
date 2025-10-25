@@ -44,7 +44,7 @@
       >
         <div class="grid md:grid-cols-2 gap-0">
           <!-- Image -->
-          <img src={featured.imageUrl} alt={featured.title} class="w-full h-64 md:h-full object-cover" loading="eager" />
+          <img src={featured.imageUrl} alt={featured.title} class="w-full h-64 md:h-96 object-cover" loading="eager" />
 
           <!-- Content -->
           <div class="p-6 md:p-8 flex flex-col">
