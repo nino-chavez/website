@@ -104,7 +104,7 @@
             <div class="relative z-20" in:fly={{ y: rm ? 0 : 24, duration: rm ? 0 : 520, opacity: rm ? 1 : 0 }}>
               <!-- Project details -->
               <div class="relative">
-                <h3 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-3 leading-tight">
+                <h3 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-3 leading-tight mt-8 md:mt-0">
                   {featured.title}
                 </h3>
                 {#if featured.subtitle}
