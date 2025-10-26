@@ -42,7 +42,7 @@
 <section
   id="exposure"
   data-section="exposure"
-  class="relative bg-gradient-to-br from-slate-900 via-neutral-800 to-slate-900 py-20 transition-all duration-300"
+  class="relative bg-gradient-to-br from-slate-900 via-neutral-800 to-slate-900 py-10 md:py-16 lg:py-20 transition-all duration-300"
   style="transform: translateY({translateY}px) scale({scale});"
   use:inView={{ threshold: 0.3, once: true }}
   use:scrollProgress={{ offsetTop: 120, offsetBottom: 120, disabled: rm }}

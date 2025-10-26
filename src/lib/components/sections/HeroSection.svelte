@@ -32,7 +32,7 @@ import ThesisModal from '$lib/components/ui/ThesisModal.svelte';
 >
 	<div class="flex flex-col lg:flex-row h-auto lg:h-[700px]">
 		<!-- Left Gradient Sidebar -->
-		<div class="lg:w-5/12 relative bg-gradient-to-br from-violet-900 via-purple-900 to-neutral-900 flex items-center justify-center p-8 lg:p-12">
+		<div class="lg:w-5/12 relative bg-gradient-to-br from-violet-900 via-purple-900 to-neutral-900 flex items-center justify-center p-6 md:p-8 lg:p-12">
 			<div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(139,92,246,0.3),transparent_70%)]"></div>
 
 				{#if mounted}
@@ -123,8 +123,8 @@ import ThesisModal from '$lib/components/ui/ThesisModal.svelte';
 			{/if}
 		</div>
 
-		<!-- Right Image Panel (hidden on small screens) -->
-		<div class="lg:w-7/12 relative h-full hidden lg:block">
+		<!-- Right Image Panel (visible on all screens with adaptive height) -->
+		<div class="lg:w-7/12 relative h-[40vh] md:h-[50vh] lg:h-full">
 			<img
 				src={`${base}/images/hero.webp`}
 				alt="Nino Chavez - Systems thinker and photographer"

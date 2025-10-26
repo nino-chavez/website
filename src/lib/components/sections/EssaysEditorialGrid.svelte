@@ -35,7 +35,7 @@
   on:enter={handleEnter}
 >
   <!-- Editorial Layout: Featured on top, row of posts below -->
-  <div class="space-y-6 md:space-y-8">
+  <div class="space-y-4 md:space-y-6 lg:space-y-8">
     <!-- Featured Post: Full width -->
     {#if featured}
       <div
@@ -47,7 +47,7 @@
           <img src={featured.imageUrl} alt={featured.title} class="w-full h-64 md:h-96 object-cover" loading="eager" />
 
           <!-- Content -->
-          <div class="p-6 md:p-8 flex flex-col">
+          <div class="p-4 md:p-6 lg:p-8 flex flex-col">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs font-semibold text-violet-400 uppercase">{featured.category}</span>
               <span class="text-xs text-white/50">•</span>

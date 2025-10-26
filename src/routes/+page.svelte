@@ -6,6 +6,7 @@ import Footer from '$lib/components/Footer.svelte';
 import Lazy from '$lib/components/util/Lazy.svelte';
 import ScrollDetector from '$lib/components/ScrollDetector.svelte';
 import ErrorBoundary from '$lib/components/ErrorBoundary.svelte';
+import MobileNav from '$lib/components/ui/MobileNav.svelte';
 import { lockFocus } from '$lib/stores/gameFlow';
 
 // Receive server data
@@ -175,4 +176,5 @@ async function handleNavigate(sectionId) {
 
 	<ScrollDetector />
 	<Footer></Footer>
+	<MobileNav />
 </main>

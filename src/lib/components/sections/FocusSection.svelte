@@ -23,6 +23,9 @@
 	// Entry transition state
 	let entered = false;
 
+	// Accordion state for timeline on mobile
+	let timelineExpanded = false;
+
 	// Reactive: Get current capability item and displayed milestone
 	$: currentCapability = CAPABILITY_SYSTEM[activeCapability];
 	$: currentMilestoneData = timelineMilestones[selectedMilestone];
@@ -82,7 +85,7 @@
 	id="focus"
 	data-testid="focus-section"
 	data-section="focus"
-	class={`min-h-screen relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 ${className}`}
+	class={`min-h-[60vh] md:min-h-screen relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 ${className}`}
 	use:inView={{ threshold: 0.1, rootMargin: '0px 0px -10% 0px', once: true }}
 	on:enter={onSectionEnter}
 	aria-label="Focus section - About and expertise details"
@@ -90,9 +93,9 @@
 	{#if entered}
 			<div
 				in:fly={{ y: 32, duration: 700, opacity: 0.2 }}
-				class="relative z-20 py-16 md:py-20 lg:py-24"
+				class="relative z-20 py-8 md:py-16 lg:py-20"
 			>
-			<div class="max-w-7xl mx-auto px-4 md:px-8 space-y-10 md:space-y-14">
+			<div class="max-w-7xl mx-auto px-4 md:px-8 space-y-6 md:space-y-10 lg:space-y-14">
 				<!-- Section Title -->
 				<div class="transition-all duration-1000 opacity-100 translate-y-0">
 					<p class="text-violet-400 text-xs md:text-sm font-semibold uppercase tracking-wide mb-2">About</p>
@@ -117,7 +120,7 @@
 				</div>
 
 				<!-- Interactive Capability System -->
-				<div class="bg-white/5 border border-white/5 rounded-lg p-6 md:p-10">
+				<div class="bg-white/5 border border-white/5 rounded-lg p-4 md:p-6 lg:p-10">
 					<div class="mb-8">
 						<h3 class="text-2xl md:text-3xl font-bold text-white mb-2">
 							Areas of Focus & Capabilities
@@ -126,13 +129,13 @@
 					</div>
 
 					<!-- Horizontal Focus Areas -->
-					<div class="mb-10">
-						<div class="flex flex-wrap gap-3">
+					<div class="mb-6 md:mb-10">
+						<div class="flex md:flex-wrap gap-3 overflow-x-auto md:overflow-x-visible pb-3 md:pb-0 snap-x snap-mandatory scrollbar-hide">
 							{#each CAPABILITY_IDS as id}
 								{@const item = CAPABILITY_SYSTEM[id]}
 								<button
 									on:click={() => setActive(id)}
-									class={`px-5 py-3 rounded-lg transition-all duration-300 text-left
+									class={`px-5 py-3 rounded-lg transition-all duration-300 text-left flex-shrink-0 min-w-[280px] md:min-w-0 snap-center
 										${activeCapability === id
 											? 'bg-violet-500/20 border-2 border-violet-400 text-violet-300 shadow-lg shadow-violet-500/20'
 											: 'bg-white/5 border-2 border-white/10 text-white/80 hover:border-violet-400/50 hover:bg-violet-500/10'}`}
@@ -202,11 +205,11 @@
 					class="transition-all duration-1000 delay-500 opacity-100 translate-y-0 max-w-7xl mx-auto px-4 md:px-8"
 					data-testid="career-timeline-card"
 				>
-					<div class="bg-white/5 border border-white/5 rounded-lg p-6 md:p-10">
+					<div class="bg-white/5 border border-white/5 rounded-lg p-4 md:p-6 lg:p-10">
 						<!-- Current Role Highlight -->
 						{#if currentRole}
 							<div
-								class="mb-10 md:mb-12 p-6 md:p-8 bg-gradient-to-br from-athletic-brand-violet/10 via-purple-500/5 to-athletic-brand-violet/10 border border-athletic-brand-violet/20 rounded-2xl"
+								class="mb-6 md:mb-10 lg:mb-12 p-4 md:p-6 lg:p-8 bg-gradient-to-br from-athletic-brand-violet/10 via-purple-500/5 to-athletic-brand-violet/10 border border-athletic-brand-violet/20 rounded-2xl"
 							>
 								<div class="flex items-start justify-between mb-4">
 									<div>
@@ -227,17 +230,32 @@
 							</div>
 						{/if}
 
-						<!-- Timeline Header -->
-						<div class="mb-8">
-							<h3 class="text-xl md:text-2xl font-semibold text-white mb-2">Career Progression</h3>
-							<p class="text-sm text-white/60">{focusCopy.timelineLabel}</p>
-							<p class="text-xs text-white/40 mt-2">
-								Click timeline milestones to explore
-							</p>
+						<!-- Timeline Header with Toggle -->
+						<div class="mb-6 md:mb-8">
+							<div class="flex items-start justify-between">
+								<div>
+									<h3 class="text-xl md:text-2xl font-semibold text-white mb-2">Career Progression</h3>
+									<p class="text-sm text-white/60">{focusCopy.timelineLabel}</p>
+									<p class="text-xs text-white/40 mt-2">
+										Click timeline milestones to explore
+									</p>
+								</div>
+								<!-- Mobile toggle button -->
+								<button
+									on:click={() => timelineExpanded = !timelineExpanded}
+									class="md:hidden flex-shrink-0 p-2 text-white/60 hover:text-white transition-colors"
+									aria-label={timelineExpanded ? 'Collapse timeline' : 'Expand timeline'}
+									aria-expanded={timelineExpanded}
+								>
+									<svg class="w-6 h-6 transition-transform duration-300" class:rotate-180={timelineExpanded} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+									</svg>
+								</button>
+							</div>
 						</div>
 
-						<!-- Horizontal Timeline -->
-						<div class="relative mb-10">
+						<!-- Horizontal Timeline (collapsible on mobile) -->
+						<div class="relative mb-6 md:mb-10" class:hidden={!timelineExpanded} class:md:block={true}>
 							<!-- Timeline Line -->
 							<div class="absolute top-5 left-0 right-0 h-0.5 bg-white/10" aria-hidden="true"></div>
 							
@@ -276,7 +294,8 @@
 							</div>
 						</div>
 
-						<!-- Detail Panel -->
+						<!-- Detail Panel (collapsible on mobile) -->
+						<div class:hidden={!timelineExpanded} class:md:block={true}>
 						{#if currentMilestoneData}
 							{#key selectedMilestone}
 								<div
@@ -307,6 +326,7 @@
 								</div>
 							{/key}
 						{/if}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -316,3 +336,14 @@
 		</div>
 	{/if}
 </section>
+
+<style>
+	/* Hide scrollbar for horizontal scroll on mobile */
+	.scrollbar-hide {
+		-ms-overflow-style: none;  /* IE and Edge */
+		scrollbar-width: none;  /* Firefox */
+	}
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;  /* Chrome, Safari and Opera */
+	}
+</style>
