@@ -650,6 +650,8 @@
     -ms-overflow-style: none;
     cursor: grab;
     margin-top: 2rem;
+    min-height: 75vh;
+    height: auto;
   }
 
   .scroll-container:active {
@@ -968,8 +970,12 @@
   }
 
   @media (max-width: 768px) {
+    .scroll-container {
+      min-height: 60vh;
+    }
+
     .gallery-item {
-      height: 70vh;
+      height: 55vh;
       aspect-ratio: 2 / 3;
     }
 
