@@ -435,10 +435,10 @@
 						<div class="flex items-start gap-6">
 							<div class="text-6xl font-bold text-gray-300 flex-shrink-0">{project.number}</div>
 							<div class="flex-1">
-								<div class="flex items-start justify-between mb-3">
+								<div class="flex items-start justify-between mb-4">
 									<div>
-										<h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">{project.client}</h3>
-										<p class="text-base font-medium text-gray-600 mb-3">{project.role}</p>
+										<h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">{project.client}</h3>
+										<p class="text-base font-medium text-gray-600">{project.role}</p>
 									</div>
 									<svg
 										class="w-6 h-6 text-gray-400 flex-shrink-0 transition-transform duration-300"
