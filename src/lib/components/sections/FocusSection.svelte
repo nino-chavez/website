@@ -95,25 +95,25 @@
 				in:fly={{ y: 32, duration: 700, opacity: 0.2 }}
 				class="relative z-20 py-8 md:py-16 lg:py-20"
 			>
-			<div class="max-w-7xl mx-auto px-4 md:px-8 space-y-6 md:space-y-10 lg:space-y-14">
+			<div class="max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 space-y-6 md:space-y-10 lg:space-y-14">
 				<!-- Section Title -->
 				<div class="transition-all duration-1000 opacity-100 translate-y-0">
 					<p class="text-violet-400 text-xs md:text-sm font-semibold uppercase tracking-wide mb-2">About</p>
-					<h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2 leading-tight">
+					<h2 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-2 leading-tight">
 						{focusCopy.heading}
 					</h2>
-					<p class="text-base md:text-lg text-white/70 leading-relaxed max-w-4xl">
+					<p class="text-base md:text-lg xl:text-xl text-white/70 leading-relaxed max-w-4xl xl:max-w-5xl 2xl:max-w-6xl">
 						{focusCopy.subhead}
 					</p>
 				</div>
 
 				<!-- Narrative Content -->
-				<div class="max-w-4xl" data-testid="about-narrative">
-					<div class="space-y-6">
-						<p class="text-lg md:text-xl text-white/90 leading-[1.7]">
+				<div class="max-w-full xl:max-w-none" data-testid="about-narrative">
+					<div class="grid grid-cols-1 xl:grid-cols-2 gap-6 xl:gap-10 2xl:gap-12">
+						<p class="text-lg md:text-xl xl:text-2xl text-white/90 leading-[1.7]">
 							{focusCopy.narrative1}
 						</p>
-						<p class="text-base md:text-lg text-white/80 leading-[1.8]">
+						<p class="text-base md:text-lg xl:text-xl text-white/80 leading-[1.8]">
 							{focusCopy.narrative2}
 						</p>
 					</div>
@@ -130,12 +130,12 @@
 
 					<!-- Horizontal Focus Areas -->
 					<div class="mb-6 md:mb-10">
-						<div class="flex md:flex-wrap gap-3 overflow-x-auto md:overflow-x-visible pb-3 md:pb-0 snap-x snap-mandatory scrollbar-hide">
+						<div class="flex md:grid md:grid-cols-2 xl:grid-cols-4 gap-3 overflow-x-auto md:overflow-x-visible pb-3 md:pb-0 snap-x snap-mandatory md:snap-none scrollbar-hide">
 							{#each CAPABILITY_IDS as id}
 								{@const item = CAPABILITY_SYSTEM[id]}
 								<button
 									on:click={() => setActive(id)}
-									class={`px-5 py-3 rounded-lg transition-all duration-300 text-left flex-shrink-0 min-w-[280px] md:min-w-0 snap-center
+									class={`px-5 py-3 rounded-lg transition-all duration-300 text-left flex-shrink-0 min-w-[280px] md:min-w-0 md:w-full snap-center md:snap-align-none
 										${activeCapability === id
 											? 'bg-violet-500/20 border-2 border-violet-400 text-violet-300 shadow-lg shadow-violet-500/20'
 											: 'bg-white/5 border-2 border-white/10 text-white/80 hover:border-violet-400/50 hover:bg-violet-500/10'}`}
@@ -202,7 +202,7 @@
 			<!-- Career Timeline -->
 			<div class="relative">
 				<div
-					class="transition-all duration-1000 delay-500 opacity-100 translate-y-0 max-w-7xl mx-auto px-4 md:px-8"
+					class="transition-all duration-1000 delay-500 opacity-100 translate-y-0 max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8"
 					data-testid="career-timeline-card"
 				>
 					<div class="bg-white/5 border border-white/5 rounded-lg p-4 md:p-6 lg:p-10">

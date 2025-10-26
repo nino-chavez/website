@@ -36,18 +36,18 @@ import ThesisModal from '$lib/components/ui/ThesisModal.svelte';
 			<div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(139,92,246,0.3),transparent_70%)]"></div>
 
 				{#if mounted}
-					<div class="relative z-10 max-w-lg">
+					<div class="relative z-10 max-w-lg xl:max-w-xl 2xl:max-w-2xl">
 
 					<h1
 						in:fly={{ y: 30, duration: 800, delay: 200 }}
-						class="text-6xl lg:text-7xl font-black text-white mb-6 leading-tight"
+						class="text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black text-white mb-6 leading-tight"
 					>
 						Nino<br/>Chavez
 					</h1>
 
 					<p
 						in:fly={{ y: 30, duration: 800, delay: 300 }}
-						class="text-2xl lg:text-3xl text-white mb-6 font-light leading-tight"
+						class="text-2xl lg:text-3xl xl:text-4xl text-white mb-6 font-light leading-tight"
 					>
 						I see in systems.<br/>I capture in moments.
 					</p>

@@ -72,14 +72,14 @@
       class="relative z-20 flex flex-col"
     >
       <!-- Project showcase -->
-  <div class="relative w-full max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 md:px-6">
+  <div class="relative w-full max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] mx-auto px-4 md:px-6">
         <!-- Section header -->
         <div class="py-6 md:py-8">
           <p class="text-violet-400 text-xs md:text-sm font-semibold uppercase tracking-wide mb-2">{frameCopy.kicker}</p>
-          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2 leading-tight">
+          <h2 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-2 leading-tight">
             {frameCopy.heading1}
           </h2>
-          <p class="text-base md:text-lg text-white/70 max-w-4xl leading-relaxed mb-4">
+          <p class="text-base md:text-lg xl:text-xl text-white/70 max-w-4xl xl:max-w-5xl leading-relaxed mb-4">
             {#each frameCopy.subhead.split('\n') as line, i}
               {#if i === 0}
                 {line}<br class="hidden md:inline" />
@@ -108,13 +108,13 @@
                   {featured.title}
                 </h3>
                 {#if featured.subtitle}
-                  <p class="text-base md:text-lg text-white/90 mb-4 max-w-3xl">
+                  <p class="text-base md:text-lg xl:text-xl text-white/90 mb-4 max-w-3xl xl:max-w-4xl">
                     {featured.subtitle}
                   </p>
                 {/if}
 
                 {#if featured.description}
-                  <p class="text-sm md:text-base text-white/80 mb-6 max-w-3xl">
+                  <p class="text-sm md:text-base xl:text-lg text-white/80 mb-6 max-w-3xl xl:max-w-4xl">
                     {featured.description}
                   </p>
                 {/if}
@@ -151,7 +151,7 @@
                 </div>
 
                 {#if featured.outcomes && featured.outcomes.length > 0}
-                  <ul class="mb-6 space-y-2 max-w-3xl">
+                  <ul class="mb-6 space-y-2 max-w-3xl xl:max-w-4xl">
                     {#each featured.outcomes.slice(0, 3) as point}
                       <li class="flex items-start text-white/85 text-sm md:text-base">
                         <span class="text-violet-400 mr-3 mt-0.5">{frameCopy.outcomeBulletIcon}</span>
@@ -186,7 +186,7 @@
 
           <!-- Additional projects grid -->
           {#if rest.length > 0}
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 md:gap-8">
               {#if gridVisible}
                 {#each rest as project, index}
                 <div

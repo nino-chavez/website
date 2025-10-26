@@ -28,8 +28,8 @@
   });
 </script>
 
-<div 
-  class="w-full max-w-7xl mx-auto px-4 md:px-8 essays-container"
+<div
+  class="w-full max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 essays-container"
   class:entered
   use:inView={{ threshold: 0.2, once: true }}
   on:enter={handleEnter}
@@ -73,9 +73,9 @@
       </div>
     {/if}
 
-    <!-- Row of Posts: 3 wider cards -->
+    <!-- Row of Posts: 3-4 wider cards -->
     {#if rowPosts.length > 0}
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 row-posts">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 md:gap-6 xl:gap-8 row-posts">
         {#each rowPosts as post, i}
           <div
             class="relative group rounded-2xl bg-gradient-to-br from-neutral-800 to-neutral-900 shadow-xl overflow-hidden card-entrance border border-violet-400/10 hover:border-violet-400/30 row-card"

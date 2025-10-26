@@ -71,11 +71,11 @@
       in:fly={{ y: rm ? 0 : 32, duration: rm ? 0 : 700, opacity: rm ? 1 : 0.2 }}
       class="relative z-20"
     >
-      <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-6 lg:py-8">
+      <div class="max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 py-4 md:py-6 lg:py-8">
 
         <!-- Section header -->
         <div class="mb-8 md:mb-12 lg:mb-16 text-center">
-          <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 md:mb-6 leading-[1.1]">
+          <h2 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-4 md:mb-6 leading-[1.1]">
             {portfolioCopy.ctaHeading}
           </h2>
           {#if !selectedIntent}
