@@ -198,8 +198,8 @@
 
 <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white text-gray-900">
 	<!-- Hero Section - Streamlined -->
-	<section class="pt-24 pb-16 md:pt-32 md:pb-24 px-6 md:px-12 bg-white">
-		<div class="max-w-6xl mx-auto">
+	<section class="pt-20 pb-12 md:pt-32 md:pb-24 px-6 md:px-12 bg-white">
+		<div class="max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] mx-auto">
 			{#if mounted}
 				<!-- Availability Badge -->
 				<div
@@ -213,14 +213,14 @@
 				<!-- Name & Title -->
 				<h1
 					in:fly={{ y: 20, duration: 800, delay: 200 }}
-					class="text-5xl md:text-7xl font-bold mb-4 text-gray-900"
+					class="text-5xl md:text-7xl xl:text-8xl font-bold mb-4 text-gray-900"
 				>
 					Nino Chavez
 				</h1>
 
 				<p
 					in:fly={{ y: 20, duration: 800, delay: 300 }}
-					class="text-2xl md:text-3xl font-light text-gray-600 mb-8"
+					class="text-2xl md:text-3xl xl:text-4xl font-light text-gray-600 mb-8"
 				>
 					Enterprise Architect & Strategic Advisor
 				</p>
@@ -228,9 +228,9 @@
 				<!-- Professional Statement -->
 				<div
 					in:fly={{ y: 20, duration: 800, delay: 400 }}
-					class="max-w-3xl mb-12"
+					class="max-w-3xl xl:max-w-4xl 2xl:max-w-5xl mb-12"
 				>
-					<p class="text-xl md:text-2xl leading-relaxed text-gray-700 mb-4">
+					<p class="text-xl md:text-2xl xl:text-3xl leading-relaxed text-gray-700 mb-4">
 						I help teams find clarity in complexity—architecting AI-native platforms that dismantle legacy constraints and unlock new business models.
 					</p>
 				</div>
@@ -238,7 +238,7 @@
 				<!-- Key Stats Grid -->
 				<div
 					in:fly={{ y: 20, duration: 800, delay: 500 }}
-					class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12"
+					class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12"
 				>
 					<div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
 						<div class="text-4xl font-bold text-blue-600 mb-2">25+</div>
@@ -293,11 +293,14 @@
 	</section>
 
 	<!-- Capabilities - Evidence-Based -->
-	<section class="py-16 px-6 md:px-12 bg-white border-t border-gray-200">
-		<div class="max-w-6xl mx-auto">
-			<h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900">Core Capabilities</h2>
+	<section class="py-12 md:py-16 px-6 md:px-12 bg-white border-t border-gray-200">
+		<div class="max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] mx-auto">
+			<div class="flex items-center gap-4 mb-8 md:mb-12">
+				<span class="text-5xl md:text-6xl font-black text-gray-200">01</span>
+				<h2 class="text-3xl md:text-4xl xl:text-5xl font-bold text-gray-900">Core Capabilities</h2>
+			</div>
 
-			<div class="grid md:grid-cols-2 gap-6">
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 				{#each capabilities as capability}
 					<div
 						use:inView={{ threshold: 0.3, once: true }}
@@ -314,9 +317,12 @@
 	</section>
 
 	<!-- Experience Timeline -->
-	<section class="py-16 px-6 md:px-12 bg-gray-50">
-		<div class="max-w-6xl mx-auto">
-			<h2 class="text-3xl md:text-4xl font-bold mb-16 text-gray-900">Experience Timeline</h2>
+	<section class="py-12 md:py-16 px-6 md:px-12 bg-gray-50">
+		<div class="max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] mx-auto">
+			<div class="flex items-center gap-4 mb-10 md:mb-16">
+				<span class="text-5xl md:text-6xl font-black text-gray-200">02</span>
+				<h2 class="text-3xl md:text-4xl xl:text-5xl font-bold text-gray-900">Experience Timeline</h2>
+			</div>
 
 			<div class="relative">
 				<!-- Timeline Line -->
@@ -345,9 +351,12 @@
 							</div>
 
 							<!-- Content Card -->
-							<div
-								class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 cursor-pointer border-l-4 border-gray-300 hover:border-gray-600"
+							<button
+								type="button"
+								class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 border-l-4 border-gray-300 hover:border-gray-600 w-full text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
 								on:click={() => expandedExperience = expandedExperience === index ? null : index}
+								aria-expanded={expandedExperience === index}
+								aria-controls={`experience-detail-${index}`}
 							>
 								<!-- Header -->
 								<div class="flex justify-between items-start mb-4">
@@ -371,6 +380,7 @@
 								<!-- Expandable Details -->
 								{#if expandedExperience === index}
 									<div
+										id={`experience-detail-${index}`}
 										in:fly={{ y: -10, duration: 300 }}
 										class="mt-4 pt-4 border-t border-gray-200"
 									>
@@ -393,7 +403,7 @@
 										</svg>
 									</div>
 								{/if}
-							</div>
+							</button>
 						</div>
 					{/each}
 				</div>
@@ -402,9 +412,12 @@
 	</section>
 
 	<!-- Key Projects -->
-	<section class="py-16 px-6 md:px-12 bg-white">
-		<div class="max-w-6xl mx-auto">
-			<h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900">Key Projects</h2>
+	<section class="py-12 md:py-16 px-6 md:px-12 bg-white">
+		<div class="max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] mx-auto">
+			<div class="flex items-center gap-4 mb-8 md:mb-12">
+				<span class="text-5xl md:text-6xl font-black text-gray-200">03</span>
+				<h2 class="text-3xl md:text-4xl xl:text-5xl font-bold text-gray-900">Key Projects</h2>
+			</div>
 
 			<div class="space-y-6">
 				{#each keyProjects as project, idx}
@@ -493,7 +506,7 @@
 
 	<!-- Footer -->
 	<footer class="py-8 px-6 md:px-12 bg-gray-900 text-white">
-		<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+		<div class="max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
 			<p class="text-sm text-gray-400">
 				© 2025 Nino Chavez. All rights reserved.
 			</p>
