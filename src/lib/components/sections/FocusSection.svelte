@@ -41,6 +41,33 @@
 		selectedMilestone = idx;
 	}
 
+	function handleCapabilityScroll(e) {
+		const container = e.target;
+		const fadeLeft = document.getElementById('fade-left');
+		const fadeRight = document.getElementById('fade-right');
+
+		if (!fadeLeft || !fadeRight) return;
+
+		const scrollLeft = container.scrollLeft;
+		const scrollWidth = container.scrollWidth;
+		const clientWidth = container.clientWidth;
+		const maxScroll = scrollWidth - clientWidth;
+
+		// Show left fade when scrolled right
+		if (scrollLeft > 10) {
+			fadeLeft.style.opacity = '1';
+		} else {
+			fadeLeft.style.opacity = '0';
+		}
+
+		// Hide right fade when at end
+		if (scrollLeft >= maxScroll - 10) {
+			fadeRight.style.opacity = '0';
+		} else {
+			fadeRight.style.opacity = '1';
+		}
+	}
+
 	function onSectionEnter() {
 		focusTargetLocked = true;
 		currentSection.set('focus');
@@ -126,16 +153,28 @@
 							Areas of Focus & Capabilities
 						</h3>
 						<p class="text-sm text-white/60">Click to explore each focus area</p>
+						<p class="text-xs text-white/40 mt-2 md:hidden flex items-center gap-2">
+							<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+							</svg>
+							Swipe to see all areas
+						</p>
 					</div>
 
-					<!-- Horizontal Focus Areas -->
-					<div class="mb-6 md:mb-10">
-						<div class="flex md:grid md:grid-cols-2 xl:grid-cols-4 gap-3 overflow-x-auto md:overflow-x-visible pb-3 md:pb-0 snap-x snap-mandatory md:snap-none scrollbar-hide">
+					<!-- Horizontal Focus Areas with fade edges -->
+					<div class="mb-6 md:mb-10 relative">
+						<!-- Left fade edge (hidden initially, shows when scrolled) -->
+						<div class="md:hidden absolute left-0 top-0 bottom-3 w-8 bg-gradient-to-r from-neutral-800 to-transparent z-10 pointer-events-none opacity-0 transition-opacity duration-300" id="fade-left"></div>
+
+						<!-- Right fade edge (shows by default on mobile) -->
+						<div class="md:hidden absolute right-0 top-0 bottom-3 w-12 bg-gradient-to-l from-neutral-800 via-neutral-800/80 to-transparent z-10 pointer-events-none transition-opacity duration-300" id="fade-right"></div>
+
+						<div class="flex md:grid md:grid-cols-2 xl:grid-cols-4 gap-3 overflow-x-auto md:overflow-x-visible pb-3 md:pb-0 snap-x snap-mandatory md:snap-none scrollbar-hide scroll-container-capabilities" on:scroll={handleCapabilityScroll}>
 							{#each CAPABILITY_IDS as id}
 								{@const item = CAPABILITY_SYSTEM[id]}
 								<button
 									on:click={() => setActive(id)}
-									class={`px-5 py-3 rounded-lg transition-all duration-300 text-left flex-shrink-0 min-w-[280px] md:min-w-0 md:w-full snap-center md:snap-align-none
+									class={`px-5 py-3 rounded-lg transition-all duration-300 text-left flex-shrink-0 w-[82vw] max-w-[320px] md:min-w-0 md:w-full snap-center md:snap-align-none
 										${activeCapability === id
 											? 'bg-violet-500/20 border-2 border-violet-400 text-violet-300 shadow-lg shadow-violet-500/20'
 											: 'bg-white/5 border-2 border-white/10 text-white/80 hover:border-violet-400/50 hover:bg-violet-500/10'}`}
