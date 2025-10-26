@@ -91,7 +91,7 @@
         </div>
         {#if PROJECTS.length > 0}
           <!-- Featured Project Hero -->
-          <div class="relative block w-full min-w-full overflow-hidden mb-10 rounded-2xl bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900 pt-32 pb-16 px-8 md:px-16">
+          <div class="relative block w-full min-w-full overflow-hidden mb-10 rounded-2xl bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900 pt-12 md:pt-16 lg:pt-20 pb-8 md:pb-12 px-8 md:px-16">
             <!-- Featured badge -->
             <div
               class="absolute top-6 left-8 z-30 px-4 py-2 bg-gradient-to-r from-violet-600/90 to-purple-600/90 text-white text-sm font-semibold rounded-lg shadow-lg backdrop-blur-sm border border-violet-400/30"
@@ -104,17 +104,17 @@
             <div class="relative z-20" in:fly={{ y: rm ? 0 : 24, duration: rm ? 0 : 520, opacity: rm ? 1 : 0 }}>
               <!-- Project details -->
               <div class="relative">
-                <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 leading-tight">
+                <h3 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-3 leading-tight">
                   {featured.title}
                 </h3>
                 {#if featured.subtitle}
-                  <p class="text-base md:text-lg xl:text-xl text-white/90 mb-4 max-w-3xl xl:max-w-4xl">
+                  <p class="text-base md:text-lg xl:text-xl text-white/90 mb-4">
                     {featured.subtitle}
                   </p>
                 {/if}
 
                 {#if featured.description}
-                  <p class="text-sm md:text-base xl:text-lg text-white/80 mb-6 max-w-3xl xl:max-w-4xl">
+                  <p class="text-sm md:text-base xl:text-lg text-white/80 mb-6">
                     {featured.description}
                   </p>
                 {/if}
@@ -151,7 +151,7 @@
                 </div>
 
                 {#if featured.outcomes && featured.outcomes.length > 0}
-                  <ul class="mb-6 space-y-2 max-w-3xl xl:max-w-4xl">
+                  <ul class="mb-6 space-y-2">
                     {#each featured.outcomes.slice(0, 3) as point}
                       <li class="flex items-start text-white/85 text-sm md:text-base">
                         <span class="text-violet-400 mr-3 mt-0.5">{frameCopy.outcomeBulletIcon}</span>
@@ -186,16 +186,16 @@
 
           <!-- Additional projects grid -->
           {#if rest.length > 0}
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 md:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 md:gap-8 auto-rows-fr">
               {#if gridVisible}
                 {#each rest as project, index}
                 <div
-                  class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl project-card"
+                  class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl project-card h-full flex flex-col"
                   style="animation-delay: {rm ? '0s' : `${index * 90}ms`};"
                   in:fly|local={{ y: rm ? 0 : 20, duration: rm ? 0 : 420, delay: rm ? 0 : index * 90, opacity: rm ? 1 : 0 }}
                 >
                   <!-- Icon header -->
-                  <div class="flex items-center gap-3 px-5 pt-5">
+                  <div class="flex items-center gap-3 px-6 pt-6">
                     <div class="w-10 h-10 rounded-lg bg-violet-500/15 text-violet-300 border border-violet-500/30 flex items-center justify-center">
                       <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         {@html getProjectIconSVG(project.category)}
@@ -205,32 +205,32 @@
                   </div>
 
                   <!-- Content -->
-                  <div class="p-6">
+                  <div class="p-6 flex-1 flex flex-col">
                     <h3 class="text-xl font-bold text-white mb-2 group-hover:text-violet-400 transition-colors">
                       {project.title}
                     </h3>
                     {#if project.subtitle}
-                      <p class="text-white/70 mb-3">{project.subtitle}</p>
+                      <p class="text-white/70 mb-2">{project.subtitle}</p>
                     {/if}
-                    <p class="text-white/70 text-sm mb-4 line-clamp-3">{project.description}</p>
+                    <p class="text-white/70 text-sm mb-6 line-clamp-3">{project.description}</p>
 
                     <!-- Tech stack -->
-                    <div class="flex flex-wrap gap-2 mb-4">
+                    <div class="flex flex-wrap gap-2 mb-6">
                       {#each project.technologies.slice(0, 3) as tech}
-                        <span class="px-2 py-1 bg-violet-500/20 text-violet-300 rounded text-xs">
+                        <span class="px-3 py-1.5 bg-violet-500/20 text-violet-300 rounded-md text-xs font-medium">
                           {tech}
                         </span>
                       {/each}
                     </div>
 
                     <!-- Links -->
-                    <div class="flex gap-3">
+                    <div class="flex gap-3 mt-auto">
                       {#if project.demo}
                         <a
                           href={project.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="text-violet-400 hover:text-violet-300 text-sm font-medium"
+                          class="inline-flex items-center min-h-[44px] px-4 py-2 text-violet-400 hover:text-violet-300 hover:bg-violet-400/10 text-sm font-medium rounded-lg transition-all"
                         >
                           {frameCopy.demoLabel}
                         </a>
@@ -240,7 +240,7 @@
                           href={project.repository}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="text-white/60 hover:text-white text-sm font-medium"
+                          class="inline-flex items-center min-h-[44px] px-4 py-2 text-white/60 hover:text-white hover:bg-white/5 text-sm font-medium rounded-lg transition-all"
                         >
                           {frameCopy.codeLabel}
                         </a>
