@@ -32,22 +32,22 @@ import ThesisModal from '$lib/components/ui/ThesisModal.svelte';
 >
 	<div class="flex flex-col lg:flex-row h-auto lg:h-[700px]">
 		<!-- Left Gradient Sidebar -->
-		<div class="lg:w-5/12 relative bg-gradient-to-br from-violet-900 via-purple-900 to-neutral-900 flex items-center justify-center p-8 lg:p-12">
+		<div class="lg:w-5/12 relative bg-gradient-to-br from-violet-900 via-purple-900 to-neutral-900 flex items-center justify-center p-6 md:p-8 lg:p-12">
 			<div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(139,92,246,0.3),transparent_70%)]"></div>
 
 				{#if mounted}
-					<div class="relative z-10 max-w-lg">
+					<div class="relative z-10 max-w-lg xl:max-w-xl 2xl:max-w-2xl">
 
 					<h1
 						in:fly={{ y: 30, duration: 800, delay: 200 }}
-						class="text-6xl lg:text-7xl font-black text-white mb-6 leading-tight"
+						class="text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black text-white mb-6 leading-tight"
 					>
 						Nino<br/>Chavez
 					</h1>
 
 					<p
 						in:fly={{ y: 30, duration: 800, delay: 300 }}
-						class="text-2xl lg:text-3xl text-white mb-6 font-light leading-tight"
+						class="text-2xl lg:text-3xl xl:text-4xl text-white mb-6 font-light leading-tight"
 					>
 						I see in systems.<br/>I capture in moments.
 					</p>
@@ -123,8 +123,8 @@ import ThesisModal from '$lib/components/ui/ThesisModal.svelte';
 			{/if}
 		</div>
 
-		<!-- Right Image Panel (hidden on small screens) -->
-		<div class="lg:w-7/12 relative h-full hidden lg:block">
+		<!-- Right Image Panel (visible on all screens with adaptive height) -->
+		<div class="lg:w-7/12 relative h-[40vh] md:h-[50vh] lg:h-full">
 			<img
 				src={`${base}/images/hero.webp`}
 				alt="Nino Chavez - Systems thinker and photographer"

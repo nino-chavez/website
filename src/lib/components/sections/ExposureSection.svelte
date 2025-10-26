@@ -42,7 +42,7 @@
 <section
   id="exposure"
   data-section="exposure"
-  class="relative bg-gradient-to-br from-slate-900 via-neutral-800 to-slate-900 py-20 transition-all duration-300"
+  class="relative bg-gradient-to-br from-slate-900 via-neutral-800 to-slate-900 py-10 md:py-16 lg:py-20 transition-all duration-300"
   style="transform: translateY({translateY}px) scale({scale});"
   use:inView={{ threshold: 0.3, once: true }}
   use:scrollProgress={{ offsetTop: 120, offsetBottom: 120, disabled: rm }}
@@ -62,14 +62,14 @@
       {/if}
       
       <!-- Title Section -->
-      <div class="max-w-7xl mx-auto px-4 md:px-8 mb-6 title-section" class:entered>
+      <div class="max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 mb-6 title-section" class:entered>
         <p class="text-violet-400 text-xs md:text-sm font-semibold uppercase tracking-wide mb-2 title-kicker">
           {exposureCopy.kicker}
         </p>
-        <h2 class="text-4xl md:text-5xl font-black text-white mb-2 leading-tight title-heading">
+        <h2 class="text-4xl md:text-5xl xl:text-6xl font-black text-white mb-2 leading-tight title-heading">
           {exposureCopy.heading1}
         </h2>
-        <p class="text-base md:text-lg text-white/70 max-w-4xl leading-relaxed title-subtitle">
+        <p class="text-base md:text-lg xl:text-xl text-white/70 max-w-4xl xl:max-w-5xl leading-relaxed title-subtitle">
           {exposureCopy.heading2}
         </p>
       </div>

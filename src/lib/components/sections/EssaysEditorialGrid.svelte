@@ -28,14 +28,14 @@
   });
 </script>
 
-<div 
-  class="w-full max-w-7xl mx-auto px-4 md:px-8 essays-container"
+<div
+  class="w-full max-w-7xl xl:max-w-[1400px] 2xl:max-w-[1600px] mx-auto px-4 md:px-8 essays-container"
   class:entered
   use:inView={{ threshold: 0.2, once: true }}
   on:enter={handleEnter}
 >
   <!-- Editorial Layout: Featured on top, row of posts below -->
-  <div class="space-y-6 md:space-y-8">
+  <div class="space-y-4 md:space-y-6 lg:space-y-8">
     <!-- Featured Post: Full width -->
     {#if featured}
       <div
@@ -47,7 +47,7 @@
           <img src={featured.imageUrl} alt={featured.title} class="w-full h-64 md:h-96 object-cover" loading="eager" />
 
           <!-- Content -->
-          <div class="p-6 md:p-8 flex flex-col">
+          <div class="p-4 md:p-6 lg:p-8 flex flex-col">
             <div class="flex items-center gap-3 mb-3">
               <span class="text-xs font-semibold text-violet-400 uppercase">{featured.category}</span>
               <span class="text-xs text-white/50">•</span>
@@ -73,9 +73,9 @@
       </div>
     {/if}
 
-    <!-- Row of Posts: 3 wider cards -->
+    <!-- Row of Posts: 3-4 wider cards -->
     {#if rowPosts.length > 0}
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 row-posts">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 md:gap-6 xl:gap-8 row-posts">
         {#each rowPosts as post, i}
           <div
             class="relative group rounded-2xl bg-gradient-to-br from-neutral-800 to-neutral-900 shadow-xl overflow-hidden card-entrance border border-violet-400/10 hover:border-violet-400/30 row-card"

@@ -198,8 +198,8 @@
 
 <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white text-gray-900">
 	<!-- Hero Section - Streamlined -->
-	<section class="pt-24 pb-16 md:pt-32 md:pb-24 px-6 md:px-12 bg-white">
-		<div class="max-w-6xl mx-auto">
+	<section class="pt-20 pb-12 md:pt-32 md:pb-24 px-6 md:px-12 bg-white">
+		<div class="max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] mx-auto">
 			{#if mounted}
 				<!-- Availability Badge -->
 				<div
@@ -213,14 +213,14 @@
 				<!-- Name & Title -->
 				<h1
 					in:fly={{ y: 20, duration: 800, delay: 200 }}
-					class="text-5xl md:text-7xl font-bold mb-4 text-gray-900"
+					class="text-5xl md:text-7xl xl:text-8xl font-bold mb-4 text-gray-900"
 				>
 					Nino Chavez
 				</h1>
 
 				<p
 					in:fly={{ y: 20, duration: 800, delay: 300 }}
-					class="text-2xl md:text-3xl font-light text-gray-600 mb-8"
+					class="text-2xl md:text-3xl xl:text-4xl font-light text-gray-600 mb-8"
 				>
 					Enterprise Architect & Strategic Advisor
 				</p>
@@ -228,9 +228,9 @@
 				<!-- Professional Statement -->
 				<div
 					in:fly={{ y: 20, duration: 800, delay: 400 }}
-					class="max-w-3xl mb-12"
+					class="max-w-3xl xl:max-w-4xl 2xl:max-w-5xl mb-12"
 				>
-					<p class="text-xl md:text-2xl leading-relaxed text-gray-700 mb-4">
+					<p class="text-xl md:text-2xl xl:text-3xl leading-relaxed text-gray-700 mb-4">
 						I help teams find clarity in complexity—architecting AI-native platforms that dismantle legacy constraints and unlock new business models.
 					</p>
 				</div>
@@ -238,7 +238,7 @@
 				<!-- Key Stats Grid -->
 				<div
 					in:fly={{ y: 20, duration: 800, delay: 500 }}
-					class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12"
+					class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12"
 				>
 					<div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-200">
 						<div class="text-4xl font-bold text-blue-600 mb-2">25+</div>
@@ -258,11 +258,11 @@
 				<!-- Contact Quick Access -->
 				<div
 					in:fade={{ duration: 800, delay: 600 }}
-					class="flex flex-wrap gap-4"
+					class="flex flex-col md:flex-row md:flex-wrap gap-3"
 				>
 					<a
 						href="mailto:abelino.chavez@gmail.com"
-						class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+						class="inline-flex items-center justify-center md:justify-start gap-2 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
 					>
 						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -273,14 +273,14 @@
 						href="https://linkedin.com/in/abelinochavez"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:border-gray-400 transition-colors duration-200"
+						class="inline-flex items-center justify-center md:justify-start gap-2 px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:border-gray-400 transition-colors duration-200"
 					>
 						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
 						</svg>
 						LinkedIn
 					</a>
-					<span class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-600 font-medium rounded-lg">
+					<span class="inline-flex items-center justify-center md:justify-start gap-2 px-6 py-3 bg-gray-100 text-gray-600 font-medium rounded-lg">
 						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -293,11 +293,14 @@
 	</section>
 
 	<!-- Capabilities - Evidence-Based -->
-	<section class="py-16 px-6 md:px-12 bg-white border-t border-gray-200">
-		<div class="max-w-6xl mx-auto">
-			<h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900">Core Capabilities</h2>
+	<section class="py-12 md:py-16 px-6 md:px-12 bg-white border-t border-gray-200">
+		<div class="max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] mx-auto">
+			<div class="flex items-center gap-4 mb-8 md:mb-12">
+				<span class="text-5xl md:text-6xl font-black text-gray-200">01</span>
+				<h2 class="text-3xl md:text-4xl xl:text-5xl font-bold text-gray-900">Core Capabilities</h2>
+			</div>
 
-			<div class="grid md:grid-cols-2 gap-6">
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 				{#each capabilities as capability}
 					<div
 						use:inView={{ threshold: 0.3, once: true }}
@@ -314,9 +317,12 @@
 	</section>
 
 	<!-- Experience Timeline -->
-	<section class="py-16 px-6 md:px-12 bg-gray-50">
-		<div class="max-w-6xl mx-auto">
-			<h2 class="text-3xl md:text-4xl font-bold mb-16 text-gray-900">Experience Timeline</h2>
+	<section class="py-12 md:py-16 px-6 md:px-12 bg-gray-50">
+		<div class="max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] mx-auto">
+			<div class="flex items-center gap-4 mb-10 md:mb-16">
+				<span class="text-5xl md:text-6xl font-black text-gray-200">02</span>
+				<h2 class="text-3xl md:text-4xl xl:text-5xl font-bold text-gray-900">Experience Timeline</h2>
+			</div>
 
 			<div class="relative">
 				<!-- Timeline Line -->
@@ -345,9 +351,12 @@
 							</div>
 
 							<!-- Content Card -->
-							<div
-								class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 cursor-pointer border-l-4 border-gray-300 hover:border-gray-600"
+							<button
+								type="button"
+								class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 border-l-4 border-gray-300 hover:border-gray-600 w-full text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
 								on:click={() => expandedExperience = expandedExperience === index ? null : index}
+								aria-expanded={expandedExperience === index}
+								aria-controls={`experience-detail-${index}`}
 							>
 								<!-- Header -->
 								<div class="flex justify-between items-start mb-4">
@@ -371,6 +380,7 @@
 								<!-- Expandable Details -->
 								{#if expandedExperience === index}
 									<div
+										id={`experience-detail-${index}`}
 										in:fly={{ y: -10, duration: 300 }}
 										class="mt-4 pt-4 border-t border-gray-200"
 									>
@@ -393,7 +403,7 @@
 										</svg>
 									</div>
 								{/if}
-							</div>
+							</button>
 						</div>
 					{/each}
 				</div>
@@ -402,9 +412,12 @@
 	</section>
 
 	<!-- Key Projects -->
-	<section class="py-16 px-6 md:px-12 bg-white">
-		<div class="max-w-6xl mx-auto">
-			<h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900">Key Projects</h2>
+	<section class="py-12 md:py-16 px-6 md:px-12 bg-white">
+		<div class="max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] mx-auto">
+			<div class="flex items-center gap-4 mb-8 md:mb-12">
+				<span class="text-5xl md:text-6xl font-black text-gray-200">03</span>
+				<h2 class="text-3xl md:text-4xl xl:text-5xl font-bold text-gray-900">Key Projects</h2>
+			</div>
 
 			<div class="space-y-6">
 				{#each keyProjects as project, idx}
@@ -422,10 +435,10 @@
 						<div class="flex items-start gap-6">
 							<div class="text-6xl font-bold text-gray-300 flex-shrink-0">{project.number}</div>
 							<div class="flex-1">
-								<div class="flex items-start justify-between mb-3">
+								<div class="flex items-start justify-between mb-4">
 									<div>
-										<h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-1">{project.client}</h3>
-										<p class="text-base font-medium text-gray-600 mb-3">{project.role}</p>
+										<h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">{project.client}</h3>
+										<p class="text-base font-medium text-gray-600">{project.role}</p>
 									</div>
 									<svg
 										class="w-6 h-6 text-gray-400 flex-shrink-0 transition-transform duration-300"
@@ -493,7 +506,7 @@
 
 	<!-- Footer -->
 	<footer class="py-8 px-6 md:px-12 bg-gray-900 text-white">
-		<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+		<div class="max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
 			<p class="text-sm text-gray-400">
 				© 2025 Nino Chavez. All rights reserved.
 			</p>
