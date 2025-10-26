@@ -258,11 +258,11 @@
 				<!-- Contact Quick Access -->
 				<div
 					in:fade={{ duration: 800, delay: 600 }}
-					class="flex flex-wrap gap-4"
+					class="flex flex-col md:flex-row md:flex-wrap gap-3"
 				>
 					<a
 						href="mailto:abelino.chavez@gmail.com"
-						class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+						class="inline-flex items-center justify-center md:justify-start gap-2 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
 					>
 						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -273,14 +273,14 @@
 						href="https://linkedin.com/in/abelinochavez"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:border-gray-400 transition-colors duration-200"
+						class="inline-flex items-center justify-center md:justify-start gap-2 px-6 py-3 bg-white border-2 border-gray-300 text-gray-700 font-medium rounded-lg hover:border-gray-400 transition-colors duration-200"
 					>
 						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
 							<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
 						</svg>
 						LinkedIn
 					</a>
-					<span class="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-600 font-medium rounded-lg">
+					<span class="inline-flex items-center justify-center md:justify-start gap-2 px-6 py-3 bg-gray-100 text-gray-600 font-medium rounded-lg">
 						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
