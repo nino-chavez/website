@@ -8,15 +8,13 @@
   import { frameCopy } from '$lib/copy';
   import { scrollProgress } from '$lib/actions/scrollProgress';
 
-  // Choose featured project (first marked featured, else first)
-  $: featured = PROJECTS.find((p) => p.featured) || PROJECTS[0];
-  $: rest = PROJECTS.filter((p) => p !== featured);
+  // All projects for alternating layout
+  $: allProjects = PROJECTS;
 
   // Entry transition state
   let entered = false;
   let progress = 0; // 0..1 scroll progress through this section
   $: rm = $reducedMotion; // convenience alias
-  let gridVisible = false; // trigger additional projects entrance
 
   // Animation calculations based on scroll progress
   // Push/pull: slide up effect as section enters (0 to -20px translateY)
@@ -89,150 +87,128 @@
             {/each}
           </p>
         </div>
-        {#if PROJECTS.length > 0}
-          <!-- Featured Project Hero -->
-          <div class="relative block w-full min-w-full overflow-hidden mb-10 rounded-2xl bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900 pt-12 md:pt-16 lg:pt-20 pb-8 md:pb-12 px-8 md:px-16">
-            <!-- Featured badge -->
-            <div
-              class="absolute top-6 left-8 z-30 px-4 py-2 bg-gradient-to-r from-violet-600/90 to-purple-600/90 text-white text-sm font-semibold rounded-lg shadow-lg backdrop-blur-sm border border-violet-400/30"
-              in:fly={{ y: rm ? 0 : -12, duration: rm ? 0 : 400, opacity: rm ? 1 : 0 }}
-            >
-              Featured Project
-            </div>
 
-            <!-- Content overlay -->
-            <div class="relative z-20" in:fly={{ y: rm ? 0 : 24, duration: rm ? 0 : 520, opacity: rm ? 1 : 0 }}>
-              <!-- Project details -->
-              <div class="relative">
-                <h3 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-3 leading-tight mt-8 md:mt-0">
-                  {featured.title}
-                </h3>
-                {#if featured.subtitle}
-                  <p class="text-base md:text-lg xl:text-xl text-white/90 mb-4">
-                    {featured.subtitle}
-                  </p>
-                {/if}
+        {#if allProjects.length > 0}
+          <!-- Alternating Image-Text Layout -->
+          <div class="space-y-16 md:space-y-20 lg:space-y-24">
+            {#each allProjects as project, index}
+              {@const isEven = index % 2 === 0}
+              {@const isFeatured = project.featured}
 
-                {#if featured.description}
-                  <p class="text-sm md:text-base xl:text-lg text-white/80 mb-6">
-                    {featured.description}
-                  </p>
-                {/if}
+              <div
+                class="relative"
+                in:fly={{ y: rm ? 0 : 32, duration: rm ? 0 : 600, delay: rm ? 0 : index * 100, opacity: rm ? 1 : 0 }}
+              >
+                <!-- Project Row -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-                {#if featured.metrics}
-                  <div class="flex flex-wrap gap-3 mb-6">
-                    {#if featured.metrics.performance}
-                      <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80 border border-white/15">
-                        {featured.metrics.performance}
-                      </span>
-                    {/if}
-                    {#if featured.metrics.scale}
-                      <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80 border border-white/15">
-                        {featured.metrics.scale}
-                      </span>
-                    {/if}
-                    {#if featured.metrics.timeline}
-                      <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-white/80 border border-white/15">
-                        {featured.metrics.timeline}
-                      </span>
-                    {/if}
-                  </div>
-                {/if}
+                  <!-- Image Column -->
+                  <div class="relative {isEven ? 'lg:order-1' : 'lg:order-2'}">
+                    <div class="relative aspect-[16/10] rounded-xl overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 border border-white/10 group">
+                      {#if isFeatured}
+                        <!-- Featured Badge -->
+                        <div class="absolute top-4 left-4 z-20 px-3 py-1.5 bg-gradient-to-r from-violet-600/95 to-purple-600/95 text-white text-xs font-semibold rounded-lg shadow-lg backdrop-blur-sm border border-violet-400/30">
+                          Featured Project
+                        </div>
+                      {/if}
 
-                <!-- Tech stack badges -->
-                <div class="flex flex-wrap gap-3 mb-6">
-                  {#each featured.technologies.slice(0, 4) as tech}
-                    <span
-                      class="px-4 py-2 bg-violet-600/30 text-violet-200 rounded-lg border border-violet-400/40 text-sm font-medium backdrop-blur-sm"
-                    >
-                      {tech}
-                    </span>
-                  {/each}
-                </div>
+                      <!-- Project Image -->
+                      <img
+                        src={project.imageUrl}
+                        alt="{project.title} screenshot"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
 
-                {#if featured.outcomes && featured.outcomes.length > 0}
-                  <ul class="mb-6 space-y-2">
-                    {#each featured.outcomes.slice(0, 3) as point}
-                      <li class="flex items-start text-white/85 text-sm md:text-base">
-                        <span class="text-violet-400 mr-3 mt-0.5">{frameCopy.outcomeBulletIcon}</span>
-                        <span>{point}</span>
-                      </li>
-                    {/each}
-                  </ul>
-                {/if}
-
-                <!-- CTA buttons -->
-                <div class="flex flex-wrap gap-4">
-                  {#if featured.repository}
-                    <a
-                      href={featured.repository}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white text-base font-medium rounded-lg border border-white/20 hover:border-white/30 transition-all duration-200 backdrop-blur-sm"
-                    >
-                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.840 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                      </svg>
-                      View Code
-                    </a>
-                  {/if}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Sentinel to trigger grid entrance -->
-          <div aria-hidden="true" use:inView={{ threshold: 0.2, once: true }} on:enter={() => (gridVisible = true)}></div>
-
-          <!-- Additional projects grid -->
-          {#if rest.length > 0}
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 md:gap-8 auto-rows-fr">
-              {#if gridVisible}
-                {#each rest as project, index}
-                <div
-                  class="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-violet-500/30 transition-all duration-300 hover:scale-105 hover:shadow-2xl project-card h-full flex flex-col"
-                  style="animation-delay: {rm ? '0s' : `${index * 90}ms`};"
-                  in:fly|local={{ y: rm ? 0 : 20, duration: rm ? 0 : 420, delay: rm ? 0 : index * 90, opacity: rm ? 1 : 0 }}
-                >
-                  <!-- Icon header -->
-                  <div class="flex items-center gap-3 px-6 pt-6">
-                    <div class="w-10 h-10 rounded-lg bg-violet-500/15 text-violet-300 border border-violet-500/30 flex items-center justify-center">
-                      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        {@html getProjectIconSVG(project.category)}
-                      </svg>
+                      <!-- Image Overlay on Hover -->
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
-                    <div class="text-xs text-white/50 uppercase tracking-wide">{project.category}</div>
                   </div>
 
-                  <!-- Content -->
-                  <div class="p-6 flex-1 flex flex-col">
-                    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-violet-400 transition-colors">
+                  <!-- Content Column -->
+                  <div class="relative {isEven ? 'lg:order-2' : 'lg:order-1'}">
+                    <!-- Category Badge -->
+                    <div class="flex items-center gap-2 mb-4">
+                      <div class="w-8 h-8 rounded-lg bg-violet-500/15 text-violet-300 border border-violet-500/30 flex items-center justify-center">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          {@html getProjectIconSVG(project.category)}
+                        </svg>
+                      </div>
+                      <span class="text-xs text-violet-400 uppercase tracking-wide font-semibold">{project.category}</span>
+                    </div>
+
+                    <!-- Project Title -->
+                    <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 leading-tight">
                       {project.title}
                     </h3>
-                    {#if project.subtitle}
-                      <p class="text-white/70 mb-2">{project.subtitle}</p>
-                    {/if}
-                    <p class="text-white/70 text-sm mb-6 line-clamp-3">{project.description}</p>
 
-                    <!-- Tech stack -->
+                    <!-- Subtitle -->
+                    {#if project.subtitle}
+                      <p class="text-lg md:text-xl text-violet-300 mb-4 font-medium">
+                        {project.subtitle}
+                      </p>
+                    {/if}
+
+                    <!-- Description -->
+                    <p class="text-base md:text-lg text-white/80 mb-6 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <!-- Metrics -->
+                    {#if project.metrics}
+                      <div class="flex flex-wrap gap-3 mb-6">
+                        {#if project.metrics.performance}
+                          <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 text-white/80 border border-white/15">
+                            {project.metrics.performance}
+                          </span>
+                        {/if}
+                        {#if project.metrics.scale}
+                          <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 text-white/80 border border-white/15">
+                            {project.metrics.scale}
+                          </span>
+                        {/if}
+                        {#if project.metrics.timeline}
+                          <span class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 text-white/80 border border-white/15">
+                            {project.metrics.timeline}
+                          </span>
+                        {/if}
+                      </div>
+                    {/if}
+
+                    <!-- Tech Stack -->
                     <div class="flex flex-wrap gap-2 mb-6">
-                      {#each project.technologies.slice(0, 3) as tech}
-                        <span class="px-3 py-1.5 bg-violet-500/20 text-violet-300 rounded-md text-xs font-medium">
+                      {#each project.technologies.slice(0, 5) as tech}
+                        <span class="px-3 py-1.5 bg-violet-600/25 text-violet-200 rounded-md text-sm font-medium border border-violet-500/30">
                           {tech}
                         </span>
                       {/each}
                     </div>
 
-                    <!-- Links -->
-                    <div class="flex gap-3 mt-auto">
+                    <!-- Outcomes -->
+                    {#if project.outcomes && project.outcomes.length > 0}
+                      <ul class="mb-6 space-y-2">
+                        {#each project.outcomes.slice(0, 3) as outcome}
+                          <li class="flex items-start text-white/85 text-sm md:text-base">
+                            <span class="text-violet-400 mr-3 mt-0.5 flex-shrink-0">{frameCopy.outcomeBulletIcon}</span>
+                            <span>{outcome}</span>
+                          </li>
+                        {/each}
+                      </ul>
+                    {/if}
+
+                    <!-- Action Links -->
+                    <div class="flex flex-wrap gap-4">
                       {#if project.demo}
                         <a
                           href={project.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="inline-flex items-center min-h-[44px] px-4 py-2 text-violet-400 hover:text-violet-300 hover:bg-violet-400/10 text-sm font-medium rounded-lg transition-all"
+                          class="inline-flex items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-700 text-white text-base font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-violet-500/30"
                         >
-                          {frameCopy.demoLabel}
+                          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                          </svg>
+                          View Demo
                         </a>
                       {/if}
                       {#if project.repository}
@@ -240,21 +216,37 @@
                           href={project.repository}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="inline-flex items-center min-h-[44px] px-4 py-2 text-white/60 hover:text-white hover:bg-white/5 text-sm font-medium rounded-lg transition-all"
+                          class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white text-base font-medium rounded-lg border border-white/20 hover:border-white/30 transition-all duration-200 backdrop-blur-sm"
                         >
-                          {frameCopy.codeLabel}
+                          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.840 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                          </svg>
+                          View Code
+                        </a>
+                      {/if}
+                      {#if project.link && !project.demo && !project.repository}
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="inline-flex items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-700 text-white text-base font-semibold rounded-lg transition-all duration-200 shadow-lg hover:shadow-violet-500/30"
+                        >
+                          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                          </svg>
+                          View Project
                         </a>
                       {/if}
                     </div>
                   </div>
+
                 </div>
-                {/each}
-              {/if}
-            </div>
-          {/if}
+              </div>
+            {/each}
+          </div>
         {:else}
           <div class="text-center py-16">
-            <p class="text-white/60">No projects found in this category.</p>
+            <p class="text-white/60">No projects available.</p>
           </div>
         {/if}
       </div>
@@ -263,33 +255,5 @@
 </section>
 
 <style>
-  .line-clamp-3 {
-    display: -webkit-box;
-    line-clamp: 3;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  /* Scale animation for project cards */
-  .project-card {
-    animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  @keyframes scaleIn {
-    0% {
-      transform: scale(0.95);
-    }
-    100% {
-      transform: scale(1.0);
-    }
-  }
-
-  /* Respect reduced motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    .project-card {
-      animation: none;
-      transform: none;
-    }
-  }
+  /* Styles for alternating layout are handled via Tailwind classes */
 </style>
